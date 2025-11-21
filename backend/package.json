@@ -7,12 +7,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.50.0"
   }
 }
