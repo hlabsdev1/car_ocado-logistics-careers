@@ -1,0 +1,50 @@
+.map-marker {
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.map-marker.is--inner {
+    height: auto;
+    aspect-ratio: 64/ 82;
+}
+.map-marker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+.map-marker-num {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: green;
+}
+
+.mapboxgl-popup {
+    top: -1rem;
+    max-width: auto;
+    z-index: 5;
+}
+
+.popup-box_inner {
+    color: black;
+    font-size: 0.8rem;
+    max-width: 200px;
+}
+
+.filter-dropdown.is--open {
+    z-index: 3;
+}
+
+.filter-dropdown.is--open .filter-dropdown-list {
+    display: block;
+}
