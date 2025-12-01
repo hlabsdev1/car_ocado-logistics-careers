@@ -1,3 +1,15 @@
+/* HOME SEARCH SECTION */
+.search-item.is--hide {
+    display: none;
+}
+
+
+
+
+
+
+
+
 .map-marker {
     z-index: 2;
     width: 30px;
