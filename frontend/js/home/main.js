@@ -29,10 +29,105 @@ async function init() {
     { Name: 'Enfield', Latitude: '51.6501606', Longitude: '-0.1515596' },
   ];
 
-  // console.log(dataItems, locations);
+  // COMBINNING ALL DATA STRUCTURE-
+  // HOW'S ITS NESTED
+  // Jobs > subLocation(example: CFC Dordon) > City(Tamworth)
+  const city_map = new Map();
+  cities.forEach((city) => {
+    const key = city.Name;
+    if (!city_map.has(key)) {
+      city_map.set(key, []);
+    }
+    city_map.get(key).push({
+      lat: city.Latitude,
+      lan: city.Longitude,
+    });
+  });
 
+  //Using City map array and adding it to locations object
+  const enrichedSubLocation = locations.map((loc) => ({
+    ...loc,
+    cityCoords: city_map.get(loc.City) || [],
+  }));
+
+  //With the new location map object we are mapping new array for jobs that matches with each other
+  const subLoc_map = new Map();
+  enrichedSubLocation.forEach((loc) => {
+    const key = loc.Code;
+    if (!subLoc_map.has(key)) {
+      subLoc_map.set(key, []);
+    }
+    subLoc_map.get(key).push(loc);
+  });
+
+  //Adding all match location with matched jobs
+  const allJobs = dataItems.map((job) => ({
+    ...job,
+    subLocation: subLoc_map.get(job.location.location_code) || [],
+  }));
+
+  //Function calling-
   map(dataItems, locations, cities);
-  search(dataItems, locations, cities);
+  search(allJobs);
+  filterComp(allJobs);
 }
 
 init();
+
+const geoButn = document.querySelector('.geo-butn');
+function success(position) {
+  console.log(
+    `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
+  );
+}
+
+function error() {
+  alert('sorry, no position availabe');
+}
+
+//User current Location
+function getLocation() {
+  if (!navigator.geolocation) {
+    console.warn('Geolocation is not supported by this browser');
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(success, error, {
+    enableHighAccuracy: false,
+    timeout: 10000,
+    maxiumAge: 0,
+  });
+}
+
+//On Page load check if Geolocation is on
+async function geoCheckonLoad() {
+  console.log('is this working?');
+  // secure context check
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+    console.warn('Geolocation & Permissions API require HTTPS or localhost.');
+    return;
+  }
+  if (!navigator.permissions || !navigator.permissions.query) {
+    console.log('Permissions API not supported');
+
+    return;
+  }
+
+  try {
+    const result = await navigator.permissions.query({ name: 'geolocation' });
+    if (result.state === 'granted') {
+      getLocation();
+    } else if (result.state === 'prompt') {
+      console.log('still choosing');
+    } else if (result.state === 'denied') {
+      console.log('Permission denied.');
+    }
+  } catch (err) {
+    console.warn('Error checking Permission API: ', err);
+  }
+}
+
+geoButn.addEventListener('click', getLocation);
+window.addEventListener('load', () => {
+  console.log('loaded');
+  geoCheckonLoad();
+});

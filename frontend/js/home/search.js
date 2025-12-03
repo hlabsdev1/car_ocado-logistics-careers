@@ -1,38 +1,5 @@
-function search(dataItems, locations, cities) {
+function search(allJobs) {
   //So here we are creating a new map array that city has
-  const city_map = new Map();
-  cities.forEach((city) => {
-    const key = city.Name;
-    if (!city_map.has(key)) {
-      city_map.set(key, []);
-    }
-    city_map.get(key).push({
-      lat: city.Latitude,
-      lan: city.Longitude,
-    });
-  });
-
-  //Using City map array and adding it to locations object
-  const enrichedSubLocation = locations.map((loc) => ({
-    ...loc,
-    cityCoords: city_map.get(loc.City) || [],
-  }));
-
-  //With the new location map object we are mapping new array for jobs that matches with each other
-  const subLoc_map = new Map();
-  enrichedSubLocation.forEach((loc) => {
-    const key = loc.Code;
-    if (!subLoc_map.has(key)) {
-      subLoc_map.set(key, []);
-    }
-    subLoc_map.get(key).push(loc);
-  });
-
-  //Adding all match location with matched jobs
-  const allJobs = dataItems.map((job) => ({
-    ...job,
-    subLocation: subLoc_map.get(job.location.location_code) || [],
-  }));
 
   // console.log(allJobs);
 
