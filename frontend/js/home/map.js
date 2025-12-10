@@ -7,6 +7,9 @@ function map(jobData, locations, cities) {
     'pk.eyJ1IjoiZGVzaWduaGxhYnMiLCJhIjoiY21jajVjY3RlMDBmdTJrczltNWI0MjY0YyJ9.CgE9quHcoUQVtt84P5L5WQ';
   const hStyle = 'mapbox://styles/designhlabs/cmdrfnjwt00iu01r13kn5f6r8';
 
+  console.log(userLat, userLang);
+  const userCoords = [userLang, userLat];
+
   // console.log(mainListItems);
 
   // create empty locations geojson object
@@ -23,7 +26,7 @@ function map(jobData, locations, cities) {
   const map = new mapboxgl.Map({
     container: mapCanva,
     style: hStyle,
-    center: [-2.19842, 53.3378146], //28.334115149095556, -81.50494910779616
+    center: userLat && userLang ? userCoords : [-2.19842, 53.3378146], //28.334115149095556, -81.50494910779616
     // zoom: 4.0,
     zoom: isMobile ? 12.0 : 6.25, // Different zoom for mobile
     minZoom: 5,
@@ -576,6 +579,7 @@ function map(jobData, locations, cities) {
 
   // initFilterToggle();
   filteringSystem();
+  setUserCoordsToMap(map);
 }
 
 window.map = map;

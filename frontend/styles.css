@@ -3,6 +3,10 @@
     display: none;
 }
 
+.no-result-card.is--hide {
+    display: none;
+}
+
 
 
 

@@ -1,3 +1,136 @@
+const geoButn = document.querySelector('.geo-butn');
+let userLat, userLang;
+function success(position) {
+  // console.log(
+  //   `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
+  // );
+  userLat = position.coords.latitude;
+  userLang = position.coords.longitude;
+}
+
+function error() {
+  alert('sorry, no position availabe');
+}
+
+//User current Location
+// function getLocation() {
+//   if (!navigator.geolocation) {
+//     console.warn('Geolocation is not supported by this browser');
+//     return;
+//   }
+//   navigator.geolocation.getCurrentPosition(success, error, {
+//     enableHighAccuracy: false,
+//     timeout: 10000,
+//     maximumAge: 0,
+//   });
+// }
+
+function getLocation() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      const msg = 'Geolocation not supported by this browser';
+      console.warn(msg);
+      return reject(new Error(msg));
+    }
+    const opts = { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 };
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log('GetCurrentPos', position);
+        userLang = position.coords.longitude;
+        userLat = position.coords.latitude;
+        resolve(position);
+      },
+      (err) => {
+        console.warn('getCurrentPosition error', err);
+        reject(err);
+      }
+    );
+  });
+}
+
+//On Page load check if Geolocation is on
+async function geoCheckonLoad() {
+  console.log('is this working?');
+  // secure context check
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+    console.warn('Geolocation & Permissions API require HTTPS or localhost.');
+    return;
+  }
+  if (!navigator.permissions || !navigator.permissions.query) {
+    console.log('Permissions API not supported');
+
+    return;
+  }
+
+  try {
+    const result = await navigator.permissions.query({ name: 'geolocation' });
+    if (result.state === 'granted') {
+      await getLocation().catch((e) => console.warn('autoget failed:', e));
+    } else if (result.state === 'prompt') {
+      console.log('still choosing');
+    } else if (result.state === 'denied') {
+      console.log('Permission denied.');
+    }
+
+    // listen for live changes (user flips permission in browser UI)
+    if (typeof result.onchange === 'function') {
+      result.onchange = async () => {
+        console.log('Permission changed ->', result.state);
+        if (result.state === 'granted') {
+          try {
+            await getLocation();
+            // call any follow-up logic that depends on userLat/userLng
+            wait();
+          } catch (e) {
+            console.warn('getLocation after permission change failed:', e);
+          }
+        }
+      };
+    } else {
+      console.log('Permissions result.onchange not supported in this browser.');
+    }
+  } catch (err) {
+    console.warn('Error checking Permission API: ', err);
+  }
+}
+
+function wait() {
+  console.log('what the heck?');
+}
+
+// geoButn.addEventListener('click', async (e) => {
+//   try {
+//     await getLocation();
+//     wait();
+//   } catch (err) {
+//     console.warn('User location not available on click:', err);
+//     if (err && err.code === err.PERMISSION_DENIED) {
+//       alert('Please enable location in your browser or device settings.');
+//     }
+//   }
+// });
+
+function setUserCoordsToMap(map) {
+  geoButn.addEventListener('click', async (e) => {
+    try {
+      await getLocation();
+      wait();
+      map.setCenter([userLang, userLat]);
+    } catch (err) {
+      console.warn('User location not available on click:', err);
+      if (err && err.code === err.PERMISSION_DENIED) {
+        alert('Please enable location in your browser or device settings.');
+      }
+    }
+  });
+}
+
+window.addEventListener('load', () => {
+  console.log('loaded');
+  geoCheckonLoad();
+});
+
 async function init() {
   const data = await getData();
   const locations = await getLocations();
@@ -73,61 +206,3 @@ async function init() {
 }
 
 init();
-
-const geoButn = document.querySelector('.geo-butn');
-function success(position) {
-  console.log(
-    `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
-  );
-}
-
-function error() {
-  alert('sorry, no position availabe');
-}
-
-//User current Location
-function getLocation() {
-  if (!navigator.geolocation) {
-    console.warn('Geolocation is not supported by this browser');
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(success, error, {
-    enableHighAccuracy: false,
-    timeout: 10000,
-    maxiumAge: 0,
-  });
-}
-
-//On Page load check if Geolocation is on
-async function geoCheckonLoad() {
-  console.log('is this working?');
-  // secure context check
-  if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-    console.warn('Geolocation & Permissions API require HTTPS or localhost.');
-    return;
-  }
-  if (!navigator.permissions || !navigator.permissions.query) {
-    console.log('Permissions API not supported');
-
-    return;
-  }
-
-  try {
-    const result = await navigator.permissions.query({ name: 'geolocation' });
-    if (result.state === 'granted') {
-      getLocation();
-    } else if (result.state === 'prompt') {
-      console.log('still choosing');
-    } else if (result.state === 'denied') {
-      console.log('Permission denied.');
-    }
-  } catch (err) {
-    console.warn('Error checking Permission API: ', err);
-  }
-}
-
-geoButn.addEventListener('click', getLocation);
-window.addEventListener('load', () => {
-  console.log('loaded');
-  geoCheckonLoad();
-});
