@@ -573,8 +573,8 @@ function map(jobData, locations, cities) {
     }
 
     applyFilters();
-    console.log(cityMarkers);
-    console.log(innerMarkers);
+    // console.log(cityMarkers);
+    // console.log(innerMarkers);
   }
 
   // initFilterToggle();

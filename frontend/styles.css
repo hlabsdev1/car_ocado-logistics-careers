@@ -64,3 +64,16 @@
 .filter-dropdown.is--open .filter-dropdown-list {
     display: block;
 }
+
+/* GLOBAL SWIPER STYLES */
+.swiper-arrow.is--disabled {
+    pointer-events: none;
+}
+
+.swiper-button-lock {
+    display: none;
+}
+
+.swiper-pagination-lock {
+    display: none;
+}

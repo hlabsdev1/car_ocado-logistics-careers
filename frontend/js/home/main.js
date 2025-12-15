@@ -99,18 +99,6 @@ function wait() {
   console.log('what the heck?');
 }
 
-// geoButn.addEventListener('click', async (e) => {
-//   try {
-//     await getLocation();
-//     wait();
-//   } catch (err) {
-//     console.warn('User location not available on click:', err);
-//     if (err && err.code === err.PERMISSION_DENIED) {
-//       alert('Please enable location in your browser or device settings.');
-//     }
-//   }
-// });
-
 function setUserCoordsToMap(map) {
   geoButn.addEventListener('click', async (e) => {
     try {
@@ -202,7 +190,8 @@ async function init() {
   //Function calling-
   map(dataItems, locations, cities);
   search(allJobs);
-  filterComp(allJobs);
+  // filterComp(allJobs);
+  latestJobs(allJobs);
 }
 
 init();
