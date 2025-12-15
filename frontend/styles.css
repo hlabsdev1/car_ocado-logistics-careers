@@ -1,18 +1,15 @@
-/* HOME SEARCH SECTION */
-.search-item.is--hide {
+/* GLOBAL SWIPER STYLES */
+.swiper-arrow.is--disabled {
+    pointer-events: none;
+}
+
+.swiper-button-lock {
     display: none;
 }
 
-.no-result-card.is--hide {
+.swiper-pagination-lock {
     display: none;
 }
-
-
-
-
-
-
-
 
 .map-marker {
     z-index: 2;
@@ -65,15 +62,34 @@
     display: block;
 }
 
-/* GLOBAL SWIPER STYLES */
-.swiper-arrow.is--disabled {
-    pointer-events: none;
-}
 
-.swiper-button-lock {
+
+
+
+
+
+
+
+
+/* HOME*/
+
+/* Hero Section */
+.search-item.is--hide {
     display: none;
 }
 
-.swiper-pagination-lock {
+.no-result-card.is--hide {
     display: none;
 }
+
+
+/* Team Category Section */
+.team-cat_pane {
+    display: none;
+}
+
+.team-cat_pane.is--active {
+    display: block;
+}
+
+

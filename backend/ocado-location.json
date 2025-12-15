@@ -11,7 +11,8 @@
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
     "Latitude": "51.917729",
-    "Logtitude": "-0.4816281"
+    "Logtitude": "-0.4816281",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "1",
@@ -25,7 +26,8 @@
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
     "Latitude": "51.9177546",
-    "Logtitude": "-0.4816281"
+    "Logtitude": "-0.4816281",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "2",
@@ -39,7 +41,8 @@
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
     "Latitude": "51.4930249",
-    "Logtitude": "0.165715"
+    "Logtitude": "0.165715",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "3",
@@ -53,7 +56,8 @@
     "Postal Code": "OX26 6GF",
     "Country": "United Kingdom",
     "Latitude": "51.8814663",
-    "Logtitude": "-1.1262772"
+    "Logtitude": "-1.1262772",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "4",
@@ -67,11 +71,12 @@
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
     "Latitude": "51.2158489",
-    "Logtitude": "-1.4544822"
+    "Logtitude": "-1.4544822",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "5",
-    "Name": "Spoke Walthams",
+    "Name": "Spoke Walthamst",
     "Code": "OL_LOC_0033",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -81,7 +86,8 @@
     "Postal Code": "E10 7FD",
     "Country": "United Kingdom",
     "Latitude": "51.5722418",
-    "Logtitude": "-0.0371206"
+    "Logtitude": "-0.0371206",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "6",
@@ -95,7 +101,8 @@
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
     "Latitude": "51.4930249",
-    "Logtitude": "0.165715"
+    "Logtitude": "0.165715",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "7",
@@ -109,7 +116,8 @@
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
     "Latitude": "52.5935907",
-    "Logtitude": "-1.6357924"
+    "Logtitude": "-1.6357924",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "8",
@@ -123,7 +131,8 @@
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
     "Latitude": "51.5138663",
-    "Logtitude": "0.1895943"
+    "Logtitude": "0.1895943",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "9",
@@ -137,7 +146,8 @@
     "Postal Code": "W3 8DG",
     "Country": "United Kingdom",
     "Latitude": "51.5018002",
-    "Logtitude": "-0.2763387"
+    "Logtitude": "-0.2763387",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "10",
@@ -151,7 +161,8 @@
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
     "Latitude": "51.7680701",
-    "Logtitude": "-0.2383363"
+    "Logtitude": "-0.2383363",
+    "Category": "Head Office"
   },
   {
     "Map Results": "11",
@@ -165,7 +176,8 @@
     "Postal Code": "RH11 7SS",
     "Country": "United Kingdom",
     "Latitude": "51.1365656",
-    "Logtitude": "-0.1917502"
+    "Logtitude": "-0.1917502",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "12",
@@ -179,11 +191,12 @@
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
     "Latitude": "52.5935907",
-    "Logtitude": "-1.6357924"
+    "Logtitude": "-1.6357924",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "13",
-    "Name": "Spoke Milton Ke",
+    "Name": "Spoke Milton Keynes",
     "Code": "OL_LOC_0027",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -193,7 +206,8 @@
     "Postal Code": "MK15 8HG",
     "Country": "United Kingdom",
     "Latitude": "52.0679192",
-    "Logtitude": "-0.7314287"
+    "Logtitude": "-0.7314287",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "14",
@@ -207,11 +221,12 @@
     "Postal Code": "L33 7SA",
     "Country": "United Kingdom",
     "Latitude": "53.4791484",
-    "Logtitude": "-2.8713141"
+    "Logtitude": "-2.8713141",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "15",
-    "Name": "Trident Place On",
+    "Name": "Trident Place One",
     "Code": "OL_LOC_0037",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -221,11 +236,12 @@
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
     "Latitude": "51.7680701",
-    "Logtitude": "-0.2383363"
+    "Logtitude": "-0.2383363",
+    "Category": "Head Office"
   },
   {
     "Map Results": "16",
-    "Name": "Spoke Nottingha",
+    "Name": "Spoke Nottingham",
     "Code": "OL_LOC_0049",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -235,7 +251,8 @@
     "Postal Code": "NG11 2AF",
     "Country": "United Kingdom",
     "Latitude": "52.8891615",
-    "Logtitude": "-1.2119526"
+    "Logtitude": "-1.2119526",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "17",
@@ -249,7 +266,8 @@
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
     "Latitude": "51.917729",
-    "Logtitude": "-0.4816281"
+    "Logtitude": "-0.4816281",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "18",
@@ -263,7 +281,8 @@
     "Postal Code": "E10 7FE",
     "Country": "United Kingdom",
     "Latitude": "51.5646143",
-    "Logtitude": "-0.0340937"
+    "Logtitude": "-0.0340937",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "19",
@@ -277,7 +296,8 @@
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
     "Latitude": "51.2158489",
-    "Logtitude": "-1.4544822"
+    "Logtitude": "-1.4544822",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "20",
@@ -291,11 +311,12 @@
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
     "Latitude": "51.2158489",
-    "Logtitude": "-1.4544822"
+    "Logtitude": "-1.4544822",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "21",
-    "Name": "Spoke Park Roy",
+    "Name": "Spoke Park Royal",
     "Code": "OL_LOC_0029",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -305,7 +326,8 @@
     "Postal Code": "NW10 7FW",
     "Country": "United Kingdom",
     "Latitude": "51.5313911",
-    "Logtitude": "-0.2846813"
+    "Logtitude": "-0.2846813",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "22",
@@ -319,7 +341,8 @@
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
     "Latitude": "51.7680701",
-    "Logtitude": "-0.2383363"
+    "Logtitude": "-0.2383363",
+    "Category": "Head Office"
   },
   {
     "Map Results": "23",
@@ -333,11 +356,12 @@
     "Postal Code": "DA8 1PQ",
     "Country": "United Kingdom",
     "Latitude": "51.4890912",
-    "Logtitude": "0.167019"
+    "Logtitude": "0.167019",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "24",
-    "Name": "Trident Place Tw",
+    "Name": "Trident Place Two",
     "Code": "OL_LOC_0038",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -347,11 +371,12 @@
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
     "Latitude": "51.7680701",
-    "Logtitude": "-0.2383363"
+    "Logtitude": "-0.2383363",
+    "Category": "Head Office"
   },
   {
     "Map Results": "25",
-    "Name": "Spoke Wimbledo",
+    "Name": "Spoke Wimbledon",
     "Code": "OL_LOC_0036",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -361,11 +386,12 @@
     "Postal Code": "SW19 8UG",
     "Country": "United Kingdom",
     "Latitude": "51.4346312",
-    "Logtitude": "-0.2010254"
+    "Logtitude": "-0.2010254",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "26",
-    "Name": "Zoom Canning T",
+    "Name": "Zoom Canning Town",
     "Code": "OL_LOC_0040",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -375,7 +401,8 @@
     "Postal Code": "E16 4TG",
     "Country": "United Kingdom",
     "Latitude": "51.5241787",
-    "Logtitude": "-0.0043404"
+    "Logtitude": "-0.0043404",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "27",
@@ -389,11 +416,12 @@
     "Postal Code": "AL7 1HH",
     "Country": "United Kingdom",
     "Latitude": "51.8038573",
-    "Logtitude": "-0.1985253"
+    "Logtitude": "-0.1985253",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "28",
-    "Name": "Spoke Manchest",
+    "Name": "Spoke Manchester",
     "Code": "OL_LOC_0025",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -403,7 +431,8 @@
     "Postal Code": "SK8 6QH",
     "Country": "United Kingdom",
     "Latitude": "53.3534735",
-    "Logtitude": "-2.2057892"
+    "Logtitude": "-2.2057892",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "29",
@@ -417,7 +446,8 @@
     "Postal Code": "BS11 8AZ",
     "Country": "United Kingdom",
     "Latitude": "51.511953",
-    "Logtitude": "-2.6840311"
+    "Logtitude": "-2.6840311",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "30",
@@ -431,7 +461,8 @@
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
     "Latitude": "51.4980258",
-    "Logtitude": "0.2297335"
+    "Logtitude": "0.2297335",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "31",
@@ -445,7 +476,8 @@
     "Postal Code": "SW19 3HX",
     "Country": "United Kingdom",
     "Latitude": "51.4122001",
-    "Logtitude": "-0.1914294"
+    "Logtitude": "-0.1914294",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "32",
@@ -459,7 +491,8 @@
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
     "Latitude": "51.4980258",
-    "Logtitude": "0.2297335"
+    "Logtitude": "0.2297335",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "33",
@@ -473,7 +506,8 @@
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
     "Latitude": "51.4930249",
-    "Logtitude": "0.165715"
+    "Logtitude": "0.165715",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "34",
@@ -487,7 +521,8 @@
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
     "Latitude": "52.5935907",
-    "Logtitude": "-1.6357924"
+    "Logtitude": "-1.6357924",
+    "Category": "Warehouse"
   },
   {
     "Map Results": "35",
@@ -501,7 +536,8 @@
     "Postal Code": "WF17 9LW",
     "Country": "United Kingdom",
     "Latitude": "53.7395884",
-    "Logtitude": "-1.6569327"
+    "Logtitude": "-1.6569327",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "36",
@@ -515,11 +551,12 @@
     "Postal Code": "S4 8DA",
     "Country": "United Kingdom",
     "Latitude": "53.4060214",
-    "Logtitude": "-1.4355539"
+    "Logtitude": "-1.4355539",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "37",
-    "Name": "Spoke West Dra",
+    "Name": "Spoke West Drayt",
     "Code": "OL_LOC_0034",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -529,7 +566,8 @@
     "Postal Code": "UB7 9BL",
     "Country": "United Kingdom",
     "Latitude": "51.5048165",
-    "Logtitude": "-0.4498799"
+    "Logtitude": "-0.4498799",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "38",
@@ -543,11 +581,12 @@
     "Postal Code": "BS11 9EA",
     "Country": "United Kingdom",
     "Latitude": "51.5034318",
-    "Logtitude": "-2.692053"
+    "Logtitude": "-2.692053",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "39",
-    "Name": "Spoke Peterboro",
+    "Name": "Spoke Peterborough",
     "Code": "OL_LOC_0030",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -557,11 +596,12 @@
     "Postal Code": "PE1 5BF",
     "Country": "United Kingdom",
     "Latitude": "52.5693504",
-    "Logtitude": "-0.2146538"
+    "Logtitude": "-0.2146538",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "40",
-    "Name": "Spoke Weybridg",
+    "Name": "Spoke Weybridge",
     "Code": "OL_LOC_0035",
     "Location Set": "Common Set",
     "Status": "Active",
@@ -571,7 +611,8 @@
     "Postal Code": "KT14 7LB",
     "Country": "United Kingdom",
     "Latitude": "51.3475427",
-    "Logtitude": "-0.4931859"
+    "Logtitude": "-0.4931859",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "41",
@@ -585,7 +626,8 @@
     "Postal Code": "SN7 8NY",
     "Country": "United Kingdom",
     "Latitude": "51.6341752",
-    "Logtitude": "-1.5354347"
+    "Logtitude": "-1.5354347",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "42",
@@ -599,7 +641,8 @@
     "Postal Code": "OX26 6GF",
     "Country": "United Kingdom",
     "Latitude": "51.8814663",
-    "Logtitude": "-1.1262772"
+    "Logtitude": "-1.1262772",
+    "Category": "Customer Delivery"
   },
   {
     "Map Results": "43",
@@ -613,6 +656,37 @@
     "Postal Code": "EN3 7XY",
     "Country": "United Kingdom",
     "Latitude": "51.6770953",
-    "Logtitude": "-0.0253464"
+    "Logtitude": "-0.0253464",
+    "Category": "Customer Delivery"
+  },
+  {
+    "Map Results": "44",
+    "Name": "GMDC Erith",
+    "Code": "OL_LOC_0008",
+    "Location Set": "Common Set",
+    "Status": "Active",
+    "ending Change": "No",
+    "Address Line 1": "1 Church ManorwayErith",
+    "City": "Enfield",
+    "Postal Code": "DA8 1PQ",
+    "Country": "United Kingdom",
+    "Latitude": "51.6770953",
+    "Logtitude": "-0.0253464",
+    "Category": "Warehouse"
+  },
+  {
+    "Map Results": "45",
+    "Name": "GMDC Welwyn",
+    "Code": "OL_LOC_0009",
+    "Location Set": "Common Set",
+    "Status": "Active",
+    "ending Change": "No",
+    "Address Line 1": "Aquarius House, BWessemer elwyn Garden Road CitAL7 y 1HH",
+    "City": "Enfield",
+    "Postal Code": "EN3 7XY",
+    "Country": "United Kingdom",
+    "Latitude": "51.6770953",
+    "Logtitude": "-0.0253464",
+    "Category": "Warehouse"
   }
 ]
