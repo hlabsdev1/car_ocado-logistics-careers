@@ -1,0 +1,179 @@
+/* GLOBAL SWIPER STYLES */
+
+/* Remove this after testing */
+.ma-get_loc-wrap {
+    display: none;
+}
+/* end here */
+
+.swiper-arrow.is--disabled {
+    pointer-events: none;
+}
+
+.swiper-button-lock {
+    display: none;
+}
+
+.swiper-pagination-lock {
+    display: none;
+}
+
+.map-marker {
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.map-marker.is--inner {
+    height: auto;
+    aspect-ratio: 64/ 82;
+    color: var(--_palette---teal);
+}
+.map-marker.is--inner:hover {
+    color: var(--_palette---purple);
+}
+.map-marker.is--inner.is--active {
+    color: var(--_palette---purple);
+}
+.map-marker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+.map-marker-num {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-color: yellow;
+    border-radius: 100vw;
+}
+
+.mapboxgl-popup {
+    top: -1rem;
+    max-width: auto;
+    z-index: 5;
+}
+
+.mapboxgl-ctrl-group {
+    display: flex !important;
+    gap: 10px !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.mapboxgl-ctrl-zoom-in,
+.mapboxgl-ctrl-zoom-out {
+    background-color: var(--_palette---teal) !important;
+    width: 66px !important;
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 100vw !important;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .1) !important;
+}
+
+.popup-box_inner {
+    color: black;
+    font-size: 0.8rem;
+    max-width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.popup-box_content {
+    width: 100%
+}
+
+.popup-box_vac, .popup-box_vac-list {
+    padding-top: 10px;
+}
+
+.popup-box-header {
+    font-weight: 700;
+}
+
+.popup-box_vac-list {
+    gap: 0px;
+    max-height: 120px;
+    overflow-y: auto;
+    padding-left: 22px;
+}
+
+.mapboxgl-popup-close-button {
+    font-size: 20px;
+}
+
+
+.popup-box_vac-list a {
+    text-decoration: underline;
+}
+
+.filter-dropdown.is--open {
+    z-index: 3;
+}
+
+.filter-dropdown.is--open .filter-dropdown-list {
+    display: block;
+}
+
+ /* SEARCH COMOPONENT */
+ .search-input-wrap input:focus {
+    /* border: 2px green solid; */
+    /* border-radius: 100vw; */
+    outline: none;
+ }
+
+
+
+
+
+
+
+
+
+
+/* HOME*/
+
+/* Hero Section */
+.search-item.is--hide {
+    display: none;
+}
+
+#search-job-butn.is--hide {
+    display: none;
+}
+
+.no-result-card.is--hide {
+    display: none;
+}
+
+.search-results-wrap.is--active {
+    padding-bottom: 2.5rem;
+}
+
+
+/* Team Category Section */
+.team-cat_pane {
+    display: none;
+}
+
+.team-cat_pane.is--active {
+    display: block;
+}
+
+

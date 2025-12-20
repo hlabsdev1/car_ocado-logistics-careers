@@ -2,6 +2,7 @@
 function initFilterToggle() {
   const OPEN_CLASS = 'is--open';
   const dropdowns = document.querySelectorAll('.filter-dropdown');
+  console.log('init filter');
 
   dropdowns.forEach((dropdown) => {
     const toggleBtn = dropdown.querySelector('.filter-dropdown-toggle');
@@ -68,7 +69,34 @@ function globalSwiper() {
   });
 }
 
+function accordian() {
+  const allItems = document.querySelectorAll('[hs-faq-item]');
+
+  if (!allItems) return;
+
+  allItems.forEach((item) => {
+    const trigger = item.querySelector('[hs-faq-trigger]');
+    const answer = item.querySelector('[hs-faq-ans]');
+    // answer.style.maxHeight = 0 + "px";
+    trigger.addEventListener('click', () => {
+      const isActive = item.classList.contains('is--active');
+      allItems.forEach((faq) => {
+        faq.classList.remove('is--active');
+        faq.querySelector('[hs-faq-ans]').style.maxHeight = null;
+      });
+
+      if (!isActive) {
+        item.classList.add('is--active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+accordian();
+
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
   globalSwiper();
+  accordian();
 });

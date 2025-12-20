@@ -31,6 +31,5 @@ async function getLocations() {
   }
 }
 
-// make them available globally
 window.getData = getData;
 window.getLocations = getLocations;
