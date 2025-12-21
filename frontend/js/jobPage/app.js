@@ -93,11 +93,8 @@ function individualPage() {
       subLocation: subLoc_map.get(job.location.location_code) || [],
     }));
 
-    console.log(allJobs);
-
     //Function calling-
     map(dataItems, locations, cities);
-    search(allJobs);
     latestJobs(allJobs);
   }
 
@@ -720,243 +717,99 @@ function individualPage() {
     setUserCoordsToMap(map);
   }
 
-  function search(allJobs) {
-    //So here we are creating a new map array that city has
-
-    // console.log(allJobs);
-
-    //Html targets variable for search features
-    const searchInput = document.getElementById('home-search');
-    const searchTemplate = document.getElementById('search-template');
-    const resultContainer = document.querySelector('.search-results-wrap');
-    const emptyCard = searchTemplate.content.cloneNode(true).children[2];
-    const searchButn = searchTemplate.content
-      .cloneNode(true)
-      .getElementById('search-job-butn');
-
-    // console.log(allJobs);
-
-    //Creating new objects with allJobs and adding job cards in the search area. And changing text and all
-    let activeJobs = allJobs.map((job) => {
-      const card = searchTemplate.content.cloneNode(true).children[0];
-      const job_name = card.querySelector('[search-field="job-name"]');
-      const job_type = card.querySelector('[search-field="job-type"]');
-      const job_category = card.querySelector('[search-field="category"]');
-      const locationName = card.querySelector('[search-field="location-name"]');
-      const date = card.querySelector('[search-field="date-posted"]');
-      const applyLink = card.querySelector('.cta-link');
-      const job_categoryWrap = job_category.parentNode;
-
-      const newUrl = job.application_url.split('/apply')[0];
-      job_categoryWrap.style.backgroundColor = job.subLocation[0]?.color;
-
-      job_name.innerHTML = job.title;
-      locationName.innerHTML = job.subLocation[0]?.Name;
-      job_type.innerHTML = job.job_schedule.replace('_', ' ');
-      job_category.innerHTML = job.subLocation[0]?.Category;
-      date.innerHTML = formatCreatedAgo(job.creation_date);
-      applyLink.href = newUrl;
-
-      card.classList.add('is--hide');
-      resultContainer.append(card);
-      //Returing the data we can filter with.
-      return {
-        jobName: job.title,
-        jobCategory: job.subLocation[0]?.Category,
-        cityName: job.subLocation[0]?.City,
-        locationName: job.subLocation[0]?.Name,
-        postalCode: job.subLocation[0]?.['Postal Code'],
-        element: card,
-      };
-    });
-
-    //Adding empty job card
-    resultContainer.append(emptyCard);
-    emptyCard.classList.add('is--hide');
-
-    //Adding button
-    resultContainer.append(searchButn);
-    searchButn.classList.add('is--hide');
-
-    //Adding event listener for input change
-    searchInput.addEventListener('input', (e) => {
-      const value = e.target.value.toLowerCase();
-      let jobShowing = false;
-      let visibleCount = 0;
-
-      if (value === '') {
-        activeJobs.forEach((job) => job.element.classList.add('is--hide'));
-        emptyCard.classList.add('is--hide');
-        searchButn.classList.add('is--hide');
-        resultContainer.classList.remove('is--active');
-        return;
-      }
-      //With returned data on activeJobs we can filter if anything we type includes the below data if yes then toggle class.
-      activeJobs.forEach((job) => {
-        const isMatch =
-          (job.jobName || '').toLowerCase().includes(value) ||
-          (job.jobCategory || '').toLowerCase().includes(value) ||
-          (job.cityName || '').toLowerCase().includes(value) ||
-          (job.locationName || '').toLowerCase().includes(value);
-
-        const isVisible = isMatch && visibleCount < 5;
-
-        // const isVisible = isMatch && visibleCount < 5;
-        job.element.classList.toggle('is--hide', !isVisible);
-        if (isVisible) {
-          visibleCount++;
-          jobShowing = true;
-        }
-      });
-
-      if (value !== '') {
-        emptyCard.classList.toggle('is--hide', jobShowing);
-        searchButn.classList.toggle('is--hide', !jobShowing);
-        resultContainer.classList.add('is--active');
-      }
-    });
-  }
-
-  function teamCatTab() {
-    const tabs = document.querySelector('.team-cat_tabs');
-    const allLinks = tabs.querySelectorAll('.team-cat_menu .team-cat_link');
-    const tabPane = tabs.querySelectorAll('.team-cat_pane');
-    const nextButn = tabs.querySelector('.swiper-arrow.is--next');
-    const prevButn = tabs.querySelector('.swiper-arrow.is--prev');
-    allLinks[0].classList.add('is--active');
-    tabPane[0].classList.add('is--active');
-    let currentIndex = 0;
-
-    allLinks.forEach((link, index) => {
-      link.addEventListener('click', () => {
-        const attr = link.getAttribute('team-cat');
-        currentIndex = index;
-        console.log(currentIndex);
-        //Tab pane method
-        tabPane.forEach((pane) => {
-          if (pane.getAttribute('team-cat') === attr) {
-            pane.classList.add('is--active');
-          } else {
-            pane.classList.remove('is--active');
-          }
-        });
-
-        //tab link
-        allLinks.forEach((link) => {
-          link.classList.remove('is--active');
-        });
-
-        link.classList.add('is--active');
-
-        if (currentIndex === tabPane.length - 1) {
-          nextButn.classList.add('is--disabled');
-        } else {
-          nextButn.classList.remove('is--disabled');
-        }
-
-        if (currentIndex <= 0) {
-          prevButn.classList.add('is--disabled');
-        } else {
-          prevButn.classList.remove('is--disabled');
-        }
-      });
-    });
-
-    //Prev and Nex functionality
-    function handleIndexChange() {
-      //tab Panes
-      if (tabPane[currentIndex]) {
-        tabPane.forEach((pane) => {
-          pane.classList.remove('is--active');
-        });
-        tabPane[currentIndex].classList.add('is--active');
-      }
-
-      if (allLinks[currentIndex]) {
-        allLinks.forEach((link) => {
-          link.classList.remove('is--active');
-        });
-        allLinks[currentIndex].classList.add('is--active');
-      }
-
-      if (currentIndex === tabPane.length - 1) {
-        nextButn.classList.add('is--disabled');
-      } else {
-        nextButn.classList.remove('is--disabled');
-      }
-
-      if (currentIndex <= 0) {
-        prevButn.classList.add('is--disabled');
-      } else {
-        prevButn.classList.remove('is--disabled');
-      }
-
-      //tab links
-    }
-
-    nextButn.addEventListener('click', () => {
-      if (currentIndex < tabPane.length - 1) {
-        currentIndex++;
-        handleIndexChange();
-      }
-    });
-
-    prevButn.addEventListener('click', () => {
-      if (currentIndex > -1) {
-        currentIndex--;
-        handleIndexChange();
-      }
-    });
-
-    handleIndexChange();
-  }
-
   function latestJobs(allJobs) {
     //Get all Filters to add to filter buttons
     //show all items
     //Create 2 filters - 1. filter button , 2. Search filer
 
-    const filterComp = document.querySelector(
-      '[hs-list-element="filter-wrap2"]'
-    );
+    // console.log(allJobs);
+
+    const filterComp = document.querySelector('[hs-list-element="job-page"]');
     const filters = filterComp.querySelector('[hs-list-element="filter"]');
     const resultContainer = filterComp.querySelector(
       '[hs-list-element="list"]'
     );
-    const searchInput = filterComp.querySelector(
-      '[hs-list-element="search"] input'
+    const location_Menu = filterComp.querySelector(
+      ".filter-dropdown[map-filter='location'] .filter-tab-menu"
     );
+    const team_Menu = filterComp.querySelector(
+      ".filter-dropdown[map-filter='team-category'] .filter-tab-menu"
+    );
+    const contract_Menu = filterComp.querySelector(
+      ".filter-dropdown[map-filter='contract-type'] .filter-tab-menu"
+    );
+
     const noResult = resultContainer.querySelector('.listing-no-result-card');
     const searchTemplate = document.getElementById('search-template');
+    const filter_li = document.createElement('li');
 
+    //All Buttons
+    const createAllBtn = (attr, value) => {
+      const li = document.createElement('li');
+      li.textContent = 'All';
+      li.setAttribute(attr, value);
+      return li;
+    };
+    location_Menu.append(createAllBtn('hs-location', 'all'));
+    team_Menu.append(createAllBtn('hs-team', 'all'));
+    contract_Menu.append(createAllBtn('hs-contract', 'all'));
+
+    const locationCategories = [
+      ...new Set(
+        allJobs.map((item) => item.subLocation[0]?.City).filter(Boolean)
+      ),
+    ];
     const teamCategories = [
       ...new Set(
         allJobs.map((item) => item.subLocation[0]?.Category).filter(Boolean)
       ),
     ];
+    const contractTypeCategories = [
+      ...new Set(
+        allJobs.map((item) => item.job_family?.job_family_name).filter(Boolean)
+      ),
+    ];
 
-    //Adding all button
-    const allButn = document.createElement('div');
-    allButn.classList.add('filter-button');
-    allButn.innerHTML = 'All';
-    allButn.setAttribute('filter-category', 'All');
-    filters.append(allButn);
+    //Adding multiple item at once using documentFragment
+    const locationFragment = document.createDocumentFragment();
+    const teamCategoryFragment = document.createDocumentFragment();
+    const contractTypeFragment = document.createDocumentFragment();
 
-    //Adding categories to the filter list
-    teamCategories.forEach((cat) => {
-      const div = document.createElement('div');
-      div.classList.add('filter-button');
-      div.innerHTML = cat;
-      div.setAttribute('filter-category', cat);
-      filters.append(div);
+    //Adding Location to the filter list
+    locationCategories.forEach((cat) => {
+      const clone = filter_li.cloneNode(true);
+      clone.textContent = cat;
+      clone.setAttribute('hs-location', cat);
+      locationFragment.appendChild(clone);
     });
 
-    //Get all filter button
-    const allFilterButns = filters.querySelectorAll('.filter-button');
-    allFilterButns[0].classList.add('is--active');
+    location_Menu.appendChild(locationFragment);
 
-    let activeJobs = allJobs.map((job) => {
+    //Adding team Category to the filter list
+    teamCategories.forEach((cat) => {
+      const clone = filter_li.cloneNode(true);
+      clone.textContent = cat;
+      clone.setAttribute('hs-team', cat);
+      teamCategoryFragment.appendChild(clone);
+    });
+
+    team_Menu.appendChild(teamCategoryFragment);
+
+    //Adding Contract Type to the filter list
+    contractTypeCategories.forEach((cat) => {
+      const clone = filter_li.cloneNode(true);
+      clone.textContent = cat;
+      clone.setAttribute('hs-contract', cat);
+      contractTypeFragment.appendChild(clone);
+    });
+
+    contract_Menu.appendChild(contractTypeFragment);
+
+    allJobs.forEach((job) => {
       const card = searchTemplate.content.cloneNode(true).children[0];
+      card.setAttribute('hs-location', job.subLocation[0]?.City);
+      card.setAttribute('hs-team', job.subLocation[0]?.Category);
+      card.setAttribute('hs-contract', job.job_family?.job_family_name || '');
       const job_name = card.querySelector('[search-field="job-name"]');
       const job_type = card.querySelector('[search-field="job-type"]');
       const job_category = card.querySelector('[search-field="category"]');
@@ -977,79 +830,104 @@ function individualPage() {
 
       // card.classList.add('is--hide');
       resultContainer.append(card);
-      //Returing the data we can filter with.
-      return {
-        jobName: job.title,
-        jobCategory: job.subLocation[0]?.Category,
-        cityName: job.subLocation[0]?.City,
-        locationName: job.subLocation[0]?.Name,
-        postalCode: job.subLocation[0]?.['Postal Code'],
-        element: card,
+    });
+
+    function filterSystem() {
+      const locButtons = location_Menu.querySelectorAll('li');
+      const teamButtons = team_Menu.querySelectorAll('li');
+      const contractButtons = contract_Menu.querySelectorAll('li');
+
+      let activeFilters = {
+        location: [],
+        team: [],
+        contract: [],
       };
-    });
 
-    //Adding event listener for input change
-    searchInput.addEventListener('input', (e) => {
-      const value = e.target.value.toLowerCase();
-      let jobShowing = false;
+      const addedJobs = filterComp.querySelectorAll('.search-item');
 
-      if (value === '') {
-        if (!allFilterButns[0].classList.contains('is--active')) {
-          allFilterButns[0].classList.add('is--active');
-        }
-        if (!noResult.classList.contains('is--hide')) {
-          noResult.classList.add('is--hide');
-        }
-      }
+      function applyFilters() {
+        let activeJobs = Array.from(addedJobs).filter((item) => {
+          const loc_attr = item.getAttribute('hs-location');
+          const team_attr = item.getAttribute('hs-team') || '';
+          const contract_attr = item.getAttribute('hs-contract') || '';
 
-      //With returned data on activeJobs we can filter if anything we type includes the below data if yes then toggle class.
-      activeJobs.forEach((job) => {
-        const isVisible =
-          (job.jobName || '').toLowerCase().includes(value) ||
-          (job.jobCategory || '').toLowerCase().includes(value) ||
-          (job.cityName || '').toLowerCase().includes(value) ||
-          (job.locationName || '').toLowerCase().includes(value);
+          const locMatch =
+            activeFilters.location.length === 0 ||
+            activeFilters.location.includes(loc_attr);
 
-        job.element.classList.toggle('is--hide', !isVisible);
-        if (isVisible) jobShowing = true;
-      });
+          const teamMatch =
+            activeFilters.team.length === 0 ||
+            activeFilters.team.includes(team_attr);
 
-      if (value !== '') {
-        allFilterButns.forEach((butn) => {
-          butn.classList.remove('is--active');
+          const contractMatch =
+            activeFilters.contract.length === 0 ||
+            activeFilters.contract.includes(contract_attr);
+
+          return locMatch && teamMatch && contractMatch;
         });
-        noResult.classList.toggle('is--hide', jobShowing);
-      }
-    });
 
-    //Filter Button Click functionality
-    allFilterButns.forEach((butn) => {
-      const attr = butn.getAttribute('filter-category').toLowerCase();
-      butn.addEventListener('click', () => {
-        if (attr !== 'all') {
-          activeJobs.forEach((job) => {
-            const isVisible = (job.jobCategory || '').toLowerCase() === attr;
-            job.element.classList.toggle('is--hide', !isVisible);
-          });
+        renderActiveJobs(activeJobs);
+      }
+
+      function renderActiveJobs(activeJobs) {
+        addedJobs.forEach((item) => {
+          item.classList.add('is--hide');
+        });
+
+        activeJobs.forEach((item) => {
+          item.classList.remove('is--hide');
+        });
+
+        if (activeJobs.length === 0) {
+          noResult.classList.remove('is--hide');
         } else {
-          activeJobs.forEach((job) => {
-            if (job.element.classList.contains('is--hide')) {
-              job.element.classList.remove('is--hide');
-            }
-          });
+          if (!noResult.classList.contains('is--hide')) {
+            noResult.classList.add('is--hide');
+          }
         }
+      }
 
-        allFilterButns.forEach((item) => {
-          item.classList.remove('is--active');
+      locButtons.forEach((link) => {
+        link.addEventListener('click', () => {
+          const attr = link.getAttribute('hs-location');
+          if (attr === 'all') {
+            activeFilters.location = [];
+          } else {
+            activeFilters.location = attr;
+          }
+          applyFilters();
         });
-        butn.classList.add('is--active');
       });
-    });
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    teamCatTab();
-  });
+      teamButtons.forEach((link) => {
+        link.addEventListener('click', () => {
+          const attr = link.getAttribute('hs-team');
+          if (attr === 'all') {
+            activeFilters.team = [];
+          } else {
+            activeFilters.team = attr;
+          }
+          applyFilters();
+        });
+      });
+
+      contractButtons.forEach((link) => {
+        link.addEventListener('click', () => {
+          const attr = link.getAttribute('hs-contract');
+          if (attr === 'all') {
+            activeFilters.contract = [];
+          } else {
+            activeFilters.contract = attr;
+          }
+          applyFilters();
+        });
+      });
+
+      applyFilters();
+    }
+
+    filterSystem();
+  }
 }
 
 individualPage();

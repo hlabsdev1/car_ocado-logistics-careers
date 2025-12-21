@@ -139,6 +139,15 @@
     outline: none;
  }
 
+ /* FAQs */
+ [hs-faq-item] [hs-faq-ans] {
+    max-height: 0px;
+ }
+
+ [hs-faq-item].is--active .hs-acc_close {
+    transform: rotateZ(180deg);
+ }
+
 
 
 /* ===================

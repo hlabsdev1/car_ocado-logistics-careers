@@ -93,7 +93,27 @@ function accordian() {
   });
 }
 
-accordian();
+// Using this function in other js files
+function formatCreatedAgo(isoDate) {
+  const createdDate = new Date(isoDate);
+  const now = new Date();
+
+  const diffMs = now - createdDate;
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 1) {
+    return 'Posted today';
+  }
+
+  if (diffDays < 30) {
+    return `Posted ${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+  }
+
+  const diffMonths = Math.floor(diffDays / 30);
+  return `Posted ${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`;
+}
+
+window.formatCreatedAgo = formatCreatedAgo;
 
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
