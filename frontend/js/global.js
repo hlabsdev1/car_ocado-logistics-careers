@@ -56,7 +56,7 @@ function globalSwiper() {
       navigation: {
         nextEl: nextEl,
         prevEl: prevEl,
-        disabledClass: 'is-disabled',
+        disabledClass: 'is--disabled',
       },
       // custom pagination
       pagination: {
