@@ -955,6 +955,9 @@ function individualPage() {
     const allFilterButns = filters.querySelectorAll('.filter-button');
     allFilterButns[0].classList.add('is--active');
 
+    const MAX_ITEMS = 9;
+    let initialCount = 0;
+
     let activeJobs = allJobs.map((job) => {
       const card = searchTemplate.content.cloneNode(true).children[0];
       const job_name = card.querySelector('[search-field="job-name"]');
@@ -975,6 +978,15 @@ function individualPage() {
       date.innerHTML = formatCreatedAgo(job.creation_date);
       applyLink.href = newUrl;
 
+      // 👇 Hide everything first
+      card.classList.add('is--hide');
+
+      // 👇 Show only first 9
+      if (initialCount < MAX_ITEMS) {
+        card.classList.remove('is--hide');
+        initialCount++;
+      }
+
       // card.classList.add('is--hide');
       resultContainer.append(card);
       //Returing the data we can filter with.
@@ -992,6 +1004,7 @@ function individualPage() {
     searchInput.addEventListener('input', (e) => {
       const value = e.target.value.toLowerCase();
       let jobShowing = false;
+      let visibleCount = 0;
 
       if (value === '') {
         if (!allFilterButns[0].classList.contains('is--active')) {
@@ -1004,14 +1017,19 @@ function individualPage() {
 
       //With returned data on activeJobs we can filter if anything we type includes the below data if yes then toggle class.
       activeJobs.forEach((job) => {
-        const isVisible =
+        const isMatch =
           (job.jobName || '').toLowerCase().includes(value) ||
           (job.jobCategory || '').toLowerCase().includes(value) ||
           (job.cityName || '').toLowerCase().includes(value) ||
           (job.locationName || '').toLowerCase().includes(value);
 
+        const isVisible = isMatch && visibleCount < MAX_ITEMS;
+
         job.element.classList.toggle('is--hide', !isVisible);
-        if (isVisible) jobShowing = true;
+        if (isVisible) {
+          visibleCount++;
+          jobShowing = true;
+        }
       });
 
       if (value !== '') {
@@ -1026,16 +1044,19 @@ function individualPage() {
     allFilterButns.forEach((butn) => {
       const attr = butn.getAttribute('filter-category').toLowerCase();
       butn.addEventListener('click', () => {
+        let visibleCount = 0;
         if (attr !== 'all') {
           activeJobs.forEach((job) => {
-            const isVisible = (job.jobCategory || '').toLowerCase() === attr;
+            const isMatch = (job.jobCategory || '').toLowerCase() === attr;
+            const isVisible = isMatch && visibleCount < MAX_ITEMS;
             job.element.classList.toggle('is--hide', !isVisible);
+            if (isVisible) visibleCount++;
           });
         } else {
           activeJobs.forEach((job) => {
-            if (job.element.classList.contains('is--hide')) {
-              job.element.classList.remove('is--hide');
-            }
+            const isVisible = visibleCount < MAX_ITEMS;
+            job.element.classList.toggle('is--hide', !isVisible);
+            if (isVisible) visibleCount++;
           });
         }
 
