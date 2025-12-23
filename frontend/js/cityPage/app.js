@@ -276,12 +276,12 @@ function individualPage() {
 
         // Add event listeners for interactivity
         cityEl.addEventListener('click', () => {
-          map.flyTo({
-            center: coordinates,
-            speed: 0.5,
-            curve: 1,
-            zoom: 9,
-          });
+          // map.flyTo({
+          //   center: coordinates,
+          //   speed: 0.5,
+          //   curve: 1,
+          //   zoom: 9,
+          // });
 
           // Push event details to the Data Layer
           window.dataLayer = window.dataLayer || [];
@@ -291,21 +291,25 @@ function individualPage() {
           });
 
           // console.log("Pin clicked:", id); // Debugging
+
+          const panel = document.getElementById('city-map-card');
+          panel.innerHTML = getPopupHtml(address, jobArray);
+          panel.classList.remove('is--hidden');
         });
 
         const jobArray = Array.isArray(allJobs) ? allJobs : [];
         if (!jobArray) return;
 
         // Create a popup
-        const popup = new mapboxgl.Popup({
-          closeButton: true,
-          closeOnClick: true,
-          //offset: -40,
-        });
+        // const popup = new mapboxgl.Popup({
+        //   closeButton: true,
+        //   closeOnClick: true,
+        //   //offset: -40,
+        // });
 
-        const addingPopup = popup
-          .setLngLat(coordinates)
-          .setHTML(getPopupHtml(address, jobArray));
+        // const addingPopup = popup
+        //   .setLngLat(coordinates)
+        //   .setHTML(getPopupHtml(address, jobArray));
 
         function popupMediaQuery() {
           const desktopMedia = window.innerWidth > 991;
@@ -316,7 +320,7 @@ function individualPage() {
             document.querySelectorAll('.mapboxgl-popup').forEach((p) => {
               p.remove();
             });
-            addingPopup.addTo(map);
+            // addingPopup.addTo(map);
             cityEl.style.zIndex = '3';
           });
         }

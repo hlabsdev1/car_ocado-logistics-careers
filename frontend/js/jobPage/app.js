@@ -128,7 +128,7 @@ function individualPage() {
     const map = new mapboxgl.Map({
       container: mapCanva,
       style: hStyle,
-      center: userLat && userLang ? userCoords : [-2.19842, 53.3378146], //28.334115149095556, -81.50494910779616
+      center: userLat && userLang ? userCoords : [-2.19842, 51.8206118], //28.334115149095556, -81.50494910779616
       // zoom: 4.0,
       zoom: isMobile ? 12.0 : 6.25, // Different zoom for mobile
       minZoom: 5,
