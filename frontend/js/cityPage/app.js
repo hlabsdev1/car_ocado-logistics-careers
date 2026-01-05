@@ -40,6 +40,13 @@ function individualPage() {
       { Name: 'West Byfleet', Latitude: '51.3359755', Longitude: '-0.5150371' },
       { Name: 'Faringdon', Latitude: '51.6533271', Longitude: '-1.5913673' },
       { Name: 'Enfield', Latitude: '51.6501606', Longitude: '-0.1515596' },
+      { Name: 'Walthamstow', Latitude: '0', Longitude: '0' },
+      { Name: 'Dordon', Latitude: '0', Longitude: '' },
+      { Name: 'Purfleet', Latitude: '0', Longitude: '' },
+      { Name: 'Acton', Latitude: '0', Longitude: '' },
+      { Name: 'Merton', Latitude: '0', Longitude: '' },
+      { Name: 'Leeds', Latitude: '0', Longitude: '' },
+      { Name: 'Weybridge', Latitude: '0', Longitude: '' },
     ];
 
     const teamCategories = [
@@ -153,8 +160,8 @@ function individualPage() {
       return city === bodyAttr;
     });
 
-    console.log(InnerLocations);
-    console.log(InnerLocations.locations);
+    // console.log(InnerLocations);
+    // console.log(InnerLocations.locations);
 
     // console.log(mainListItems);
 
@@ -234,6 +241,7 @@ function individualPage() {
 
       const icon =
         'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6925c33b02c9af6561d992cf_Location%20Pin.svg';
+
       //NEW CUSTOM MAP PINS CODE
       mapLocations.features.forEach((location) => {
         const { coordinates } = location.geometry;
@@ -360,7 +368,12 @@ function individualPage() {
     }
 
     getGeoData();
-    addMapPoints();
+    if (mapLocations.features.length === 0) {
+      const mapSec = document.querySelector('.map-section');
+      mapSec.style.display = 'none';
+    } else {
+      addMapPoints();
+    }
   }
 
   function addingCityJobs(allJobs) {
@@ -376,12 +389,18 @@ function individualPage() {
       return city === bodyAttr;
     });
 
-    // console.log(filteredJobs);
-
     const swiperComp = document.querySelector("[swiper-component='city-jobs']");
     const swiperWrap = swiperComp.querySelector('.swiper-wrapper');
     const swiperItem = swiperComp.querySelector('.swiper-slide');
+    const noJobCard = document.querySelector('.no-job-card');
     swiperItem.remove();
+
+    if (filteredJobs.length === 0) {
+      noJobCard.style.display = 'flex';
+      noJobCard.style.opacity = '1';
+    }
+
+    if (filteredJobs.length === 0) return;
 
     filteredJobs.forEach((job) => {
       const newItem = swiperItem.cloneNode(true);
