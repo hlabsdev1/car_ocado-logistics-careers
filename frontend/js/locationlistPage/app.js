@@ -715,6 +715,18 @@ function individualPage() {
     filteringSystem();
     setUserCoordsToMap(map);
   }
+
+  function addingOfficeText() {
+    const listWrap = document.querySelector('.location-list-wrap');
+
+    const targetItem = listWrap.querySelector(
+      `.w-dyn-item[location-name="head-office"]`
+    );
+
+    listWrap.insertBefore(targetItem, listWrap.children[0]);
+  }
+
+  addingOfficeText();
 }
 
 individualPage();
