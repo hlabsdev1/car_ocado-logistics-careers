@@ -113,10 +113,21 @@ function formatCreatedAgo(isoDate) {
   return `Posted ${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`;
 }
 
+function hideEmptyButn() {
+  const buttons = document.querySelectorAll('.button');
+  buttons.forEach((butn) => {
+    const text = butn.querySelector('.button-txt');
+    if (text) {
+      if (text.innerHTML === '') butn.style.display = 'none';
+    }
+  });
+}
+
 window.formatCreatedAgo = formatCreatedAgo;
 
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
   globalSwiper();
   accordian();
+  hideEmptyButn();
 });
