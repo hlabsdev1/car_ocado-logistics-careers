@@ -69,23 +69,41 @@
     z-index: 5;
 }
 
+.mapboxgl-popup-content {
+    border-radius: 10px !important;
+}
+
 .mapboxgl-ctrl-group {
     display: flex !important;
     gap: 10px !important;
     box-shadow: none !important;
     background-color: transparent !important;
+    margin: 0 2.4rem 2.4rem 0 !important;
 }
 
 .mapboxgl-ctrl-zoom-in,
 .mapboxgl-ctrl-zoom-out {
-    background-color: var(--_palette---teal) !important;
     width: 66px !important;
-    height: 64px !important;
+    height: auto !important;
+    aspect-ratio: 1.51/ 1.47 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     border-radius: 100vw !important;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, .1) !important;
+}
+
+.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon,
+.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+    width: 100%;
+    background-size: contain !important;
+}
+
+.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+    background-image: url(https://cdn.prod.website-files.com/691db317d5523108e489fad8/695d383cf6091647c7096b68_Map%20%2B%20icon.png) !important;
+}
+
+.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+    background-image: url(https://cdn.prod.website-files.com/691db317d5523108e489fad8/695d383ccd7c6bca27a4c77a_Map%20-%20icon.png) !important;
 }
 
 .popup-box_inner {
@@ -120,12 +138,18 @@
 }
 
 .mapboxgl-popup-close-button {
-    font-size: 20px;
+    font-size: 26px;
+    padding: 10px;
 }
+
+
 
 
 .popup-box_vac-list a {
     text-decoration: underline;
+}
+.popup-box_vac-list a:hover {
+    color: var(--_palette---teal);
 }
 
 .filter-dropdown.is--open {
@@ -202,6 +226,10 @@ HOME
 .listing_filters .filter-button.is--active {
     color: black;
     background-color: white;
+}
+
+.listing_result-wrap .search-item-link-wrap {
+    margin-top: auto;
 }
 
 

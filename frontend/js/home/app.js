@@ -99,6 +99,10 @@ function individualPage() {
     map(dataItems, locations, cities);
     search(allJobs);
     latestJobs(allJobs);
+
+    //Calling v text formating
+    await markDivsWithDirectText();
+    await formatingV_Text();
   }
 
   init();
@@ -726,9 +730,14 @@ function individualPage() {
     // console.log(allJobs);
 
     //Html targets variable for search features
+    const searchComponent = document.querySelector(
+      '[search-component="hero-search"]'
+    );
     const searchInput = document.getElementById('home-search');
     const searchTemplate = document.getElementById('search-template');
-    const resultContainer = document.querySelector('.search-results-wrap');
+    const resultContainer = searchComponent.querySelector(
+      '.search-results-wrap'
+    );
     const emptyCard = searchTemplate.content.cloneNode(true).children[2];
     const searchButn = searchTemplate.content
       .cloneNode(true)
@@ -813,6 +822,29 @@ function individualPage() {
         emptyCard.classList.toggle('is--hide', jobShowing);
         searchButn.classList.toggle('is--hide', !jobShowing);
         resultContainer.classList.add('is--active');
+      }
+    });
+
+    //Close search if click outside
+    document.addEventListener('click', function (event) {
+      const isClickInside = searchComponent.contains(event.target);
+      if (!isClickInside) {
+        searchInput.value = '';
+        // activeJobs.forEach((job) => job.element.classList.add('is--hide'));
+        activeJobs.forEach((job) => {
+          if (!job.element.classList.contains('is--hide')) {
+            job.element.classList.add('is--hide');
+          }
+        });
+        if (!searchButn.classList.contains('is--hide')) {
+          searchButn.classList.add('is--hide');
+        }
+        if (!emptyCard.classList.contains('is--hide')) {
+          emptyCard.classList.add('is--hide');
+        }
+        if (resultContainer.classList.contains('is--active')) {
+          resultContainer.classList.remove('is--active');
+        }
       }
     });
   }
@@ -1066,6 +1098,77 @@ function individualPage() {
         butn.classList.add('is--active');
       });
     });
+  }
+
+  let directTextProcessed = false;
+  async function markDivsWithDirectText() {
+    if (directTextProcessed) return;
+    directTextProcessed = true;
+
+    const divs = document.querySelectorAll(
+      '[hs-list-element="filter-wrap2"] div'
+    );
+
+    divs.forEach((div) => {
+      const hasDirectText = Array.from(div.childNodes).some(
+        (node) =>
+          node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+      );
+
+      if (hasDirectText) {
+        div.setAttribute('text-content-div', '');
+      }
+    });
+  }
+
+  async function formatingV_Text() {
+    function isVisuallyUppercase(el) {
+      const style = window.getComputedStyle(el);
+      return style.textTransform === 'uppercase';
+    }
+    function highlightV(element) {
+      const forceUppercase = isVisuallyUppercase(element);
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach((node) => {
+        const text = node.nodeValue;
+        // skip if no possible v/V
+        if (!/[vV]/.test(text)) return;
+
+        const fragment = document.createDocumentFragment();
+        const parts = text.split(/([vV])/g);
+        // console.log(parts);
+
+        parts.forEach((part) => {
+          const isV = part === 'V';
+          const isLowerV = part === 'v';
+          if (isV || (isLowerV && forceUppercase)) {
+            const span = document.createElement('span');
+            span.className = 'kerning-v';
+            span.textContent = part;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(part));
+          }
+        });
+
+        node.parentNode.replaceChild(fragment, node);
+      });
+    }
+
+    document
+      .querySelectorAll(
+        '[hs-list-element="filter-wrap2"] h1,[hs-list-element="filter-wrap2"] h2, [hs-list-element="filter-wrap2"] h3,[hs-list-element="filter-wrap2"], [hs-list-element="filter-wrap2"] p, [hs-list-element="filter-wrap2"] [text-content-div]'
+      )
+      .forEach(highlightV);
   }
 
   document.addEventListener('DOMContentLoaded', () => {

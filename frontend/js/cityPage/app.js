@@ -398,6 +398,10 @@ function individualPage() {
     if (filteredJobs.length === 0) {
       noJobCard.style.display = 'flex';
       noJobCard.style.opacity = '1';
+      const jobSectionPadding = document.querySelector(
+        '.job-2col-section .padding-vertical'
+      );
+      jobSectionPadding.classList.add('is--bottom-0px');
       return;
     }
 

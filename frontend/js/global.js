@@ -197,9 +197,12 @@ async function textFormating() {
 window.formatCreatedAgo = formatCreatedAgo;
 
 document.addEventListener('DOMContentLoaded', function () {
-  textFormating();
   initFilterToggle();
   globalSwiper();
   accordian();
   hideEmptyButn();
+});
+
+window.addEventListener('load', () => {
+  textFormating();
 });
