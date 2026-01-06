@@ -122,9 +122,26 @@ function hideEmptyButn() {
     }
   });
 }
+let directTextProcessed = false;
+async function markDivsWithDirectText() {
+  if (directTextProcessed) return;
+  directTextProcessed = true;
 
-function formatingV_Text() {
-  console.log('is text working?');
+  const divs = document.querySelectorAll('div');
+
+  divs.forEach((div) => {
+    const hasDirectText = Array.from(div.childNodes).some(
+      (node) =>
+        node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+    );
+
+    if (hasDirectText) {
+      div.setAttribute('text-content-div', '');
+    }
+  });
+}
+
+async function formatingV_Text() {
   function isVisuallyUppercase(el) {
     const style = window.getComputedStyle(el);
     return style.textTransform === 'uppercase';
@@ -167,13 +184,20 @@ function formatingV_Text() {
     });
   }
 
-  document.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(highlightV);
+  document
+    .querySelectorAll('h1, h2, h3, h4, h5, h6, p, [text-content-div]')
+    .forEach(highlightV);
+}
+
+async function textFormating() {
+  await markDivsWithDirectText();
+  await formatingV_Text();
 }
 
 window.formatCreatedAgo = formatCreatedAgo;
 
 document.addEventListener('DOMContentLoaded', function () {
-  formatingV_Text();
+  textFormating();
   initFilterToggle();
   globalSwiper();
   accordian();
