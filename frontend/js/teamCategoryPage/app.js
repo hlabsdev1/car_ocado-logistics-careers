@@ -119,7 +119,16 @@ function individualPage() {
     );
     const swiperWrap = swiperComp.querySelector('.swiper-wrapper');
     const swiperItem = swiperComp.querySelector('.swiper-slide');
+    const noJobCard = document.querySelector('.no-job-card');
     swiperItem.remove();
+
+    if (filteredJobs.length === 0) {
+      noJobCard.style.display = 'flex';
+      noJobCard.style.opacity = '1';
+      return;
+    }
+
+    // if (filteredJobs.length === 0) return;
 
     filteredJobs.forEach((job) => {
       const newItem = swiperItem.cloneNode(true);

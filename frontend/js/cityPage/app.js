@@ -398,9 +398,10 @@ function individualPage() {
     if (filteredJobs.length === 0) {
       noJobCard.style.display = 'flex';
       noJobCard.style.opacity = '1';
+      return;
     }
 
-    if (filteredJobs.length === 0) return;
+    // if (filteredJobs.length === 0) return;
 
     filteredJobs.forEach((job) => {
       const newItem = swiperItem.cloneNode(true);
