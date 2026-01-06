@@ -6,6 +6,10 @@
 } */
 /* end here */
 
+.kerning-v {
+    margin-left: 0.1em;
+}
+
 .swiper-arrow.is--disabled {
     pointer-events: none;
     filter: grayscale(1);

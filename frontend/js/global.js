@@ -123,9 +123,57 @@ function hideEmptyButn() {
   });
 }
 
+function formatingV_Text() {
+  console.log('is text working?');
+  function isVisuallyUppercase(el) {
+    const style = window.getComputedStyle(el);
+    return style.textTransform === 'uppercase';
+  }
+  function highlightV(element) {
+    const forceUppercase = isVisuallyUppercase(element);
+    const walker = document.createTreeWalker(
+      element,
+      NodeFilter.SHOW_TEXT,
+      null,
+      false
+    );
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      const text = node.nodeValue;
+      // skip if no possible v/V
+      if (!/[vV]/.test(text)) return;
+
+      const fragment = document.createDocumentFragment();
+      const parts = text.split(/([vV])/g);
+      // console.log(parts);
+
+      parts.forEach((part) => {
+        const isV = part === 'V';
+        const isLowerV = part === 'v';
+        if (isV || (isLowerV && forceUppercase)) {
+          const span = document.createElement('span');
+          span.className = 'kerning-v';
+          span.textContent = part;
+          fragment.appendChild(span);
+        } else {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+
+      node.parentNode.replaceChild(fragment, node);
+    });
+  }
+
+  document.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(highlightV);
+}
+
 window.formatCreatedAgo = formatCreatedAgo;
 
 document.addEventListener('DOMContentLoaded', function () {
+  formatingV_Text();
   initFilterToggle();
   globalSwiper();
   accordian();
