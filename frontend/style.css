@@ -256,4 +256,30 @@ WHY OCADO LOGISTICS
     pointer-events: auto;
 }
 
+/* ===================
+BLOGS FRONT PAGE
+BLOGS FRONT PAGE
+BLOGS FRONT PAGE
+=======================
+*/
+
+.blog-p_link.is--active .team-cat_link-hover {
+    opacity: 1;
+}
+
+.blog-p_link.is--active .blog-p_link-txt {
+    color: currentColor;
+}
+
+.blog-p_link:hover .blog-p_link-txt  {
+    color: currentColor;
+}
+
+.blog-p_link:hover .team-cat_link-hover  {
+    opacity: 1;
+}
+
+.blog-item.is--hide {
+    display: none;
+}
 
