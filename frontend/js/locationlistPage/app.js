@@ -720,7 +720,7 @@ function individualPage() {
     const listWrap = document.querySelector('.location-list-wrap');
 
     const targetItem = listWrap.querySelector(
-      `.w-dyn-item[location-name="head-office"]`
+      `.w-dyn-item[location-name="hatfield"]`
     );
 
     listWrap.insertBefore(targetItem, listWrap.children[0]);
