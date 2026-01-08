@@ -779,6 +779,7 @@ function individualPage() {
     locationCategories.forEach((cat) => {
       const clone = filter_li.cloneNode(true);
       clone.textContent = cat;
+      clone.className = 'filter-tab-links';
       clone.setAttribute('hs-location', cat);
       locationFragment.appendChild(clone);
     });
