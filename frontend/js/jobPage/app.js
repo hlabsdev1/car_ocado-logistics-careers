@@ -747,6 +747,7 @@ function individualPage() {
     const createAllBtn = (attr, value) => {
       const li = document.createElement('li');
       li.textContent = 'All';
+      li.className = 'filter-tab-links';
       li.setAttribute(attr, value);
       return li;
     };
