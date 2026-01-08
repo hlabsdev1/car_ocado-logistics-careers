@@ -113,6 +113,8 @@ function formatCreatedAgo(isoDate) {
   return `Posted ${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`;
 }
 
+window.formatCreatedAgo = formatCreatedAgo;
+
 function hideEmptyButn() {
   const buttons = document.querySelectorAll('.button');
   buttons.forEach((butn) => {
@@ -194,7 +196,17 @@ async function textFormating() {
   await formatingV_Text();
 }
 
-window.formatCreatedAgo = formatCreatedAgo;
+function mobileNavClose() {
+  const nav = document.querySelector('.section_navigation1-light');
+  const navOpenButn = nav.querySelector('.navigation1_menu-button');
+  const closebutn = nav.querySelector('.navigation1_close-butn');
+
+  if (closebutn) {
+    closebutn.addEventListener('click', () => {
+      navOpenButn.click();
+    });
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
@@ -205,4 +217,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.addEventListener('load', () => {
   textFormating();
+  mobileNavClose();
 });
