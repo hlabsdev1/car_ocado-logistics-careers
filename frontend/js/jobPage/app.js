@@ -791,6 +791,7 @@ function individualPage() {
     teamCategories.forEach((cat) => {
       const clone = filter_li.cloneNode(true);
       clone.textContent = cat;
+      clone.className = 'filter-tab-links';
       clone.setAttribute('hs-team', cat);
       teamCategoryFragment.appendChild(clone);
     });
@@ -801,6 +802,7 @@ function individualPage() {
     contractTypeCategories.forEach((cat) => {
       const clone = filter_li.cloneNode(true);
       clone.textContent = cat;
+      clone.className = 'filter-tab-links';
       clone.setAttribute('hs-contract', cat);
       contractTypeFragment.appendChild(clone);
     });
