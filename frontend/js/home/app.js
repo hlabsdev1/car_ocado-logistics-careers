@@ -137,7 +137,7 @@ function individualPage() {
       style: hStyle,
       center: userLat && userLang ? userCoords : [-2.19842, 51.8206118], //28.334115149095556, -81.50494910779616
       // zoom: 4.0,
-      zoom: isMobile ? 12.0 : 6.1, // Different zoom for mobile
+      zoom: isMobile ? 6.1 : 6.1, // Different zoom for mobile
       minZoom: 5,
       maxZoom: 18,
       attributionControl: false, // Remove Mapbox branding
