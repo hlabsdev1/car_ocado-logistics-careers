@@ -240,14 +240,50 @@ function mobileNavClose() {
   }
 }
 
+async function addingFaqToPage() {
+  const faqPage = document.querySelector('[faq-page]');
+
+  if (!faqPage) return;
+  const allTeams = document.querySelectorAll('.faq-page_component');
+  for (const team of allTeams) {
+    const slug = team.getAttribute('team-category');
+    if (!slug) return;
+
+    const target = team.querySelector(`.faq-list-wrap`);
+
+    if (!target) return;
+
+    try {
+      const response = await fetch(`/team-categories/${slug}`);
+      const html = await response.text();
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+
+      const content = doc.querySelector('.faq-list-wrap');
+
+      if (content) {
+        target.innerHTML = content.innerHTML;
+      }
+    } catch (err) {
+      console.error('Failed to load CMS content', err);
+    }
+  }
+}
+
 document.fonts.ready.then(() => {
   headerSplit();
+});
+
+//only for FAQs and accordian
+document.addEventListener('DOMContentLoaded', async () => {
+  await addingFaqToPage();
+  accordian();
 });
 
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
   globalSwiper();
-  accordian();
   hideEmptyButn();
   mobileNavClose();
 });
