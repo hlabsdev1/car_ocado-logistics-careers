@@ -1,3 +1,35 @@
+gsap.registerPlugin(SplitText);
+
+const newStyles = `
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`;
+
+function headerSplit() {
+  const pill = document.querySelectorAll('[pill]');
+  pill.forEach((e) => {
+    const child = e.firstElementChild;
+    if (!child) return;
+    let split = SplitText.create(child, {
+      type: 'lines',
+      linesClass: 'line',
+      mask: 'lines',
+    });
+
+    const lineMask = e.querySelectorAll('.line-mask');
+  });
+
+  const lineMask = document.querySelectorAll('[pill] .line-mask');
+  lineMask.forEach((line) => {
+    if (!line) return;
+
+    line.style.cssText = newStyles;
+  });
+}
+
 //INITIALIZE FILTER TOGGLE SYSTEM
 function initFilterToggle() {
   const OPEN_CLASS = 'is--open';
@@ -208,14 +240,18 @@ function mobileNavClose() {
   }
 }
 
+document.fonts.ready.then(() => {
+  headerSplit();
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
   globalSwiper();
   accordian();
   hideEmptyButn();
+  mobileNavClose();
 });
 
 window.addEventListener('load', () => {
   textFormating();
-  mobileNavClose();
 });
