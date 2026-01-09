@@ -69,6 +69,14 @@
 
 */
 
+[pill="hero1"] .line {
+    margin: 0rem -0.9rem;
+}
+
+[pill="hero2"] .line-mask .line {
+    margin: 0rem -3.25rem;
+}
+
 @media only screen and (max-width: 500px) {
     [pill="hero1"] .line {
         margin: 0rem -0.9rem;
