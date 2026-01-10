@@ -25,30 +25,35 @@ function individualPage() {
         Longitude: '-0.7898619',
       },
       { Name: 'Liverpool', Latitude: '53.3973117', Longitude: '-2.9966863' },
-      { Name: 'Nottingham', Latitude: '52.9565093', Longitude: '-1.2170722' },
+      { Name: 'Nottingham', Latitude: '52.8891615', Longitude: '-1.2119526' },
       {
         Name: 'Welwyn Garden',
         Latitude: '51.8004995',
         Longitude: '-0.2154367',
       },
       { Name: 'Cheadle', Latitude: '53.3892279', Longitude: '-2.2219235' },
-      { Name: 'Bristol', Latitude: '51.4661608', Longitude: '-2.630469' },
+      { Name: 'Bristol', Latitude: '51.5034318', Longitude: '-2.692053' },
       { Name: 'Batley', Latitude: '53.7177488', Longitude: '-1.649682' },
-      { Name: 'Sheffield', Latitude: '53.3865941', Longitude: '-1.5758543' },
+      { Name: 'Sheffield', Latitude: '53.4060214', Longitude: '-1.4355539' },
       { Name: 'West Drayton', Latitude: '51.5067427', Longitude: '-0.482832' },
       { Name: 'Peterborough', Latitude: '52.5872424', Longitude: '-0.4656888' },
       { Name: 'West Byfleet', Latitude: '51.3359755', Longitude: '-0.5150371' },
       { Name: 'Faringdon', Latitude: '51.6533271', Longitude: '-1.5913673' },
-      { Name: 'Enfield', Latitude: '51.6501606', Longitude: '-0.1515596' },
+      { Name: 'Enfield', Latitude: '51.6770953', Longitude: '-0.0253464' },
       { Name: 'Walthamstow', Latitude: '51.5869295', Longitude: '-0.0364782' },
       { Name: 'Dordon', Latitude: '52.5973413', Longitude: '-1.6361482' },
-      { Name: 'Purfleet', Latitude: '51.4819849', Longitude: '0.2189419,14' },
+      { Name: 'Purfleet', Latitude: '51.4819849', Longitude: '0.2189419' },
       { Name: 'Acton', Latitude: '51.5110082', Longitude: '-0.285113' },
       { Name: 'Merton', Latitude: '51.4108579', Longitude: '-0.2303774' },
       { Name: 'Leeds', Latitude: '53.8060756', Longitude: '-1.6181321' },
       { Name: 'Weybridge', Latitude: '51.3643145', Longitude: '-0.4936076' },
       { Name: 'Wimbledon', Latitude: '51.4273718', Longitude: '-0.2444494' },
       { Name: 'Hatfield', Latitude: '51.7677521', Longitude: '-0.2856383' },
+      { Name: 'Leyton', Latitude: '51.5657024', Longitude: '-0.0441656' },
+      { Name: 'Manchester', Latitude: '53.4722462', Longitude: '-2.3793467' },
+      { Name: 'Oxford', Latitude: '51.7570462', Longitude: '-1.2570928' },
+      { Name: 'Park Royal', Latitude: '51.5303258', Longitude: '-0.2826022' },
+      { Name: 'Knowsley', Latitude: '53.4484602', Longitude: '-2.8639499' },
     ];
 
     const teamCategories = [
@@ -161,7 +166,7 @@ function individualPage() {
 
     const InnerLocations = cities.find((cityName) => {
       const city = cityName?.Name.toLowerCase();
-      console.log(city, bodyAttr);
+      // console.log(city, bodyAttr);
       return city === bodyAttr;
     });
 
@@ -375,7 +380,22 @@ function individualPage() {
     }
 
     getGeoData();
-    if (mapLocations.features.length === 0) {
+
+    //Hiding Map is there is zero jobs
+    let totalJobs = 0;
+    mapLocations.features.forEach((loc) => {
+      const lengthOfJobs = loc.properties.allJobs.length;
+      totalJobs += lengthOfJobs;
+    });
+
+    // if (mapLocations.features.length === 0 && totalJobs === 0) {
+    //   const mapSec = document.querySelector('.map-section');
+    //   mapSec.style.display = 'none';
+    // } else {
+    //   addMapPoints();
+    // }
+
+    if (totalJobs === 0) {
       const mapSec = document.querySelector('.map-section');
       mapSec.style.display = 'none';
     } else {
