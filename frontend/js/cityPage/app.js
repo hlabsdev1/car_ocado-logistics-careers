@@ -40,13 +40,15 @@ function individualPage() {
       { Name: 'West Byfleet', Latitude: '51.3359755', Longitude: '-0.5150371' },
       { Name: 'Faringdon', Latitude: '51.6533271', Longitude: '-1.5913673' },
       { Name: 'Enfield', Latitude: '51.6501606', Longitude: '-0.1515596' },
-      { Name: 'Walthamstow', Latitude: '0', Longitude: '0' },
-      { Name: 'Dordon', Latitude: '0', Longitude: '' },
-      { Name: 'Purfleet', Latitude: '0', Longitude: '' },
-      { Name: 'Acton', Latitude: '0', Longitude: '' },
-      { Name: 'Merton', Latitude: '0', Longitude: '' },
-      { Name: 'Leeds', Latitude: '0', Longitude: '' },
-      { Name: 'Weybridge', Latitude: '0', Longitude: '' },
+      { Name: 'Walthamstow', Latitude: '51.5869295', Longitude: '-0.0364782' },
+      { Name: 'Dordon', Latitude: '52.5973413', Longitude: '-1.6361482' },
+      { Name: 'Purfleet', Latitude: '51.4819849', Longitude: '0.2189419,14' },
+      { Name: 'Acton', Latitude: '51.5110082', Longitude: '-0.285113' },
+      { Name: 'Merton', Latitude: '51.4108579', Longitude: '-0.2303774' },
+      { Name: 'Leeds', Latitude: '53.8060756', Longitude: '-1.6181321' },
+      { Name: 'Weybridge', Latitude: '51.3643145', Longitude: '-0.4936076' },
+      { Name: 'Wimbledon', Latitude: '51.4273718', Longitude: '-0.2444494' },
+      { Name: 'Hatfield', Latitude: '51.7677521', Longitude: '-0.2856383' },
     ];
 
     const teamCategories = [
@@ -155,8 +157,11 @@ function individualPage() {
       city.locations = enrichedMap.get(city.Name) || [];
     });
 
+    // console.log(cities);
+
     const InnerLocations = cities.find((cityName) => {
       const city = cityName?.Name.toLowerCase();
+      console.log(city, bodyAttr);
       return city === bodyAttr;
     });
 
@@ -282,6 +287,8 @@ function individualPage() {
           cityName,
         });
 
+        //------------------------------------------------------------------
+
         // Add event listeners for interactivity
         cityEl.addEventListener('click', () => {
           // map.flyTo({
@@ -300,24 +307,24 @@ function individualPage() {
 
           // console.log("Pin clicked:", id); // Debugging
 
-          const panel = document.getElementById('city-map-card');
-          panel.innerHTML = getPopupHtml(address, jobArray);
-          panel.classList.remove('is--hidden');
+          // const panel = document.getElementById('city-map-card');
+          // panel.innerHTML = getPopupHtml(address, jobArray);
+          // panel.classList.remove('is--hidden');
         });
 
         const jobArray = Array.isArray(allJobs) ? allJobs : [];
         if (!jobArray) return;
 
         // Create a popup
-        // const popup = new mapboxgl.Popup({
-        //   closeButton: true,
-        //   closeOnClick: true,
-        //   //offset: -40,
-        // });
+        const popup = new mapboxgl.Popup({
+          closeButton: true,
+          closeOnClick: true,
+          //offset: -40,
+        });
 
-        // const addingPopup = popup
-        //   .setLngLat(coordinates)
-        //   .setHTML(getPopupHtml(address, jobArray));
+        const addingPopup = popup
+          .setLngLat(coordinates)
+          .setHTML(getPopupHtml(address, jobArray));
 
         function popupMediaQuery() {
           const desktopMedia = window.innerWidth > 991;
@@ -328,7 +335,7 @@ function individualPage() {
             document.querySelectorAll('.mapboxgl-popup').forEach((p) => {
               p.remove();
             });
-            // addingPopup.addTo(map);
+            addingPopup.addTo(map);
             cityEl.style.zIndex = '3';
           });
         }

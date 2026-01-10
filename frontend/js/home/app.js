@@ -1171,7 +1171,10 @@ function individualPage() {
       .forEach(highlightV);
   }
 
+  function homeAnimations() {}
+
   document.addEventListener('DOMContentLoaded', () => {
+    homeAnimations();
     teamCatTab();
   });
 }
