@@ -1,4 +1,5 @@
 function individualPage() {
+  console.log('city page');
   async function init() {
     const data = await getData();
     const locations = await getLocations();
@@ -110,6 +111,7 @@ function individualPage() {
     //Function calling-
     map(dataItems, locations, cities);
     addingCityJobs(allJobs);
+    addingNumToCards();
   }
 
   init();
@@ -489,6 +491,17 @@ function individualPage() {
       //     bulletActiveClass: 'is--active',
       //     clickable: true,
       //   },
+    });
+  }
+
+  function addingNumToCards() {
+    // Test Function
+    const allCards = document.querySelectorAll('.why-join_card');
+    if (!allCards) return;
+
+    allCards.forEach((card, index) => {
+      const tag = card.querySelector('.num-tag');
+      tag.innerHTML = `0${index + 1}`;
     });
   }
 }
