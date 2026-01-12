@@ -108,6 +108,15 @@
     overflow: hidden;
 }
 
+.map-marker.is--city {
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    overflow: visible;
+    box-shadow: 0px 0px 0px 4px #49c5b085
+;
+}
+
 .map-marker.is--inner {
     height: auto;
     aspect-ratio: 64/ 82;
