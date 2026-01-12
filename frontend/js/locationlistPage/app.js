@@ -270,7 +270,8 @@ function individualPage() {
         // imgElement.src = icon;
         const numElement = document.createElement('div');
         numElement.className = 'map-marker-num';
-        numElement.innerHTML = totalJobs;
+        // numElement.innerHTML = totalJobs;
+        numElement.setAttribute('totalJobs', totalJobs);
         cityEl.appendChild(numElement);
 
         cityEl.setAttribute('data-marker-id', `marker-${arrayID}`);
@@ -627,7 +628,7 @@ function individualPage() {
           const badge =
             city.markerEl && city.markerEl.querySelector('.map-marker-num');
           if (city.markerEl) {
-            badge.innerHTML = total;
+            badge.setAttribute('totalJobs', total);
             city.markerEl.style.display = total > 0 ? '' : 'none';
           }
         });
