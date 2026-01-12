@@ -101,15 +101,24 @@ function individualPage() {
   init();
 
   function addingCityJobs(allJobs) {
-    const bodyAttr = document
-      .querySelector('body')
-      .getAttribute('team-category')
-      .toLowerCase();
+    const body = document.querySelector('body');
+    let bodyAttr = body.getAttribute('team-category').toLowerCase();
+
+    let hgvTag = 'HGV/LGV Transport';
+    let lowerHGV = hgvTag.toLowerCase();
+
+    if (bodyAttr === 'lgv drivers') {
+      bodyAttr = lowerHGV;
+      console.log(bodyAttr);
+    }
+
+    console.log(bodyAttr);
 
     // console.log(allJobs);
 
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.Category.toLowerCase();
+      // console.log(city, bodyAttr);
       return city === bodyAttr;
     });
 
