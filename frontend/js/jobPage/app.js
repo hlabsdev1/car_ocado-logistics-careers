@@ -809,6 +809,8 @@ function individualPage() {
 
     contract_Menu.appendChild(contractTypeFragment);
 
+    // console.log(allJobs);
+
     allJobs.forEach((job) => {
       const card = searchTemplate.content.cloneNode(true).children[0];
       card.setAttribute('hs-location', job.subLocation[0]?.City);
@@ -840,6 +842,11 @@ function individualPage() {
       const locButtons = location_Menu.querySelectorAll('li');
       const teamButtons = team_Menu.querySelectorAll('li');
       const contractButtons = contract_Menu.querySelectorAll('li');
+      const prevButn = document.querySelector('.filter-pag-button.is--prev');
+      const nextButn = document.querySelector('.filter-pag-button.is--next');
+      const pageIndicator = document.querySelector('.filter-pagination-page');
+      let currentPage = 1;
+      let itemsPerPage = 6;
 
       let activeFilters = {
         location: [],
@@ -847,10 +854,20 @@ function individualPage() {
         contract: [],
       };
 
+      //Get paginatedJobs helper function
+      function getPaginatedJobs(jobs) {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        return jobs.slice(start, end);
+      }
+
       const addedJobs = filterComp.querySelectorAll('.search-item');
 
+      let currentFilteredJobs = [];
+
       function applyFilters() {
-        let activeJobs = Array.from(addedJobs).filter((item) => {
+        currentPage = 1;
+        currentFilteredJobs = Array.from(addedJobs).filter((item) => {
           const loc_attr = item.getAttribute('hs-location');
           const team_attr = item.getAttribute('hs-team') || '';
           const contract_attr = item.getAttribute('hs-contract') || '';
@@ -870,19 +887,26 @@ function individualPage() {
           return locMatch && teamMatch && contractMatch;
         });
 
-        renderActiveJobs(activeJobs);
+        renderActiveJobs();
       }
 
-      function renderActiveJobs(activeJobs) {
+      // console.log(currentFilteredJobs);
+
+      function renderActiveJobs() {
+        // console.log(activeJobs);
         addedJobs.forEach((item) => {
           item.classList.add('is--hide');
         });
 
-        activeJobs.forEach((item) => {
+        const pageJobs = getPaginatedJobs(currentFilteredJobs);
+
+        pageJobs.forEach((item) => {
           item.classList.remove('is--hide');
         });
 
-        if (activeJobs.length === 0) {
+        updatePaginationUI();
+
+        if (pageJobs.length === 0) {
           noResult.classList.remove('is--hide');
         } else {
           if (!noResult.classList.contains('is--hide')) {
@@ -926,6 +950,29 @@ function individualPage() {
           applyFilters();
         });
       });
+
+      prevButn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderActiveJobs();
+        }
+      });
+      nextButn.addEventListener('click', () => {
+        const totalPages = Math.ceil(currentFilteredJobs.length / itemsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderActiveJobs();
+        }
+      });
+
+      function updatePaginationUI() {
+        const totalPages = Math.ceil(currentFilteredJobs.length / itemsPerPage);
+
+        pageIndicator.textContent = `${currentPage} / ${totalPages || 1}`;
+
+        prevButn.disabled = currentPage === 1;
+        nextButn.disabled = currentPage === totalPages;
+      }
 
       applyFilters();
     }

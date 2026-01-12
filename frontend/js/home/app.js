@@ -987,7 +987,7 @@ function individualPage() {
     const allFilterButns = filters.querySelectorAll('.filter-button');
     allFilterButns[0].classList.add('is--active');
 
-    const MAX_ITEMS = 9;
+    const MAX_ITEMS = 6;
     let initialCount = 0;
 
     let activeJobs = allJobs.map((job) => {
