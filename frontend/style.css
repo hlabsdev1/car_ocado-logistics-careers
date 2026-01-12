@@ -226,6 +226,13 @@
     padding: 10px;
 }
 
+@media only screen and (max-width: 500px) {
+.mapboxgl-ctrl-group {
+    margin: 0 1rem 1rem 0 !important;
+    flex-direction: column-reverse;
+}
+}
+
 
 
 
