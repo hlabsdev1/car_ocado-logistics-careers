@@ -1,4 +1,5 @@
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
+const textEase = 'power4';
 
 const newStyles = `
     width: 100%;
@@ -271,6 +272,127 @@ async function addingFaqToPage() {
   }
 }
 
+function createScrollTrigger(
+  triggerElement,
+  timeline,
+  playValue,
+  reverseValue,
+  markers
+) {
+  // Play tl when scrolled into view (60% from top of screen)
+  ScrollTrigger.create({
+    trigger: triggerElement,
+    start: playValue,
+    markers: markers,
+    once: true,
+    onEnter: () => timeline.play(),
+  });
+}
+
+function globalAnimation() {
+  var Webflow = Webflow || [];
+  Webflow.push(function () {
+    if (Webflow.env('editor') !== undefined) {
+      // Add a class to the body (or other element) when in Editor mode
+      document.body.classList.add('is-editor-mode');
+    } else {
+      document.body.classList.add('is-no-editor');
+    }
+  });
+
+  function heroAnime() {
+    const tl = gsap.timeline({ paused: true, once: true });
+    const sec = document.querySelector('[hero-sec]');
+    if (!sec) return;
+    const pillLines = sec?.querySelectorAll('.line-mask');
+    const items = sec?.querySelectorAll('[hero-items]');
+    const images = sec?.querySelectorAll('.home_hero-img');
+
+    if (pillLines) {
+      tl.to(pillLines, {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        stagger: {
+          amount: 0.3,
+        },
+        ease: textEase,
+      });
+    }
+
+    if (items) {
+      tl.to(
+        items,
+        {
+          opacity: 1,
+          y: '0rem',
+          duration: 1,
+          stagger: {
+            amount: 0.3,
+          },
+          ease: textEase,
+        },
+        '>-0.3'
+      );
+    }
+
+    if (images) {
+      tl.to(
+        images,
+        {
+          scale: 1,
+          duration: 1.5,
+          stagger: {
+            amount: 0.3,
+          },
+          ease: textEase,
+        },
+        '0.5'
+      );
+    }
+
+    tl.play();
+  }
+
+  function fadeupAnime() {
+    const allItems = document.querySelectorAll('[anime-fade-up]');
+    allItems.forEach((item) => {
+      let tl = gsap.timeline({ paused: true });
+      createScrollTrigger(item, tl, 'top 75%', 'top bottom', false);
+
+      tl.from(item, {
+        opacity: 0,
+        y: '2rem',
+        duration: 1.2,
+        ease: textEase,
+      });
+    });
+  }
+  function fadeAnime() {
+    const allItems = document.querySelectorAll('[anime-fade]');
+    allItems.forEach((item) => {
+      let tl = gsap.timeline({ paused: true });
+      createScrollTrigger(item, tl, 'top 75%', 'top bottom', false);
+
+      tl.from(item, {
+        opacity: 0,
+        duration: 1.2,
+        ease: textEase,
+      });
+    });
+  }
+
+  const body = document.querySelector('body');
+  if (body.classList.contains('is-editor-mode')) return;
+
+  document.fonts.ready.then(() => {
+    heroAnime();
+  });
+
+  fadeAnime();
+  fadeupAnime();
+}
+
 document.fonts.ready.then(() => {
   headerSplit();
 });
@@ -286,6 +408,7 @@ document.addEventListener('DOMContentLoaded', function () {
   globalSwiper();
   hideEmptyButn();
   mobileNavClose();
+  globalAnimation();
 });
 
 window.addEventListener('load', () => {

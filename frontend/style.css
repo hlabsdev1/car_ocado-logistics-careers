@@ -6,6 +6,39 @@
 } */
 /* end here */
 
+/* NORMAL ANIME CSS */
+[pill] .line-mask{
+    transform: scale(0);
+    opacity: 0;
+}
+
+[hero-items]{
+    opacity: 0;
+    transform: translateY(2rem)
+}
+
+.home_hero-img {
+    scale: 0;
+}
+
+
+
+/* iF WEBFLOW EDITOR IS ON */
+
+body.is-editor-mode [pill] .line-mask{
+    transform: scale(1);
+    opacity: 1;
+}
+
+body.is-editor-mode [hero-items]{
+    opacity: 1;
+    transform: translateY(0rem)
+}
+
+body.is-editor-mode .home_hero-img {
+    scale: 1;
+}
+
 .kerning-v {
     margin-left: 0.001em;
 }
