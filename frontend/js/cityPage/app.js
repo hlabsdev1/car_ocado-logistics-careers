@@ -406,16 +406,19 @@ function individualPage() {
   }
 
   function addingCityJobs(allJobs) {
-    const bodyAttr = document
-      .querySelector('body')
-      .getAttribute('city-name')
-      .toLowerCase();
+    const body = document.querySelector('body');
+    let bodyAttr = body.getAttribute('city-name');
 
     // console.log(allJobs);
+    if (bodyAttr === 'Purfleet') {
+      bodyAttr = 'South Ockendon';
+
+      console.log(bodyAttr);
+    }
 
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.City.toLowerCase();
-      return city === bodyAttr;
+      return city === bodyAttr.toLowerCase();
     });
 
     const swiperComp = document.querySelector("[swiper-component='city-jobs']");
