@@ -9,7 +9,7 @@ function clickToScroll() {
       allCategory.forEach((cat) => {
         console.log(attr);
         if (cat.getAttribute('team-cat') === attr) {
-          gsap.to(window, { duration: 1, scrollTo: { y: cat, offsetY: 100 } });
+          gsap.to(window, { duration: 1, scrollTo: { y: cat, offsetY: 200 } });
         }
       });
     });
