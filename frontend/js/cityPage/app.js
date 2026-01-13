@@ -412,12 +412,13 @@ function individualPage() {
     // console.log(allJobs);
     if (bodyAttr === 'Purfleet') {
       bodyAttr = 'South Ockendon';
-
-      console.log(bodyAttr);
     }
+
+    // console.log(bodyAttr);
 
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.City.toLowerCase();
+      // console.log(bodyAttr, city);
       return city === bodyAttr.toLowerCase();
     });
 
