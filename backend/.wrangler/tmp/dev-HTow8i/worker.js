@@ -1,0 +1,909 @@
+// .wrangler/tmp/bundle-TRiakm/checked-fetch.js
+var urls = /* @__PURE__ */ new Set();
+function checkURL(request, init) {
+  const url = request instanceof URL ? request : new URL(
+    (typeof request === "string" ? new Request(request, init) : request).url
+  );
+  if (url.port && url.port !== "443" && url.protocol === "https:") {
+    if (!urls.has(url.toString())) {
+      urls.add(url.toString());
+      console.warn(
+        `WARNING: known issue with \`fetch()\` requests to custom HTTPS ports in published Workers:
+ - ${url.toString()} - the custom port will be ignored when the Worker is published using the \`wrangler deploy\` command.
+`
+      );
+    }
+  }
+}
+globalThis.fetch = new Proxy(globalThis.fetch, {
+  apply(target, thisArg, argArray) {
+    const [request, init] = argArray;
+    checkURL(request, init);
+    return Reflect.apply(target, thisArg, argArray);
+  }
+});
+
+// ../../../../../AppData/Roaming/npm/node_modules/wrangler/templates/middleware/common.ts
+var __facade_middleware__ = [];
+function __facade_register__(...args) {
+  __facade_middleware__.push(...args.flat());
+}
+function __facade_invokeChain__(request, env, ctx, dispatch, middlewareChain) {
+  const [head, ...tail] = middlewareChain;
+  const middlewareCtx = {
+    dispatch,
+    next(newRequest, newEnv) {
+      return __facade_invokeChain__(newRequest, newEnv, ctx, dispatch, tail);
+    }
+  };
+  return head(request, env, ctx, middlewareCtx);
+}
+function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
+  return __facade_invokeChain__(request, env, ctx, dispatch, [
+    ...__facade_middleware__,
+    finalMiddleware
+  ]);
+}
+
+// ocado-location.json
+var ocado_location_default = [
+  {
+    "Map Results": "0",
+    Name: "CFC Luton",
+    Code: "OL_LOC_0006",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Panattoni",
+    City: "Luton",
+    "Postal Code": "LU4 9TT",
+    Country: "United Kingdom",
+    Latitude: "51.917729",
+    Logtitude: "-0.4816281",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "1",
+    Name: "Spoke Luton",
+    Code: "OL_LOC_0024",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Panattoni",
+    City: "Luton",
+    "Postal Code": "LU4 9TT",
+    Country: "United Kingdom",
+    Latitude: "51.9177546",
+    Logtitude: "-0.4816281",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "2",
+    Name: "Spoke Erith",
+    Code: "OL_LOC_0021",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Church Manorwa",
+    City: "Erith",
+    "Postal Code": "DA8 1DE",
+    Country: "United Kingdom",
+    Latitude: "51.4930249",
+    Logtitude: "0.165715",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "3",
+    Name: "CFC Bicester",
+    Code: "OL_LOC_0002",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit B, Symmetr",
+    City: "Bicester",
+    "Postal Code": "OX26 6GF",
+    Country: "United Kingdom",
+    Latitude: "51.8814663",
+    Logtitude: "-1.1262772",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "4",
+    Name: "Spoke Andover",
+    Code: "OL_LOC_0015",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "South Way, Walw",
+    City: "Andover",
+    "Postal Code": "SP10 5AF",
+    Country: "United Kingdom",
+    Latitude: "51.2158489",
+    Logtitude: "-1.4544822",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "5",
+    Name: "Spoke Walthamst",
+    Code: "OL_LOC_0033",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Alito House, Arga",
+    City: "London",
+    "Postal Code": "E10 7FD",
+    Country: "United Kingdom",
+    Latitude: "51.5722418",
+    Logtitude: "-0.0371206",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "6",
+    Name: "LGV Erith",
+    Code: "OL_LOC_0013",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Church Manorwa",
+    City: "Erith",
+    "Postal Code": "DA8 1DE",
+    Country: "United Kingdom",
+    Latitude: "51.4930249",
+    Logtitude: "0.165715",
+    Category: "HGV/LGV Transport"
+  },
+  {
+    "Map Results": "7",
+    Name: "LGV Dordon",
+    Code: "OL_LOC_0012",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Danny Morson W",
+    City: "Tamworth",
+    "Postal Code": "B78 1SE",
+    Country: "United Kingdom",
+    Latitude: "52.5935907",
+    Logtitude: "-1.6357924",
+    Category: "HGV/LGV Transport"
+  },
+  {
+    "Map Results": "8",
+    Name: "LGV Purfleet",
+    Code: "OL_LOC_0014",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Purfleet Road",
+    City: "Purfleet",
+    "Postal Code": "RM15 4EW",
+    Country: "United Kingdom",
+    Latitude: "51.5138663",
+    Logtitude: "0.1895943",
+    Category: "HGV/LGV Transport"
+  },
+  {
+    "Map Results": "9",
+    Name: "Zoom Acton",
+    Code: "OL_LOC_0039",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "20 Stirling Road",
+    City: "London",
+    "Postal Code": "W3 8DG",
+    Country: "United Kingdom",
+    Latitude: "51.5018002",
+    Logtitude: "-0.2763387",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "10",
+    Name: "Hybrid UK",
+    Code: "OL_LOC_0043",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Building 1 Triden",
+    City: "Hatfield",
+    "Postal Code": "AL10 9UL",
+    Country: "United Kingdom",
+    Latitude: "51.7680701",
+    Logtitude: "-0.2383363",
+    Category: "Head Office"
+  },
+  {
+    "Map Results": "11",
+    Name: "Spoke Crawley",
+    Code: "OL_LOC_0018",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Whitworth",
+    City: "Crawley",
+    "Postal Code": "RH11 7SS",
+    Country: "United Kingdom",
+    Latitude: "51.1365656",
+    Logtitude: "-0.1917502",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "12",
+    Name: "Spoke Dordon",
+    Code: "OL_LOC_0019",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Danny Morson W",
+    City: "Tamworth",
+    "Postal Code": "B78 1SE",
+    Country: "United Kingdom",
+    Latitude: "52.5935907",
+    Logtitude: "-1.6357924",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "13",
+    Name: "Spoke Milton Keynes",
+    Code: "OL_LOC_0027",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "8 Delaware Drive",
+    City: "Milton Keynes",
+    "Postal Code": "MK15 8HG",
+    Country: "United Kingdom",
+    Latitude: "52.0679192",
+    Logtitude: "-0.7314287",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "14",
+    Name: "Spoke Knowsley",
+    Code: "OL_LOC_0022",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Lees Road, Acad",
+    City: "Liverpool",
+    "Postal Code": "L33 7SA",
+    Country: "United Kingdom",
+    Latitude: "53.4791484",
+    Logtitude: "-2.8713141",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "15",
+    Name: "Trident Place One",
+    Code: "OL_LOC_0037",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Building 1 Triden",
+    City: "Hatfield",
+    "Postal Code": "AL10 9UL",
+    Country: "United Kingdom",
+    Latitude: "51.7680701",
+    Logtitude: "-0.2383363",
+    Category: "Head Office"
+  },
+  {
+    "Map Results": "16",
+    Name: "Spoke Nottingham",
+    Code: "OL_LOC_0049",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit B2,Forester",
+    City: "Nottingham",
+    "Postal Code": "NG11 2AF",
+    Country: "United Kingdom",
+    Latitude: "52.8891615",
+    Logtitude: "-1.2119526",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "17",
+    Name: "LGV Luton",
+    Code: "OL_LOC_0050",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Panattoni",
+    City: "Luton",
+    "Postal Code": "LU4 9TT",
+    Country: "United Kingdom",
+    Latitude: "51.917729",
+    Logtitude: "-0.4816281",
+    Category: "HGV/LGV Transport"
+  },
+  {
+    "Map Results": "18",
+    Name: "Zoom Leyton",
+    Code: "OL_LOC_0042",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Units 2 & 3 Gold",
+    City: "London",
+    "Postal Code": "E10 7FE",
+    Country: "United Kingdom",
+    Latitude: "51.5646143",
+    Logtitude: "-0.0340937",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "19",
+    Name: "CFC Andover",
+    Code: "OL_LOC_0001",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "South Way, Walw",
+    City: "Andover",
+    "Postal Code": "SP10 5AF",
+    Country: "United Kingdom",
+    Latitude: "51.2158489",
+    Logtitude: "-1.4544822",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "20",
+    Name: "LGV Andover",
+    Code: "OL_LOC_0011",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "South Way, Walw",
+    City: "Andover",
+    "Postal Code": "SP10 5AF",
+    Country: "United Kingdom",
+    Latitude: "51.2158489",
+    Logtitude: "-1.4544822",
+    Category: "HGV/LGV Transport"
+  },
+  {
+    "Map Results": "21",
+    Name: "Spoke Park Royal",
+    Code: "OL_LOC_0029",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Origin Bu",
+    City: "London",
+    "Postal Code": "NW10 7FW",
+    Country: "United Kingdom",
+    Latitude: "51.5313911",
+    Logtitude: "-0.2846813",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "22",
+    Name: "Home UK",
+    Code: "OL_LOC_0010",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Building 1 Triden",
+    City: "Hatfield",
+    "Postal Code": "AL10 9UL",
+    Country: "United Kingdom",
+    Latitude: "51.7680701",
+    Logtitude: "-0.2383363",
+    Category: "Head Office"
+  },
+  {
+    "Map Results": "23",
+    Name: "GMDC Erith",
+    Code: "OL_LOC_0008",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "1 Church Manor",
+    City: "Erith",
+    "Postal Code": "DA8 1PQ",
+    Country: "United Kingdom",
+    Latitude: "51.4890912",
+    Logtitude: "0.167019",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "24",
+    Name: "Trident Place Two",
+    Code: "OL_LOC_0038",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Building 2 Triden",
+    City: "Hatfield",
+    "Postal Code": "AL10 9UL",
+    Country: "United Kingdom",
+    Latitude: "51.7680701",
+    Logtitude: "-0.2383363",
+    Category: "Head Office"
+  },
+  {
+    "Map Results": "25",
+    Name: "Spoke Wimbledon",
+    Code: "OL_LOC_0036",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "39-41 Weir Road",
+    City: "London",
+    "Postal Code": "SW19 8UG",
+    Country: "United Kingdom",
+    Latitude: "51.4346312",
+    Logtitude: "-0.2010254",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "26",
+    Name: "Zoom Canning Town",
+    Code: "OL_LOC_0040",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "5C North Cresen",
+    City: "London",
+    "Postal Code": "E16 4TG",
+    Country: "United Kingdom",
+    Latitude: "51.5241787",
+    Logtitude: "-0.0043404",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "27",
+    Name: "GMDC Welwyn",
+    Code: "OL_LOC_0009",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Aquarius House,",
+    City: "Welwyn Garden",
+    "Postal Code": "AL7 1HH",
+    Country: "United Kingdom",
+    Latitude: "51.8038573",
+    Logtitude: "-0.1985253",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "28",
+    Name: "Spoke Manchester",
+    Code: "OL_LOC_0025",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit D5, Comme",
+    City: "Cheadle",
+    "Postal Code": "SK8 6QH",
+    Country: "United Kingdom",
+    Latitude: "53.3534735",
+    Logtitude: "-2.2057892",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "29",
+    Name: "CFC Bristol",
+    Code: "OL_LOC_0003",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 15, Access 1",
+    City: "Bristol",
+    "Postal Code": "BS11 8AZ",
+    Country: "United Kingdom",
+    Latitude: "51.511953",
+    Logtitude: "-2.6840311",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "30",
+    Name: "CFC Purfleet",
+    Code: "OL_LOC_0007",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Purfleet Road",
+    City: "Purfleet",
+    "Postal Code": "RM15 4EW",
+    Country: "United Kingdom",
+    Latitude: "51.4980258",
+    Logtitude: "0.2297335",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "31",
+    Name: "Spoke Merton",
+    Code: "OL_LOC_0026",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit 1, Merton In",
+    City: "London",
+    "Postal Code": "SW19 3HX",
+    Country: "United Kingdom",
+    Latitude: "51.4122001",
+    Logtitude: "-0.1914294",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "32",
+    Name: "Spoke Purfleet",
+    Code: "OL_LOC_0031",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Purfleet Road",
+    City: "Purfleet",
+    "Postal Code": "RM15 4EW",
+    Country: "United Kingdom",
+    Latitude: "51.4980258",
+    Logtitude: "0.2297335",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "33",
+    Name: "CFC Erith",
+    Code: "OL_LOC_0005",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Church Manorwa",
+    City: "Erith",
+    "Postal Code": "DA8 1DE",
+    Country: "United Kingdom",
+    Latitude: "51.4930249",
+    Logtitude: "0.165715",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "34",
+    Name: "CFC Dordon",
+    Code: "OL_LOC_0004",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Danny Morson W",
+    City: "Tamworth",
+    "Postal Code": "B78 1SE",
+    Country: "United Kingdom",
+    Latitude: "52.5935907",
+    Logtitude: "-1.6357924",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "35",
+    Name: "Spoke Leeds",
+    Code: "OL_LOC_0023",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit J, Springwel",
+    City: "Batley",
+    "Postal Code": "WF17 9LW",
+    Country: "United Kingdom",
+    Latitude: "53.7395884",
+    Logtitude: "-1.6569327",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "36",
+    Name: "Spoke Sheffield",
+    Code: "OL_LOC_0032",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "10 Chambers La",
+    City: "Sheffield",
+    "Postal Code": "S4 8DA",
+    Country: "United Kingdom",
+    Latitude: "53.4060214",
+    Logtitude: "-1.4355539",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "37",
+    Name: "Spoke West Drayt",
+    Code: "OL_LOC_0034",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Stockley Close",
+    City: "West Drayton",
+    "Postal Code": "UB7 9BL",
+    Country: "United Kingdom",
+    Latitude: "51.5048165",
+    Logtitude: "-0.4498799",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "38",
+    Name: "Spoke Bristol",
+    Code: "OL_LOC_0017",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Avonmouth Way",
+    City: "Bristol",
+    "Postal Code": "BS11 9EA",
+    Country: "United Kingdom",
+    Latitude: "51.5034318",
+    Logtitude: "-2.692053",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "39",
+    Name: "Spoke Peterborough",
+    Code: "OL_LOC_0030",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "3 Whitehead Driv",
+    City: "Peterborough",
+    "Postal Code": "PE1 5BF",
+    Country: "United Kingdom",
+    Latitude: "52.5693504",
+    Logtitude: "-0.2146538",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "40",
+    Name: "Spoke Weybridge",
+    Code: "OL_LOC_0035",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Canada Road",
+    City: "West Byfleet",
+    "Postal Code": "KT14 7LB",
+    Country: "United Kingdom",
+    Latitude: "51.3475427",
+    Logtitude: "-0.4931859",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "41",
+    Name: "Spoke Oxford",
+    Code: "OL_LOC_0028",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "8-9 Whitehorse B",
+    City: "Faringdon",
+    "Postal Code": "SN7 8NY",
+    Country: "United Kingdom",
+    Latitude: "51.6341752",
+    Logtitude: "-1.5354347",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "42",
+    Name: "Spoke Bicester",
+    Code: "OL_LOC_0016",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit B, Symmetr",
+    City: "Bicester",
+    "Postal Code": "OX26 6GF",
+    Country: "United Kingdom",
+    Latitude: "51.8814663",
+    Logtitude: "-1.1262772",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "43",
+    Name: "Spoke Enfield",
+    Code: "OL_LOC_0020",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "3 Solar Way",
+    City: "Enfield",
+    "Postal Code": "EN3 7XY",
+    Country: "United Kingdom",
+    Latitude: "51.6770953",
+    Logtitude: "-0.0253464",
+    Category: "Customer Delivery"
+  },
+  {
+    "Map Results": "44",
+    Name: "GMDC Erith",
+    Code: "OL_LOC_0008",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "1 Church ManorwayErith",
+    City: "Enfield",
+    "Postal Code": "DA8 1PQ",
+    Country: "United Kingdom",
+    Latitude: "51.6770953",
+    Logtitude: "-0.0253464",
+    Category: "Warehouse"
+  },
+  {
+    "Map Results": "45",
+    Name: "GMDC Welwyn",
+    Code: "OL_LOC_0009",
+    "Location Set": "Common Set",
+    Status: "Active",
+    "ending Change": "No",
+    "Address Line 1": "Aquarius House, BWessemer elwyn Garden Road CitAL7 y 1HH",
+    City: "Enfield",
+    "Postal Code": "EN3 7XY",
+    Country: "United Kingdom",
+    Latitude: "51.6770953",
+    Logtitude: "-0.0253464",
+    Category: "Warehouse"
+  }
+];
+
+// src/worker.js
+var corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+function jsonResponse(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      ...corsHeaders
+    }
+  });
+}
+var worker_default = {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const { pathname } = url;
+    if (request.method === "OPTIONS") {
+      return new Response(null, { headers: corsHeaders });
+    }
+    if (pathname === "/api/jobs" && request.method === "GET") {
+      try {
+        const r = await fetch(env.API_KEY);
+        if (!r.ok) {
+          return jsonResponse(
+            { error: `Upstream error ${r.status}` },
+            r.status
+          );
+        }
+        const data = await r.json();
+        return jsonResponse(data);
+      } catch (err) {
+        return jsonResponse({ error: err.message || "Proxy error" }, 500);
+      }
+    }
+    if (pathname === "/api/location" && request.method === "GET") {
+      return jsonResponse(ocado_location_default);
+    }
+    return new Response("Not found", { status: 404 });
+  }
+};
+
+// ../../../../../AppData/Roaming/npm/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts
+function reduceError(e) {
+  return {
+    name: e?.name,
+    message: e?.message ?? String(e),
+    stack: e?.stack,
+    cause: e?.cause === void 0 ? void 0 : reduceError(e.cause)
+  };
+}
+var jsonError = async (request, env, _ctx, middlewareCtx) => {
+  try {
+    return await middlewareCtx.next(request, env);
+  } catch (e) {
+    const error = reduceError(e);
+    return Response.json(error, {
+      status: 500,
+      headers: { "MF-Experimental-Error-Stack": "true" }
+    });
+  }
+};
+var middleware_miniflare3_json_error_default = jsonError;
+var wrap = void 0;
+
+// .wrangler/tmp/bundle-TRiakm/middleware-insertion-facade.js
+var envWrappers = [wrap].filter(Boolean);
+var facade = {
+  ...worker_default,
+  envWrappers,
+  middleware: [
+    middleware_miniflare3_json_error_default,
+    ...worker_default.middleware ? worker_default.middleware : []
+  ].filter(Boolean)
+};
+var middleware_insertion_facade_default = facade;
+
+// .wrangler/tmp/bundle-TRiakm/middleware-loader.entry.ts
+var __Facade_ScheduledController__ = class {
+  constructor(scheduledTime, cron, noRetry) {
+    this.scheduledTime = scheduledTime;
+    this.cron = cron;
+    this.#noRetry = noRetry;
+  }
+  #noRetry;
+  noRetry() {
+    if (!(this instanceof __Facade_ScheduledController__)) {
+      throw new TypeError("Illegal invocation");
+    }
+    this.#noRetry();
+  }
+};
+var __facade_modules_fetch__ = function(request, env, ctx) {
+  if (middleware_insertion_facade_default.fetch === void 0)
+    throw new Error("Handler does not export a fetch() function.");
+  return middleware_insertion_facade_default.fetch(request, env, ctx);
+};
+function getMaskedEnv(rawEnv) {
+  let env = rawEnv;
+  if (middleware_insertion_facade_default.envWrappers && middleware_insertion_facade_default.envWrappers.length > 0) {
+    for (const wrapFn of middleware_insertion_facade_default.envWrappers) {
+      env = wrapFn(env);
+    }
+  }
+  return env;
+}
+var registeredMiddleware = false;
+var facade2 = {
+  ...middleware_insertion_facade_default.tail && {
+    tail: maskHandlerEnv(middleware_insertion_facade_default.tail)
+  },
+  ...middleware_insertion_facade_default.trace && {
+    trace: maskHandlerEnv(middleware_insertion_facade_default.trace)
+  },
+  ...middleware_insertion_facade_default.scheduled && {
+    scheduled: maskHandlerEnv(middleware_insertion_facade_default.scheduled)
+  },
+  ...middleware_insertion_facade_default.queue && {
+    queue: maskHandlerEnv(middleware_insertion_facade_default.queue)
+  },
+  ...middleware_insertion_facade_default.test && {
+    test: maskHandlerEnv(middleware_insertion_facade_default.test)
+  },
+  ...middleware_insertion_facade_default.email && {
+    email: maskHandlerEnv(middleware_insertion_facade_default.email)
+  },
+  fetch(request, rawEnv, ctx) {
+    const env = getMaskedEnv(rawEnv);
+    if (middleware_insertion_facade_default.middleware && middleware_insertion_facade_default.middleware.length > 0) {
+      if (!registeredMiddleware) {
+        registeredMiddleware = true;
+        for (const middleware of middleware_insertion_facade_default.middleware) {
+          __facade_register__(middleware);
+        }
+      }
+      const __facade_modules_dispatch__ = function(type, init) {
+        if (type === "scheduled" && middleware_insertion_facade_default.scheduled !== void 0) {
+          const controller = new __Facade_ScheduledController__(
+            Date.now(),
+            init.cron ?? "",
+            () => {
+            }
+          );
+          return middleware_insertion_facade_default.scheduled(controller, env, ctx);
+        }
+      };
+      return __facade_invoke__(
+        request,
+        env,
+        ctx,
+        __facade_modules_dispatch__,
+        __facade_modules_fetch__
+      );
+    } else {
+      return __facade_modules_fetch__(request, env, ctx);
+    }
+  }
+};
+function maskHandlerEnv(handler) {
+  return (data, env, ctx) => handler(data, getMaskedEnv(env), ctx);
+}
+var middleware_loader_entry_default = facade2;
+export {
+  middleware_loader_entry_default as default
+};
+//# sourceMappingURL=worker.js.map
