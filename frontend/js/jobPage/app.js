@@ -61,6 +61,7 @@ function individualPage() {
     //Function calling-
     map(dataItems, locations, cities);
     latestJobs(allJobs);
+    await globalScrollAnimation();
   }
 
   init();

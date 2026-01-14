@@ -61,6 +61,7 @@ function individualPage() {
     //Function calling-
     addingCityJobs(allJobs);
     sectionHideIfEmpty();
+    await globalScrollAnimation();
   }
 
   init();

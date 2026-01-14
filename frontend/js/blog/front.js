@@ -64,4 +64,5 @@ var Webflow = Webflow || [];
 
 Webflow.push(function () {
   blogFilters();
+  globalScrollAnimation();
 });

@@ -17,3 +17,4 @@ function clickToScroll() {
 }
 
 clickToScroll();
+await globalScrollAnimation();

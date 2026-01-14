@@ -60,6 +60,7 @@ function individualPage() {
 
     //Function calling-
     map(dataItems, locations, cities);
+    await globalScrollAnimation();
   }
 
   init();

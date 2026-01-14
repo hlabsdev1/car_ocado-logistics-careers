@@ -62,6 +62,7 @@ function individualPage() {
     //Function calling-
     map(dataItems, locations, cities);
     addingCityJobs(allJobs);
+    await globalScrollAnimation();
     addingNumToCards();
   }
 

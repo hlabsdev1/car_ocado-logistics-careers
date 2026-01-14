@@ -1,7 +1,5 @@
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(SplitText);
 const textEase = 'power4';
-
-window.ScrollTrigger = ScrollTrigger;
 
 const newStyles = `
     width: 100%;
@@ -292,6 +290,7 @@ function createScrollTrigger(
 }
 
 function globalHeaderAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
   var Webflow = Webflow || [];
   Webflow.push(function () {
     if (Webflow.env('editor') !== undefined) {
@@ -361,7 +360,8 @@ function globalHeaderAnimation() {
   heroAnime();
 }
 
-function globalScrollAnimation() {
+async function globalScrollAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
   var Webflow = Webflow || [];
   Webflow.push(function () {
     if (Webflow.env('editor') !== undefined) {
@@ -407,7 +407,7 @@ function globalScrollAnimation() {
   fadeupAnime();
 }
 
-window.globalScrollAnimation = globalHeaderAnimation;
+window.globalScrollAnimation = globalScrollAnimation;
 
 document.fonts.ready.then(() => {
   headerSplit();

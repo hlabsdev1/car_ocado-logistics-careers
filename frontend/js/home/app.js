@@ -64,6 +64,8 @@ function individualPage() {
     search(allJobs);
     latestJobs(allJobs);
 
+    await globalScrollAnimation();
+
     //Calling v text formating
     await markDivsWithDirectText();
     await formatingV_Text();
@@ -1137,7 +1139,6 @@ function individualPage() {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    globalScrollAnimation();
     teamCatTab();
   });
 }

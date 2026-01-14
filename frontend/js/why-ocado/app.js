@@ -35,4 +35,5 @@ function storySlider() {
 
 document.addEventListener('DOMContentLoaded', function () {
   storySlider();
+  globalScrollAnimation();
 });
