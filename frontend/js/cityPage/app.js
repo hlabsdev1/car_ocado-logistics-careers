@@ -360,16 +360,9 @@ function individualPage() {
     const body = document.querySelector('body');
     let bodyAttr = body.getAttribute('city-name');
 
-    // console.log(allJobs);
-    if (bodyAttr === 'Purfleet') {
-      bodyAttr = 'South Ockendon';
-    }
-
-    // console.log(bodyAttr);
-
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.City.toLowerCase();
-      // console.log(bodyAttr, city);
+      console.log(bodyAttr, city);
       return city === bodyAttr.toLowerCase();
     });
 

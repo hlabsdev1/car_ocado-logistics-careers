@@ -1136,10 +1136,8 @@ function individualPage() {
       .forEach(highlightV);
   }
 
-  function homeAnimations() {}
-
   document.addEventListener('DOMContentLoaded', () => {
-    homeAnimations();
+    globalScrollAnimation();
     teamCatTab();
   });
 }

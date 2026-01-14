@@ -1,6 +1,8 @@
 gsap.registerPlugin(SplitText, ScrollTrigger);
 const textEase = 'power4';
 
+window.ScrollTrigger = ScrollTrigger;
+
 const newStyles = `
     width: 100%;
     display: flex;
@@ -289,7 +291,7 @@ function createScrollTrigger(
   });
 }
 
-function globalAnimation() {
+function globalHeaderAnimation() {
   var Webflow = Webflow || [];
   Webflow.push(function () {
     if (Webflow.env('editor') !== undefined) {
@@ -299,7 +301,6 @@ function globalAnimation() {
       document.body.classList.add('is-no-editor');
     }
   });
-
   function heroAnime() {
     const tl = gsap.timeline({ paused: true, once: true });
     const sec = document.querySelector('[hero-sec]');
@@ -354,6 +355,23 @@ function globalAnimation() {
     tl.play();
   }
 
+  const body = document.querySelector('body');
+  if (body.classList.contains('is-editor-mode')) return;
+
+  heroAnime();
+}
+
+function globalScrollAnimation() {
+  var Webflow = Webflow || [];
+  Webflow.push(function () {
+    if (Webflow.env('editor') !== undefined) {
+      // Add a class to the body (or other element) when in Editor mode
+      document.body.classList.add('is-editor-mode');
+    } else {
+      document.body.classList.add('is-no-editor');
+    }
+  });
+
   function fadeupAnime() {
     const allItems = document.querySelectorAll('[anime-fade-up]');
     allItems.forEach((item) => {
@@ -385,16 +403,15 @@ function globalAnimation() {
   const body = document.querySelector('body');
   if (body.classList.contains('is-editor-mode')) return;
 
-  document.fonts.ready.then(() => {
-    heroAnime();
-  });
-
   fadeAnime();
   fadeupAnime();
 }
 
+window.globalScrollAnimation = globalHeaderAnimation;
+
 document.fonts.ready.then(() => {
   headerSplit();
+  globalHeaderAnimation();
 });
 
 //only for FAQs and accordian
@@ -408,7 +425,6 @@ document.addEventListener('DOMContentLoaded', function () {
   globalSwiper();
   hideEmptyButn();
   mobileNavClose();
-  globalAnimation();
 });
 
 window.addEventListener('load', () => {
