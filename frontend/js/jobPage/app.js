@@ -705,6 +705,7 @@ function individualPage() {
     const contract_Menu = filterComp.querySelector(
       ".filter-dropdown[map-filter='contract-type'] .filter-tab-menu"
     );
+    const jobsCount = filterComp.querySelector('#jobs-num');
 
     const noResult = resultContainer.querySelector('.listing-no-result-card');
     const searchTemplate = document.getElementById('search-template');
@@ -829,6 +830,8 @@ function individualPage() {
       }
 
       const addedJobs = filterComp.querySelectorAll('.search-item');
+      let totalJobs = addedJobs.length;
+      let currentJobShowing = 0;
 
       let currentFilteredJobs = [];
 
@@ -865,8 +868,10 @@ function individualPage() {
           item.classList.add('is--hide');
         });
 
-        const pageJobs = getPaginatedJobs(currentFilteredJobs);
+        currentJobShowing = currentFilteredJobs.length;
+        jobsCount.innerHTML = `${currentJobShowing} / ${totalJobs}`;
 
+        const pageJobs = getPaginatedJobs(currentFilteredJobs);
         pageJobs.forEach((item) => {
           item.classList.remove('is--hide');
         });
