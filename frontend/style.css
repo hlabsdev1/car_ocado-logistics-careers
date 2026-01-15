@@ -25,17 +25,17 @@
 
 /* iF WEBFLOW EDITOR IS ON */
 
-body.is-editor-mode [pill] .line-mask{
+html.w-editor [pill] .line-mask{
     transform: scale(1);
     opacity: 1;
 }
 
-body.is-editor-mode [hero-items]{
+html.w-editor [hero-items]{
     opacity: 1;
     transform: translateY(0rem)
 }
 
-body.is-editor-mode .home_hero-img {
+html.w-editor .home_hero-img {
     scale: 1;
 }
 
