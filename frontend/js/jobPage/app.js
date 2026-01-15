@@ -693,7 +693,7 @@ function individualPage() {
 
     const filterComp = document.querySelector('[hs-list-element="job-page"]');
     const filters = filterComp.querySelector('[hs-list-element="filter"]');
-    const resultContainParent = filterComp.querySelector(
+    const resultContainerParent = filterComp.querySelector(
       '.listing_result-parent'
     );
     const resultContainer = filterComp.querySelector(
@@ -710,9 +710,11 @@ function individualPage() {
     );
     const jobsCount = filterComp.querySelector('#jobs-num');
 
-    const noResult = resultContainer.querySelector('.listing-no-result-card');
+    const noResult = filterComp.querySelector('.listing-no-result-card');
     const searchTemplate = document.getElementById('search-template');
     const filter_li = document.createElement('li');
+
+    // console.log(resultContainerParent);
 
     //All Buttons
     const createAllBtn = (attr, value) => {
@@ -813,9 +815,18 @@ function individualPage() {
       const locButtons = location_Menu.querySelectorAll('li');
       const teamButtons = team_Menu.querySelectorAll('li');
       const contractButtons = contract_Menu.querySelectorAll('li');
-      const prevButn = document.querySelector('.filter-pag-button.is--prev');
-      const nextButn = document.querySelector('.filter-pag-button.is--next');
-      const pageIndicator = document.querySelector('.filter-pagination-page');
+      const paginationWrap = filterComp.querySelector(
+        '.filter-pagination-wrap'
+      );
+      const prevButn = paginationWrap.querySelector(
+        '.filter-pag-button.is--prev'
+      );
+      const nextButn = paginationWrap.querySelector(
+        '.filter-pag-button.is--next'
+      );
+      const pageIndicator = paginationWrap.querySelector(
+        '.filter-pagination-page'
+      );
       let currentPage = 1;
       let itemsPerPage = 6;
 
@@ -883,11 +894,13 @@ function individualPage() {
 
         if (pageJobs.length === 0) {
           noResult.classList.remove('is--hide');
-          resultContainParent.classList.add('is--no-jobs');
+          resultContainerParent.classList.add('is--no-jobs');
+          paginationWrap.classList.add('is--hide');
         } else {
           if (!noResult.classList.contains('is--hide')) {
             noResult.classList.add('is--hide');
-            resultContainParent.classList.remove('is--no-jobs');
+            resultContainerParent.classList.remove('is--no-jobs');
+            paginationWrap.classList.remove('is--hide');
           }
         }
       }
@@ -932,6 +945,7 @@ function individualPage() {
         if (currentPage > 1) {
           currentPage--;
           renderActiveJobs();
+          scrollUponClick();
         }
       });
       nextButn.addEventListener('click', () => {
@@ -939,6 +953,7 @@ function individualPage() {
         if (currentPage < totalPages) {
           currentPage++;
           renderActiveJobs();
+          scrollUponClick();
         }
       });
 
@@ -949,6 +964,19 @@ function individualPage() {
 
         prevButn.disabled = currentPage === 1;
         nextButn.disabled = currentPage === totalPages;
+      }
+
+      function scrollUponClick() {
+        if (filterComp) {
+          const offset = 100;
+          const elementPosition = filterComp.getBoundingClientRect().top;
+          const offsetPos = elementPosition + window.scrollY - offset;
+
+          window.scrollTo({
+            top: offsetPos,
+            behavior: 'smooth',
+          });
+        }
       }
 
       applyFilters();
