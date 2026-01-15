@@ -880,9 +880,11 @@ function individualPage() {
 
         if (pageJobs.length === 0) {
           noResult.classList.remove('is--hide');
+          resultContainer.classList.add('is--no-jobs');
         } else {
           if (!noResult.classList.contains('is--hide')) {
             noResult.classList.add('is--hide');
+            resultContainer.classList.remove('is--no-jobs');
           }
         }
       }
