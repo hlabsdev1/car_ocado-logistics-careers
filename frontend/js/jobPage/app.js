@@ -693,6 +693,9 @@ function individualPage() {
 
     const filterComp = document.querySelector('[hs-list-element="job-page"]');
     const filters = filterComp.querySelector('[hs-list-element="filter"]');
+    const resultContainParent = filterComp.querySelector(
+      '.listing_result-parent'
+    );
     const resultContainer = filterComp.querySelector(
       '[hs-list-element="list"]'
     );
@@ -880,11 +883,11 @@ function individualPage() {
 
         if (pageJobs.length === 0) {
           noResult.classList.remove('is--hide');
-          resultContainer.classList.add('is--no-jobs');
+          resultContainParent.classList.add('is--no-jobs');
         } else {
           if (!noResult.classList.contains('is--hide')) {
             noResult.classList.add('is--hide');
-            resultContainer.classList.remove('is--no-jobs');
+            resultContainParent.classList.remove('is--no-jobs');
           }
         }
       }
