@@ -291,15 +291,7 @@ function createScrollTrigger(
 
 function globalHeaderAnimation() {
   gsap.registerPlugin(ScrollTrigger);
-  // var Webflow = Webflow || [];
-  // Webflow.push(function () {
-  //   if (Webflow.env('editor') !== undefined) {
-  //     // Add a class to the body (or other element) when in Editor mode
-  //     document.body.classList.add('is-editor-mode');
-  //   } else {
-  //     document.body.classList.add('is-no-editor');
-  //   }
-  // });
+
   function heroAnime() {
     const tl = gsap.timeline({ paused: true, once: true });
     const sec = document.querySelector('[hero-sec]');
@@ -362,15 +354,6 @@ function globalHeaderAnimation() {
 
 async function globalScrollAnimation() {
   gsap.registerPlugin(ScrollTrigger);
-  var Webflow = Webflow || [];
-  Webflow.push(function () {
-    if (Webflow.env('editor') !== undefined) {
-      // Add a class to the body (or other element) when in Editor mode
-      document.body.classList.add('is-editor-mode');
-    } else {
-      document.body.classList.add('is-no-editor');
-    }
-  });
 
   function fadeupAnime() {
     const allItems = document.querySelectorAll('[anime-fade-up]');
@@ -400,8 +383,8 @@ async function globalScrollAnimation() {
     });
   }
 
-  const body = document.querySelector('body');
-  if (body.classList.contains('is-editor-mode')) return;
+  const html = document.querySelector('html');
+  if (html.classList.contains('w-editor')) return;
 
   fadeAnime();
   fadeupAnime();
