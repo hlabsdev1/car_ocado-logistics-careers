@@ -295,6 +295,10 @@ html.w-editor .home_hero-img {
     display: block;
 }
 
+.filter-tab-links.is-active {
+    background-color: var(--_palette---teal);
+}
+
 /* SEARCH COMOPONENT */
 .search-input-wrap input:focus {
     /* border: 2px green solid; */

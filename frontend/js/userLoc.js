@@ -7,6 +7,7 @@
 const geoButn = document.querySelectorAll('[get-userloc]');
 const mapLayer = document.querySelector('.ma-get_loc-wrap');
 const searchLocation = document.querySelectorAll('.search-utils-location');
+const homeMap = document.querySelector('[home-map]');
 let userLat, userLang;
 function success(position) {
   // console.log('GetCurrentPos', position);
@@ -122,6 +123,14 @@ function setUserCoordsToMap(map) {
         await getLocation();
         wait();
         map.setCenter([userLang, userLat]);
+        if (homeMap) {
+          const mapElementPos = homeMap.getBoundingClientRect().top;
+          const offsetMap = mapElementPos + window.scrollY - 100;
+          window.scrollTo({
+            top: offsetMap,
+            behavior: 'smooth',
+          });
+        }
       } catch (err) {
         console.warn('User location not available on click:', err);
         if (err && err.code === err.PERMISSION_DENIED) {

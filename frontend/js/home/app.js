@@ -82,9 +82,7 @@ function individualPage() {
       'pk.eyJ1IjoiaGxhYnMiLCJhIjoiY2w1d2JqeHZlMGR6eTNibTViZ3czc28ycyJ9.p5A4twIQJID-f1Tci32wWA';
     const hStyle = 'mapbox://styles/hlabs/cmj7a440w000f01s929gs8c9d';
     const searchTemplate = document.getElementById('search-template');
-
-    const userCoords = [userLang, userLat];
-    console.log(userCoords);
+    const initMapCoords = [-2.19842, 51.8206118];
 
     // console.log(mainListItems);
 
@@ -102,7 +100,7 @@ function individualPage() {
     const map = new mapboxgl.Map({
       container: mapCanva,
       style: hStyle,
-      center: [-2.19842, 51.8206118], //28.334115149095556, -81.50494910779616
+      center: initMapCoords, //28.334115149095556, -81.50494910779616
       // zoom: 4.0,
       zoom: isMobile ? 6.1 : 6.1, // Different zoom for mobile
       minZoom: 5,
@@ -289,6 +287,7 @@ function individualPage() {
             cityName,
             cityCategories,
             cityTeamCategories,
+            coordinates,
           });
         } else {
           cityMarkers.push({
@@ -299,6 +298,7 @@ function individualPage() {
             cityName,
             cityCategories,
             cityTeamCategories,
+            coordinates,
           });
         }
 
@@ -477,10 +477,13 @@ function individualPage() {
     const cloneAllButn3 = filter_link.cloneNode(true);
     cloneAllButn1.innerHTML = 'All';
     cloneAllButn1.setAttribute('location-name', 'all');
+    cloneAllButn1.classList.add('is-active');
     cloneAllButn2.innerHTML = 'All';
     cloneAllButn2.setAttribute('category-name', 'all');
+    cloneAllButn2.classList.add('is-active');
     cloneAllButn3.innerHTML = 'All';
     cloneAllButn3.setAttribute('team-category-name', 'all');
+    cloneAllButn3.classList.add('is-active');
     location_Menu.append(cloneAllButn1);
     category_Menu.append(cloneAllButn2);
     teamCategory_Menu.append(cloneAllButn3);
@@ -635,10 +638,20 @@ function individualPage() {
       locationLinks.forEach((link) => {
         link.addEventListener('click', () => {
           const attr = link.getAttribute('location-name');
+          //Toggling active Class
+          locationLinks.forEach((e) => {
+            if (e.classList.contains('is-active')) {
+              e.classList.remove('is-active');
+            }
+          });
+          link.classList.add('is-active');
+          //Adding Filter function
           if (attr === 'all') {
             activeFilters.location = [];
+            flyBackToInit();
           } else {
             activeFilters.location = attr;
+            flyToCity(attr);
           }
           applyFilters();
         });
@@ -657,6 +670,14 @@ function individualPage() {
       teamCategoryLinks.forEach((link) => {
         link.addEventListener('click', () => {
           const attr = link.getAttribute('team-category-name');
+          //Toggling active Class
+          teamCategoryLinks.forEach((e) => {
+            if (e.classList.contains('is-active')) {
+              e.classList.remove('is-active');
+            }
+          });
+          link.classList.add('is-active');
+          //Adding Filter function
           if (attr === 'all') {
             activeFilters.teamCategory = [];
           } else {
@@ -680,6 +701,31 @@ function individualPage() {
           marker.markerEl.style.display = 'block';
         });
         // console.log(innerMarker);
+      }
+
+      //Fly to city when clicking on cities
+      function flyToCity(attr) {
+        const filterButnAttr = attr;
+        cityMarkers.forEach((item) => {
+          const cityName = item.cityName;
+          if (cityName === filterButnAttr) {
+            map.flyTo({
+              center: item.coordinates,
+              speed: 0.5,
+              curve: 1,
+              zoom: 9,
+            });
+          }
+        });
+      }
+
+      //Fly back to initial Position of Map
+      function flyBackToInit() {
+        map.flyTo({
+          center: initMapCoords,
+          speed: 0.5,
+          zoom: isMobile ? 6.1 : 6.1,
+        });
       }
 
       applyFilters();
