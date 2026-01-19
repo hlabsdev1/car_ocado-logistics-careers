@@ -84,6 +84,7 @@ function individualPage() {
     const searchTemplate = document.getElementById('search-template');
 
     const userCoords = [userLang, userLat];
+    console.log(userCoords);
 
     // console.log(mainListItems);
 
@@ -101,7 +102,7 @@ function individualPage() {
     const map = new mapboxgl.Map({
       container: mapCanva,
       style: hStyle,
-      center: userLat && userLang ? userCoords : [-2.19842, 51.8206118], //28.334115149095556, -81.50494910779616
+      center: [-2.19842, 51.8206118], //28.334115149095556, -81.50494910779616
       // zoom: 4.0,
       zoom: isMobile ? 6.1 : 6.1, // Different zoom for mobile
       minZoom: 5,
@@ -689,6 +690,12 @@ function individualPage() {
     // initFilterToggle();
     filteringSystem();
     setUserCoordsToMap(map);
+
+    window.addEventListener('user:locationReady', (e) => {
+      const { lat, lng } = e.detail;
+      // console.log('User location ready:', lat, lng);
+      map.setCenter([lng, lat]);
+    });
   }
 
   function search(allJobs) {

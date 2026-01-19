@@ -9,7 +9,7 @@ const mapLayer = document.querySelector('.ma-get_loc-wrap');
 const searchLocation = document.querySelectorAll('.search-utils-location');
 let userLat, userLang;
 function success(position) {
-  console.log('GetCurrentPos', position);
+  // console.log('GetCurrentPos', position);
   userLat = position.coords.latitude;
   userLang = position.coords.longitude;
 
@@ -27,6 +27,12 @@ function success(position) {
         loc.style.opacity = '0';
       });
     }
+
+    window.dispatchEvent(
+      new CustomEvent('user:locationReady', {
+        detail: { lat: userLat, lng: userLang },
+      })
+    );
   }
 }
 
