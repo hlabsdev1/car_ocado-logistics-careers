@@ -14,21 +14,22 @@ function success(position) {
   userLat = position.coords.latitude;
   userLang = position.coords.longitude;
 
+  window.__USER_LOCATION__ = {
+    lat: userLat,
+    lng: userLang,
+  };
+
   if (userLat !== undefined && userLang !== undefined) {
+    console.log('all good');
     if (mapLayer) {
       mapLayer.classList.add('is--hide');
     }
     if (geoButn) {
       geoButn.forEach((butn) => {
         butn.style.pointerEvents = 'none';
+        butn.style.opacity = '0';
       });
     }
-    if (searchLocation) {
-      searchLocation.forEach((loc) => {
-        loc.style.opacity = '0';
-      });
-    }
-
     window.dispatchEvent(
       new CustomEvent('user:locationReady', {
         detail: { lat: userLat, lng: userLang },
@@ -114,15 +115,57 @@ function wait() {
   console.log('what the heck?');
 }
 
+function drawRadiusCircle(map, lng, lat) {
+  const circle = turf.circle([lng, lat], 50, {
+    units: 'miles',
+    steps: 64,
+  });
+
+  if (map.getSource('radius-circle')) {
+    map.getSource('radius-circle').setData(circle);
+    return;
+  }
+
+  map.addSource('radius-circle', {
+    type: 'geojson',
+    data: circle,
+  });
+
+  map.addLayer({
+    id: 'radius-circle-fill',
+    type: 'fill',
+    source: 'radius-circle',
+    paint: {
+      'fill-color': '#2563eb',
+      'fill-opacity': 0.15,
+    },
+  });
+
+  map.addLayer({
+    id: 'radius-circle-outline',
+    type: 'line',
+    source: 'radius-circle',
+    paint: {
+      'line-color': '#2563eb',
+      'line-width': 2,
+    },
+  });
+}
+
+window.drawRadiusCircle = drawRadiusCircle;
+
 function setUserCoordsToMap(map) {
   if (!geoButn) return;
 
   geoButn.forEach((butn) => {
     butn.addEventListener('click', async (e) => {
       try {
-        await getLocation();
-        wait();
-        map.setCenter([userLang, userLat]);
+        const position = await getLocation();
+
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        map.setCenter([lng, lat]);
+        drawRadiusCircle(map, lng, lat);
         if (homeMap) {
           const mapElementPos = homeMap.getBoundingClientRect().top;
           const offsetMap = mapElementPos + window.scrollY - 100;
