@@ -10,8 +10,8 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": 51.9215049,
-    "Logtitude": -0.4904125,
+    "Latitude": "51.9215049",
+    "Logtitude": "-0.4904125",
     "Category": "Warehouse"
   },
   {
@@ -25,8 +25,8 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": 51.921453,
-    "Logtitude": -0.486437,
+    "Latitude": "51.921453",
+    "Logtitude": "-0.486437",
     "Category": "Customer Delivery"
   },
   {
@@ -40,8 +40,8 @@
     "City": "Erith",
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
-    "Latitude": 51.4903793,
-    "Logtitude": 0.1649061,
+    "Latitude": "51.4903793",
+    "Logtitude": "0.1649061",
     "Category": "Customer Delivery"
   },
   {
@@ -55,8 +55,8 @@
     "City": "Bicester",
     "Postal Code": "OX26 6GF",
     "Country": "United Kingdom",
-    "Latitude": 51.8814723,
-    "Logtitude": -1.1262872,
+    "Latitude": "51.8814663",
+    "Logtitude": "-1.1262772",
     "Category": "Warehouse"
   },
   {
@@ -70,8 +70,8 @@
     "City": "Andover",
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
-    "Latitude": 51.2158549,
-    "Logtitude": -1.4544922,
+    "Latitude": "51.2158489",
+    "Logtitude": "-1.4544822",
     "Category": "Customer Delivery"
   },
   {
@@ -85,8 +85,8 @@
     "City": "London",
     "Postal Code": "E10 7FD",
     "Country": "United Kingdom",
-    "Latitude": 51.5722418,
-    "Logtitude": -0.0371206,
+    "Latitude": "51.5722418",
+    "Logtitude": "-0.0371206",
     "Category": "Customer Delivery"
   },
   {
@@ -100,9 +100,9 @@
     "City": "Erith",
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
-    "Latitude": 51.493272,
-    "Logtitude": 0.169363,
-    "Category": "HGV\/LGV Transport"
+    "Latitude": "51.493272",
+    "Logtitude": "0.169363",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "7",
@@ -115,9 +115,9 @@
     "City": "Dordon",
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
-    "Latitude": 52.5935967,
-    "Logtitude": -1.6358024,
-    "Category": "HGV\/LGV Transport"
+    "Latitude": "52.5935907",
+    "Logtitude": "-1.6357924",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "8",
@@ -130,9 +130,9 @@
     "City": "Purfleet",
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
-    "Latitude": 51.5138663,
-    "Logtitude": 0.1895943,
-    "Category": "HGV\/LGV Transport"
+    "Latitude": "51.5138663",
+    "Logtitude": "0.1895943",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "9",
@@ -145,8 +145,8 @@
     "City": "London",
     "Postal Code": "W3 8DG",
     "Country": "United Kingdom",
-    "Latitude": 51.5018002,
-    "Logtitude": -0.2763387,
+    "Latitude": "51.5018002",
+    "Logtitude": "-0.2763387",
     "Category": "Customer Delivery"
   },
   {
@@ -160,8 +160,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680761,
-    "Logtitude": -0.2383463,
+    "Latitude": "51.7680701",
+    "Logtitude": "-0.2383363",
     "Category": "Head Office"
   },
   {
@@ -175,8 +175,8 @@
     "City": "Crawley",
     "Postal Code": "RH11 7SS",
     "Country": "United Kingdom",
-    "Latitude": 51.1365656,
-    "Logtitude": -0.1917502,
+    "Latitude": "51.1365656",
+    "Logtitude": "-0.1917502",
     "Category": "Customer Delivery"
   },
   {
@@ -190,8 +190,8 @@
     "City": "Dordon",
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
-    "Latitude": 52.5935847,
-    "Logtitude": -1.6357824,
+    "Latitude": "52.5935907",
+    "Logtitude": "-1.6357924",
     "Category": "Customer Delivery"
   },
   {
@@ -205,8 +205,8 @@
     "City": "Milton Keynes",
     "Postal Code": "MK15 8HG",
     "Country": "United Kingdom",
-    "Latitude": 52.0679192,
-    "Logtitude": -0.7314287,
+    "Latitude": "52.0679192",
+    "Logtitude": "-0.7314287",
     "Category": "Customer Delivery"
   },
   {
@@ -220,8 +220,8 @@
     "City": "Knowsley",
     "Postal Code": "L33 7SA",
     "Country": "United Kingdom",
-    "Latitude": 53.4791484,
-    "Logtitude": -2.8713141,
+    "Latitude": "53.4791484",
+    "Logtitude": "-2.8713141",
     "Category": "Customer Delivery"
   },
   {
@@ -235,8 +235,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680641,
-    "Logtitude": -0.2383263,
+    "Latitude": "51.7680701",
+    "Logtitude": "-0.2383363",
     "Category": "Head Office"
   },
   {
@@ -250,8 +250,8 @@
     "City": "Nottingham",
     "Postal Code": "NG11 2AF",
     "Country": "United Kingdom",
-    "Latitude": 52.8891615,
-    "Logtitude": -1.2119526,
+    "Latitude": "52.8891615",
+    "Logtitude": "-1.2119526",
     "Category": "Customer Delivery"
   },
   {
@@ -265,9 +265,9 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": 51.921116,
-    "Logtitude": -0.48604,
-    "Category": "HGV\/LGV Transport"
+    "Latitude": "51.921116",
+    "Logtitude": "-0.48604",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "18",
@@ -280,8 +280,8 @@
     "City": "London",
     "Postal Code": "E10 7FE",
     "Country": "United Kingdom",
-    "Latitude": 51.5646143,
-    "Logtitude": -0.0340937,
+    "Latitude": "51.5646143",
+    "Logtitude": "-0.0340937",
     "Category": "Customer Delivery"
   },
   {
@@ -295,8 +295,8 @@
     "City": "Andover",
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
-    "Latitude": 51.2158429,
-    "Logtitude": -1.4544722,
+    "Latitude": "51.2158489",
+    "Logtitude": "-1.4544822",
     "Category": "Warehouse"
   },
   {
@@ -310,9 +310,9 @@
     "City": "Andover",
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
-    "Latitude": 51.2158609,
-    "Logtitude": -1.4545022,
-    "Category": "HGV\/LGV Transport"
+    "Latitude": "51.2158489",
+    "Logtitude": "-1.4544822",
+    "Category": "HGV/LGV Transport"
   },
   {
     "Map Results": "21",
@@ -325,8 +325,8 @@
     "City": "Park Royal",
     "Postal Code": "NW10 7FW",
     "Country": "United Kingdom",
-    "Latitude": 51.5313911,
-    "Logtitude": -0.2846813,
+    "Latitude": "51.5313911",
+    "Logtitude": "-0.2846813",
     "Category": "Customer Delivery"
   },
   {
@@ -340,8 +340,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680821,
-    "Logtitude": -0.2383563,
+    "Latitude": "51.7680701",
+    "Logtitude": "-0.2383363",
     "Category": "Head Office"
   },
   {
@@ -355,8 +355,8 @@
     "City": "Erith",
     "Postal Code": "DA8 1PQ",
     "Country": "United Kingdom",
-    "Latitude": 51.4887763,
-    "Logtitude": 0.1659296,
+    "Latitude": "51.4887763",
+    "Logtitude": "0.1659296",
     "Category": "Warehouse"
   },
   {
@@ -370,8 +370,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680581,
-    "Logtitude": -0.2383163,
+    "Latitude": "51.7680701",
+    "Logtitude": "-0.2383363",
     "Category": "Head Office"
   },
   {
@@ -385,8 +385,8 @@
     "City": "Wimbledon",
     "Postal Code": "SW19 8UG",
     "Country": "United Kingdom",
-    "Latitude": 51.4346312,
-    "Logtitude": -0.2010254,
+    "Latitude": "51.4346312",
+    "Logtitude": "-0.2010254",
     "Category": "Customer Delivery"
   },
   {
@@ -400,8 +400,8 @@
     "City": "London",
     "Postal Code": "E16 4TG",
     "Country": "United Kingdom",
-    "Latitude": 51.5241787,
-    "Logtitude": -0.0043404,
+    "Latitude": "51.5241787",
+    "Logtitude": "-0.0043404",
     "Category": "Customer Delivery"
   },
   {
@@ -415,8 +415,8 @@
     "City": "Welwyn Garden",
     "Postal Code": "AL7 1HH",
     "Country": "United Kingdom",
-    "Latitude": 51.8038573,
-    "Logtitude": -0.1985253,
+    "Latitude": "51.8038573",
+    "Logtitude": "-0.1985253",
     "Category": "Warehouse"
   },
   {
@@ -430,8 +430,8 @@
     "City": "Manchester",
     "Postal Code": "SK8 6QH",
     "Country": "United Kingdom",
-    "Latitude": 53.3534735,
-    "Logtitude": -2.2057892,
+    "Latitude": "53.3534735",
+    "Logtitude": "-2.2057892",
     "Category": "Customer Delivery"
   },
   {
@@ -445,8 +445,8 @@
     "City": "Bristol",
     "Postal Code": "BS11 8AZ",
     "Country": "United Kingdom",
-    "Latitude": 51.511953,
-    "Logtitude": -2.6840311,
+    "Latitude": "51.511953",
+    "Logtitude": "-2.6840311",
     "Category": "Customer Delivery"
   },
   {
@@ -460,8 +460,8 @@
     "City": "Purfleet",
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
-    "Latitude": 51.4980318,
-    "Logtitude": 0.2297235,
+    "Latitude": "51.4980258",
+    "Logtitude": "0.2297335",
     "Category": "Warehouse"
   },
   {
@@ -475,8 +475,8 @@
     "City": "Merton",
     "Postal Code": "SW19 3HX",
     "Country": "United Kingdom",
-    "Latitude": 51.4122001,
-    "Logtitude": -0.1914294,
+    "Latitude": "51.4122001",
+    "Logtitude": "-0.1914294",
     "Category": "Customer Delivery"
   },
   {
@@ -490,8 +490,8 @@
     "City": "Purfleet",
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
-    "Latitude": 51.4980198,
-    "Logtitude": 0.2297435,
+    "Latitude": "51.4980258",
+    "Logtitude": "0.2297335",
     "Category": "Customer Delivery"
   },
   {
@@ -505,8 +505,8 @@
     "City": "Erith",
     "Postal Code": "DA8 1DE",
     "Country": "United Kingdom",
-    "Latitude": 51.4962846,
-    "Logtitude": 0.1599859,
+    "Latitude": "51.4962846",
+    "Logtitude": "0.1599859",
     "Category": "Warehouse"
   },
   {
@@ -520,8 +520,8 @@
     "City": "Dordon",
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
-    "Latitude": 52.5936027,
-    "Logtitude": -1.6358124,
+    "Latitude": "52.5935907",
+    "Logtitude": "-1.6357924",
     "Category": "Warehouse"
   },
   {
@@ -535,8 +535,8 @@
     "City": "Leeds",
     "Postal Code": "WF17 9LW",
     "Country": "United Kingdom",
-    "Latitude": 53.7395884,
-    "Logtitude": -1.6569327,
+    "Latitude": "53.7395884",
+    "Logtitude": "-1.6569327",
     "Category": "Customer Delivery"
   },
   {
@@ -550,8 +550,8 @@
     "City": "Sheffield",
     "Postal Code": "S4 8DA",
     "Country": "United Kingdom",
-    "Latitude": 53.4060214,
-    "Logtitude": -1.4355539,
+    "Latitude": "53.4060214",
+    "Logtitude": "-1.4355539",
     "Category": "Customer Delivery"
   },
   {
@@ -565,8 +565,8 @@
     "City": "West Drayton",
     "Postal Code": "UB7 9BL",
     "Country": "United Kingdom",
-    "Latitude": 51.5048165,
-    "Logtitude": -0.4498799,
+    "Latitude": "51.5048165",
+    "Logtitude": "-0.4498799",
     "Category": "Customer Delivery"
   },
   {
@@ -580,8 +580,8 @@
     "City": "Bristol",
     "Postal Code": "BS11 9EA",
     "Country": "United Kingdom",
-    "Latitude": 51.5034318,
-    "Logtitude": -2.692053,
+    "Latitude": "51.5034318",
+    "Logtitude": "-2.692053",
     "Category": "Customer Delivery"
   },
   {
@@ -595,8 +595,8 @@
     "City": "Peterborough",
     "Postal Code": "PE1 5BF",
     "Country": "United Kingdom",
-    "Latitude": 52.5693504,
-    "Logtitude": -0.2146538,
+    "Latitude": "52.5693504",
+    "Logtitude": "-0.2146538",
     "Category": "Customer Delivery"
   },
   {
@@ -610,8 +610,8 @@
     "City": "Weybridge",
     "Postal Code": "KT14 7LB",
     "Country": "United Kingdom",
-    "Latitude": 51.3475427,
-    "Logtitude": -0.4931859,
+    "Latitude": "51.3475427",
+    "Logtitude": "-0.4931859",
     "Category": "Customer Delivery"
   },
   {
@@ -625,8 +625,8 @@
     "City": "Oxford",
     "Postal Code": "SN7 8NY",
     "Country": "United Kingdom",
-    "Latitude": 51.6341752,
-    "Logtitude": -1.5354347,
+    "Latitude": "51.6341752",
+    "Logtitude": "-1.5354347",
     "Category": "Customer Delivery"
   },
   {
@@ -640,8 +640,8 @@
     "City": "Bicester",
     "Postal Code": "OX26 6GF",
     "Country": "United Kingdom",
-    "Latitude": 51.8814603,
-    "Logtitude": -1.1262672,
+    "Latitude": "51.8814663",
+    "Logtitude": "-1.1262772",
     "Category": "Customer Delivery"
   },
   {
@@ -655,8 +655,8 @@
     "City": "Enfield",
     "Postal Code": "EN3 7XY",
     "Country": "United Kingdom",
-    "Latitude": 51.6771013,
-    "Logtitude": -0.0253564,
+    "Latitude": "51.6770953",
+    "Logtitude": "-0.0253464",
     "Category": "Customer Delivery"
   },
   {
@@ -670,8 +670,8 @@
     "City": "Enfield",
     "Postal Code": "DA8 1PQ",
     "Country": "United Kingdom",
-    "Latitude": 51.6770893,
-    "Logtitude": -0.0253364,
+    "Latitude": "51.6770953",
+    "Logtitude": "-0.0253464",
     "Category": "Warehouse"
   },
   {
@@ -685,8 +685,8 @@
     "City": "Enfield",
     "Postal Code": "EN3 7XY",
     "Country": "United Kingdom",
-    "Latitude": 51.6771073,
-    "Logtitude": -0.0253664,
+    "Latitude": "51.6770953",
+    "Logtitude": "-0.0253464",
     "Category": "Warehouse"
   }
 ]
