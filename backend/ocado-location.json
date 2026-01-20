@@ -10,8 +10,8 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": "51.917729",
-    "Logtitude": "-0.4816281",
+    "Latitude": "51.9215049",
+    "Logtitude": "-0.4904125",
     "Category": "Warehouse"
   },
   {
@@ -25,8 +25,8 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": "51.9177546",
-    "Logtitude": "-0.4816281",
+    "Latitude": "51.921453",
+    "Logtitude": "-0.486437",
     "Category": "Customer Delivery"
   },
   {
@@ -265,8 +265,8 @@
     "City": "Luton",
     "Postal Code": "LU4 9TT",
     "Country": "United Kingdom",
-    "Latitude": "51.917729",
-    "Logtitude": "-0.4816281",
+    "Latitude": "51.921116",
+    "Logtitude": "-0.48604",
     "Category": "HGV/LGV Transport"
   },
   {
