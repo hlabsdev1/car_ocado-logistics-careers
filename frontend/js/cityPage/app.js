@@ -272,6 +272,7 @@ function individualPage() {
         });
 
         const jobArray = Array.isArray(allJobs) ? allJobs : [];
+        console.log(jobArray);
         if (!jobArray) return;
 
         // Create a popup
@@ -363,7 +364,7 @@ function individualPage() {
 
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.City.toLowerCase();
-      console.log(bodyAttr, city);
+      // console.log(bodyAttr, city);
       return city === bodyAttr.toLowerCase();
     });
 
@@ -377,7 +378,7 @@ function individualPage() {
       noJobCard.style.display = 'flex';
       noJobCard.style.opacity = '1';
       const jobSectionPadding = document.querySelector(
-        '.job-2col-section .padding-vertical'
+        '.job-2col-section .padding-vertical',
       );
       jobSectionPadding.classList.add('is--bottom-0px');
       return;
@@ -413,7 +414,7 @@ function individualPage() {
 
   function citySlider() {
     const swiperComponent = document.querySelector(
-      "[swiper-component='city-jobs']"
+      "[swiper-component='city-jobs']",
     );
 
     const swiperContainer = swiperComponent.querySelector('.swiper');
