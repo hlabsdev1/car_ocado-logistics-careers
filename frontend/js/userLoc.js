@@ -9,6 +9,7 @@ const mapLayer = document.querySelector('.ma-get_loc-wrap');
 const searchLocation = document.querySelectorAll('.search-utils-location');
 const homeMap = document.querySelector('[home-map]');
 let userLat, userLang;
+let userLocationMarker = null;
 function success(position) {
   // console.log('GetCurrentPos', position);
   userLat = position.coords.latitude;
@@ -115,40 +116,35 @@ function wait() {
 }
 
 function drawRadiusCircle(map, lng, lat) {
-  const circle = turf.circle([lng, lat], 50, {
-    units: 'miles',
-    steps: 64,
-  });
+  // const circle = turf.circle([lng, lat], 50, {
+  //   units: 'miles',
+  //   steps: 64,
+  // });
 
-  if (map.getSource('radius-circle')) {
-    map.getSource('radius-circle').setData(circle);
+  if (userLocationMarker) {
+    userLocationMarker.setLngLat([lng, lat]);
     return;
   }
 
-  map.addSource('radius-circle', {
-    type: 'geojson',
-    data: circle,
-  });
+  const searchTemplate2 = document.getElementById('search-template');
 
-  map.addLayer({
-    id: 'radius-circle-fill',
-    type: 'fill',
-    source: 'radius-circle',
-    paint: {
-      'fill-color': '#2563eb',
-      'fill-opacity': 0.15,
-    },
-  });
+  // City Marker
+  const userEl = document.createElement('div');
+  userEl.className = 'map-marker is--inner';
+  userEl.style.position = 'absolute';
+  userEl.style.color = '#d1001f';
 
-  map.addLayer({
-    id: 'radius-circle-outline',
-    type: 'line',
-    source: 'radius-circle',
-    paint: {
-      'line-color': '#2563eb',
-      'line-width': 2,
-    },
-  });
+  // imgElement.src = icon;
+  const imgElement = document.createElement('img');
+  imgElement.src =
+    'https://cdn.prod.website-files.com/691db317d5523108e489fad8/696fbae2ec15d5217cfe6413_effa0d89989a5fa929c50cbf7a9d7b8b_Location%20Pin%20%281%29.svg';
+
+  userEl.append(imgElement);
+
+  // Create marker
+  userLocationMarker = new mapboxgl.Marker(userEl)
+    .setLngLat([lng, lat])
+    .addTo(map);
 }
 
 window.drawRadiusCircle = drawRadiusCircle;
@@ -161,10 +157,10 @@ function setUserCoordsToMap(map) {
       try {
         const position = await getLocation();
 
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        map.setCenter([lng, lat]);
-        drawRadiusCircle(map, lng, lat);
+        // const lat = position.coords.latitude;
+        // const lng = position.coords.longitude;
+        // map.setCenter([lng, lat]);
+        // drawRadiusCircle(map, lng, lat);
         if (homeMap) {
           const mapElementPos = homeMap.getBoundingClientRect().top;
           const offsetMap = mapElementPos + window.scrollY - 100;
