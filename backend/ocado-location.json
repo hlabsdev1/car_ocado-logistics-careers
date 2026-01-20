@@ -71,7 +71,7 @@
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
     "Latitude": 51.2158549,
-    "Logtitude": -1.4544922,
+    "Logtitude": -1.4520688203,
     "Category": "Customer Delivery"
   },
   {
@@ -116,7 +116,7 @@
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
     "Latitude": 52.5935967,
-    "Logtitude": -1.6358024,
+    "Logtitude": -1.6333035281,
     "Category": "HGV\/LGV Transport"
   },
   {
@@ -131,7 +131,7 @@
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
     "Latitude": 51.5138663,
-    "Logtitude": 0.1895943,
+    "Logtitude": 0.192033501,
     "Category": "HGV\/LGV Transport"
   },
   {
@@ -161,7 +161,7 @@
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
     "Latitude": 51.7680761,
-    "Logtitude": -0.2383463,
+    "Logtitude": -0.2358933862,
     "Category": "Head Office"
   },
   {
@@ -190,8 +190,8 @@
     "City": "Dordon",
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
-    "Latitude": 52.5935847,
-    "Logtitude": -1.6357824,
+    "Latitude": 52.594911306,
+    "Logtitude": -1.637051836,
     "Category": "Customer Delivery"
   },
   {
@@ -235,8 +235,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680641,
-    "Logtitude": -0.2383263,
+    "Latitude": 51.7695940763,
+    "Logtitude": -0.2383463,
     "Category": "Head Office"
   },
   {
@@ -295,8 +295,8 @@
     "City": "Andover",
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
-    "Latitude": 51.2158429,
-    "Logtitude": -1.4544722,
+    "Latitude": 51.217169506,
+    "Logtitude": -1.4557038899,
     "Category": "Warehouse"
   },
   {
@@ -310,8 +310,8 @@
     "City": "Andover",
     "Postal Code": "SP10 5AF",
     "Country": "United Kingdom",
-    "Latitude": 51.2158609,
-    "Logtitude": -1.4545022,
+    "Latitude": 51.214540294,
+    "Logtitude": -1.4557038899,
     "Category": "HGV\/LGV Transport"
   },
   {
@@ -340,8 +340,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680821,
-    "Logtitude": -0.2383563,
+    "Latitude": 51.7680761,
+    "Logtitude": -0.2407992138,
     "Category": "Head Office"
   },
   {
@@ -370,8 +370,8 @@
     "City": "Hatfield",
     "Postal Code": "AL10 9UL",
     "Country": "United Kingdom",
-    "Latitude": 51.7680581,
-    "Logtitude": -0.2383163,
+    "Latitude": 51.7665581237,
+    "Logtitude": -0.2383463,
     "Category": "Head Office"
   },
   {
@@ -460,8 +460,8 @@
     "City": "Purfleet",
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
-    "Latitude": 51.4980318,
-    "Logtitude": 0.2297235,
+    "Latitude": 51.515180906,
+    "Logtitude": 0.1883746995,
     "Category": "Warehouse"
   },
   {
@@ -490,8 +490,8 @@
     "City": "Purfleet",
     "Postal Code": "RM15 4EW",
     "Country": "United Kingdom",
-    "Latitude": 51.4980198,
-    "Logtitude": 0.2297435,
+    "Latitude": 51.512551694,
+    "Logtitude": 0.1883746995,
     "Category": "Customer Delivery"
   },
   {
@@ -520,8 +520,8 @@
     "City": "Dordon",
     "Postal Code": "B78 1SE",
     "Country": "United Kingdom",
-    "Latitude": 52.5936027,
-    "Logtitude": -1.6358124,
+    "Latitude": 52.592282094,
+    "Logtitude": -1.637051836,
     "Category": "Warehouse"
   },
   {
@@ -640,7 +640,7 @@
     "City": "Bicester",
     "Postal Code": "OX26 6GF",
     "Country": "United Kingdom",
-    "Latitude": 51.8814503,
+    "Latitude": 51.8814603,
     "Logtitude": -1.1262672,
     "Category": "Customer Delivery"
   },
