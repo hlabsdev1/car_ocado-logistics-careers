@@ -43,64 +43,6 @@ html.w-editor .home_hero-img {
     margin-left: 0.001em;
 }
 
-/*Split text header */
-/* [pill] .line-mask {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-} */
-
-/* Global Hero section  */
-/* .pill-content {
-    z-index: 1;
-    background-color: var(--_palette---grey);
-    color: var(--_palette---white);
-    text-transform: uppercase;
-    border-radius: 100vw;
-    justify-content: center;
-    align-items: center;
-    padding: .6rem .75rem;
-    display: flex;
-    position: relative;
-    transform: rotate(1.5deg);
-} */
-
-/* [pill="hero1"] {
-    min-width: 10.8rem;
-    transform: translateY(-1rem) rotateZ(-2.25deg);
-    z-index: 3;
-}
-
-[pill="hero2"] {
-    padding: 1.625rem 3.25rem;
-    transform: rotateZ(1.1deg);
-} */
-
-/* [pill="hero1"] .line {
-    background-color: var(--_palette---grey);
-    color: var(--_palette---white);
-    min-width: 10.8rem;
-    transform: translateY(-1rem) rotateZ(-2.25deg);
-    z-index: 3;
-}
-
-[pill="hero2"] .line-mask .line {
-    background-color: var(--_palette---grey);
-    color: var(--_palette---white);
-    padding: 1.625rem 3.25rem;
-}
-
-[pill='hero2'] .line-mask:nth-of-type(odd) .line {
-    transform: rotateZ(1.1deg);
-}
-
-[pill='hero2'] .line-mask:nth-of-type(even) .line {
-    transform: rotateZ(-1.1deg);
-}
-
-*/
 
 [pill="hero1"] .line {
     margin: 0rem -0.9rem;
@@ -119,6 +61,17 @@ html.w-editor .home_hero-img {
         margin: 0rem -1rem;
     }
 } 
+
+/* USER LOCATION ACTIVE STATES */
+[get-userloc].is--active {
+    pointer-events: none;
+}
+[get-userloc].is--active .search-butn_icon-img.is--1 {
+    opacity: 0;
+}
+[get-userloc].is--active .search-butn_icon-img.is--2 {
+    opacity: 1;
+}
 
 
 .swiper-arrow.is--disabled {

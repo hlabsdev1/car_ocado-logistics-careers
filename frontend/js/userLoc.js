@@ -26,14 +26,13 @@ function success(position) {
     }
     if (geoButn) {
       geoButn.forEach((butn) => {
-        butn.style.pointerEvents = 'none';
-        butn.style.opacity = '0';
+        butn.classList.add('is--active');
       });
     }
     window.dispatchEvent(
       new CustomEvent('user:locationReady', {
         detail: { lat: userLat, lng: userLang },
-      })
+      }),
     );
   }
 }
@@ -60,7 +59,7 @@ function getLocation() {
       (err) => {
         console.warn('getCurrentPosition error', err);
         reject(err);
-      }
+      },
     );
   });
 }
