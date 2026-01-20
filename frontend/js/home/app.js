@@ -104,7 +104,7 @@ function individualPage() {
       // zoom: 4.0,
       zoom: isMobile ? 6.1 : 6.1, // Different zoom for mobile
       minZoom: 4,
-      maxZoom: 12,
+      maxZoom: 14,
       attributionControl: false, // Remove Mapbox branding
     });
     map.scrollZoom.disable();
@@ -306,9 +306,9 @@ function individualPage() {
         cityEl.addEventListener('click', () => {
           map.flyTo({
             center: coordinates,
-            speed: 0.5,
+            speed: 2,
             curve: 1,
-            zoom: 9,
+            zoom: 11,
           });
           clicked = true;
 
@@ -392,7 +392,7 @@ function individualPage() {
               ...new Set(
                 jobArray
                   .map((item) => item.job_family?.job_family_name)
-                  .filter(Boolean)
+                  .filter(Boolean),
               ),
             ];
 
@@ -460,13 +460,13 @@ function individualPage() {
     //FILTER FUNCTION HERE=============
     const filter_wrap = document.querySelector('.map_filter-col');
     const location_Menu = filter_wrap.querySelector(
-      `[map-filter="location"] .filter-tab-menu`
+      `[map-filter="location"] .filter-tab-menu`,
     );
     const category_Menu = filter_wrap.querySelector(
-      `[map-filter="category"] .filter-tab-menu`
+      `[map-filter="category"] .filter-tab-menu`,
     );
     const teamCategory_Menu = filter_wrap.querySelector(
-      `[map-filter="team-category"] .filter-tab-menu`
+      `[map-filter="team-category"] .filter-tab-menu`,
     );
     const filter_link = filter_wrap.querySelector('.filter-tab-links');
     filter_link.remove();
@@ -502,7 +502,7 @@ function individualPage() {
 
     const jobCategories = [
       ...new Set(
-        jobData.map((item) => item.job_family?.job_family_name).filter(Boolean)
+        jobData.map((item) => item.job_family?.job_family_name).filter(Boolean),
       ),
     ];
 
@@ -711,9 +711,9 @@ function individualPage() {
           if (cityName === filterButnAttr) {
             map.flyTo({
               center: item.coordinates,
-              speed: 0.5,
+              speed: 2,
               curve: 1,
-              zoom: 9,
+              zoom: 12,
             });
           }
         });
@@ -765,12 +765,12 @@ function individualPage() {
 
     //Html targets variable for search features
     const searchComponent = document.querySelector(
-      '[search-component="hero-search"]'
+      '[search-component="hero-search"]',
     );
     const searchInput = document.getElementById('home-search');
     const searchTemplate = document.getElementById('search-template');
     const resultContainer = searchComponent.querySelector(
-      '.search-results-wrap'
+      '.search-results-wrap',
     );
     const emptyCard = searchTemplate.content.cloneNode(true).children[2];
     const searchButn = searchTemplate.content
@@ -983,21 +983,21 @@ function individualPage() {
     //Create 2 filters - 1. filter button , 2. Search filer
 
     const filterComp = document.querySelector(
-      '[hs-list-element="filter-wrap2"]'
+      '[hs-list-element="filter-wrap2"]',
     );
     const filters = filterComp.querySelector('[hs-list-element="filter"]');
     const resultContainer = filterComp.querySelector(
-      '[hs-list-element="list"]'
+      '[hs-list-element="list"]',
     );
     const searchInput = filterComp.querySelector(
-      '[hs-list-element="search"] input'
+      '[hs-list-element="search"] input',
     );
     const noResult = resultContainer.querySelector('.listing-no-result-card');
     const searchTemplate = document.getElementById('search-template');
 
     const teamCategories = [
       ...new Set(
-        allJobs.map((item) => item.subLocation[0]?.Category).filter(Boolean)
+        allJobs.map((item) => item.subLocation[0]?.Category).filter(Boolean),
       ),
     ];
 
@@ -1140,13 +1140,14 @@ function individualPage() {
     directTextProcessed = true;
 
     const divs = document.querySelectorAll(
-      '[hs-list-element="filter-wrap2"] div'
+      '[hs-list-element="filter-wrap2"] div',
     );
 
     divs.forEach((div) => {
       const hasDirectText = Array.from(div.childNodes).some(
         (node) =>
-          node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+          node.nodeType === Node.TEXT_NODE &&
+          node.textContent.trim().length > 0,
       );
 
       if (hasDirectText) {
@@ -1166,7 +1167,7 @@ function individualPage() {
         element,
         NodeFilter.SHOW_TEXT,
         null,
-        false
+        false,
       );
 
       const nodes = [];
@@ -1200,7 +1201,7 @@ function individualPage() {
 
     document
       .querySelectorAll(
-        '[hs-list-element="filter-wrap2"] h1,[hs-list-element="filter-wrap2"] h2, [hs-list-element="filter-wrap2"] h3,[hs-list-element="filter-wrap2"], [hs-list-element="filter-wrap2"] p, [hs-list-element="filter-wrap2"] [text-content-div]'
+        '[hs-list-element="filter-wrap2"] h1,[hs-list-element="filter-wrap2"] h2, [hs-list-element="filter-wrap2"] h3,[hs-list-element="filter-wrap2"], [hs-list-element="filter-wrap2"] p, [hs-list-element="filter-wrap2"] [text-content-div]',
       )
       .forEach(highlightV);
   }
