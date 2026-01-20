@@ -306,9 +306,9 @@ function individualPage() {
         cityEl.addEventListener('click', () => {
           map.flyTo({
             center: coordinates,
-            speed: 2,
+            speed: 1,
             curve: 1,
-            zoom: 11,
+            zoom: 13,
           });
           clicked = true;
 
@@ -711,9 +711,9 @@ function individualPage() {
           if (cityName === filterButnAttr) {
             map.flyTo({
               center: item.coordinates,
-              speed: 2,
+              speed: 1,
               curve: 1,
-              zoom: 12,
+              zoom: 13,
             });
           }
         });

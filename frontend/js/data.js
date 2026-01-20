@@ -32,10 +32,14 @@ async function getLocations() {
 }
 
 const globalCities = [
-  { Name: 'Luton', Latitude: '51.8924256', Longitude: '-0.4980802' },
+  { Name: 'Luton', Latitude: '51.9215049', Longitude: '-0.4904125' },
   { Name: 'Erith', Latitude: '51.4813071', Longitude: '0.1594783' },
-  { Name: 'Bicester', Latitude: '51.9019091', Longitude: '-1.1653087' },
-  { Name: 'Andover', Latitude: '51.2125372', Longitude: '-1.5088589' },
+  {
+    Name: 'Bicester',
+    Latitude: '51.88032426959815',
+    Longitude: '-1.1261653314098603',
+  },
+  { Name: 'Andover', Latitude: '51.2158549', Longitude: '-1.4520688203' },
   { Name: 'Park Royal', Latitude: '51.5303261', Longitude: '-0.2780103' },
   { Name: 'Dordon', Latitude: '52.5973413', Longitude: '-1.6361482' },
   {

@@ -96,8 +96,8 @@ function individualPage() {
       center: initMapCoords, //28.334115149095556, -81.50494910779616
       // zoom: 4.0,
       zoom: isMobile ? 6.1 : 6.1, // Different zoom for mobile
-      minZoom: 5,
-      maxZoom: 18,
+      minZoom: 4,
+      maxZoom: 14,
       attributionControl: false, // Remove Mapbox branding
     });
     map.scrollZoom.disable();
@@ -299,9 +299,9 @@ function individualPage() {
         cityEl.addEventListener('click', () => {
           map.flyTo({
             center: coordinates,
-            speed: 0.5,
+            speed: 1,
             curve: 1,
-            zoom: 9,
+            zoom: 13,
           });
           clicked = true;
 
@@ -385,7 +385,7 @@ function individualPage() {
               ...new Set(
                 jobArray
                   .map((item) => item.job_family?.job_family_name)
-                  .filter(Boolean)
+                  .filter(Boolean),
               ),
             ];
 
@@ -453,13 +453,13 @@ function individualPage() {
     //FILTER FUNCTION HERE=============
     const filter_wrap = document.querySelector('.map_filter-col');
     const location_Menu = filter_wrap.querySelector(
-      `[map-filter="location"] .filter-tab-menu`
+      `[map-filter="location"] .filter-tab-menu`,
     );
     const category_Menu = filter_wrap.querySelector(
-      `[map-filter="category"] .filter-tab-menu`
+      `[map-filter="category"] .filter-tab-menu`,
     );
     const teamCategory_Menu = filter_wrap.querySelector(
-      `[map-filter="team-category"] .filter-tab-menu`
+      `[map-filter="team-category"] .filter-tab-menu`,
     );
     const filter_link = filter_wrap.querySelector('.filter-tab-links');
     filter_link.remove();
@@ -495,7 +495,7 @@ function individualPage() {
 
     const jobCategories = [
       ...new Set(
-        jobData.map((item) => item.job_family?.job_family_name).filter(Boolean)
+        jobData.map((item) => item.job_family?.job_family_name).filter(Boolean),
       ),
     ];
 
@@ -704,9 +704,9 @@ function individualPage() {
           if (cityName === filterButnAttr) {
             map.flyTo({
               center: item.coordinates,
-              speed: 0.5,
+              speed: 1,
               curve: 1,
-              zoom: 9,
+              zoom: 13,
             });
           }
         });
@@ -730,11 +730,25 @@ function individualPage() {
     filteringSystem();
     setUserCoordsToMap(map);
 
-    window.addEventListener('user:locationReady', (e) => {
-      const { lat, lng } = e.detail;
-      // console.log('User location ready:', lat, lng);
-      map.setCenter([lng, lat]);
+    map.on('load', () => {
+      // 1️⃣ Listen for future updates
+      window.addEventListener('user:locationReady', (e) => {
+        const { lat, lng } = e.detail;
+        // console.log('User location ready:', lat, lng);
+        applyUserLocation(map, lat, lng);
+      });
+
+      // 2️⃣ Catch reload case (location already exists)
+      if (window.__USER_LOCATION__) {
+        const { lat, lng } = window.__USER_LOCATION__;
+        applyUserLocation(map, lat, lng);
+      }
     });
+
+    function applyUserLocation(map, lat, lng) {
+      map.setCenter([lng, lat]);
+      drawRadiusCircle(map, lng, lat);
+    }
   }
 
   function latestJobs(allJobs) {
@@ -747,19 +761,19 @@ function individualPage() {
     const filterComp = document.querySelector('[hs-list-element="job-page"]');
     const filters = filterComp.querySelector('[hs-list-element="filter"]');
     const resultContainerParent = filterComp.querySelector(
-      '.listing_result-parent'
+      '.listing_result-parent',
     );
     const resultContainer = filterComp.querySelector(
-      '[hs-list-element="list"]'
+      '[hs-list-element="list"]',
     );
     const location_Menu = filterComp.querySelector(
-      ".filter-dropdown[map-filter='location'] .filter-tab-menu"
+      ".filter-dropdown[map-filter='location'] .filter-tab-menu",
     );
     const team_Menu = filterComp.querySelector(
-      ".filter-dropdown[map-filter='team-category'] .filter-tab-menu"
+      ".filter-dropdown[map-filter='team-category'] .filter-tab-menu",
     );
     const contract_Menu = filterComp.querySelector(
-      ".filter-dropdown[map-filter='contract-type'] .filter-tab-menu"
+      ".filter-dropdown[map-filter='contract-type'] .filter-tab-menu",
     );
     const jobsCount = filterComp.querySelector('#jobs-num');
 
@@ -783,17 +797,17 @@ function individualPage() {
 
     const locationCategories = [
       ...new Set(
-        allJobs.map((item) => item.subLocation[0]?.City).filter(Boolean)
+        allJobs.map((item) => item.subLocation[0]?.City).filter(Boolean),
       ),
     ];
     const teamCategories = [
       ...new Set(
-        allJobs.map((item) => item.subLocation[0]?.Category).filter(Boolean)
+        allJobs.map((item) => item.subLocation[0]?.Category).filter(Boolean),
       ),
     ];
     const contractTypeCategories = [
       ...new Set(
-        allJobs.map((item) => item.job_family?.job_family_name).filter(Boolean)
+        allJobs.map((item) => item.job_family?.job_family_name).filter(Boolean),
       ),
     ];
 
@@ -869,16 +883,16 @@ function individualPage() {
       const teamButtons = team_Menu.querySelectorAll('li');
       const contractButtons = contract_Menu.querySelectorAll('li');
       const paginationWrap = filterComp.querySelector(
-        '.filter-pagination-wrap'
+        '.filter-pagination-wrap',
       );
       const prevButn = paginationWrap.querySelector(
-        '.filter-pag-button.is--prev'
+        '.filter-pag-button.is--prev',
       );
       const nextButn = paginationWrap.querySelector(
-        '.filter-pag-button.is--next'
+        '.filter-pag-button.is--next',
       );
       const pageIndicator = paginationWrap.querySelector(
-        '.filter-pagination-page'
+        '.filter-pagination-page',
       );
       let currentPage = 1;
       let itemsPerPage = 6;

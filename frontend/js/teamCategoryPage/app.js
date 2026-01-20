@@ -88,7 +88,7 @@ function individualPage() {
     // console.log(filteredJobs);
 
     const swiperComp = document.querySelector(
-      "[swiper-component='team-category']"
+      "[swiper-component='team-category']",
     );
     const swiperWrap = swiperComp.querySelector('.swiper-wrapper');
     const swiperItem = swiperComp.querySelector('.swiper-slide');
@@ -130,7 +130,7 @@ function individualPage() {
 
   function citySlider() {
     const swiperComponent = document.querySelector(
-      "[swiper-component='team-category']"
+      "[swiper-component='team-category']",
     );
 
     const swiperContainer = swiperComponent.querySelector('.swiper');
