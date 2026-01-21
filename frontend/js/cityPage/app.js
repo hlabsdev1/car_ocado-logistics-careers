@@ -214,6 +214,9 @@ function individualPage() {
 
         // console.log(location.properties);
 
+        console.log(allJobs);
+        if (allJobs.length === 0) return;
+
         // City Marker
         const cityEl = document.createElement('div');
         cityEl.className = 'map-marker is--inner';
@@ -272,7 +275,7 @@ function individualPage() {
         });
 
         const jobArray = Array.isArray(allJobs) ? allJobs : [];
-        console.log(jobArray);
+        // console.log(jobArray);
         if (!jobArray) return;
 
         // Create a popup

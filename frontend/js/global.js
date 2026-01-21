@@ -413,9 +413,11 @@ window.globalScrollAnimation = globalScrollAnimation;
 
 function mapStyleMoveTabDown() {
   const mapWrap = document.querySelector('.map-wrapper');
-  const map = document.querySelector('.map-parent');
-  const heading = mapWrap.querySelector('[map-heading]');
+  const map = document?.querySelector('.map-parent');
+  const heading = mapWrap?.querySelector('[map-heading]');
   const tablet = window.innerWidth < 991;
+
+  if (!heading) return;
 
   if (tablet) {
     mapWrap.insertBefore(heading, map);
