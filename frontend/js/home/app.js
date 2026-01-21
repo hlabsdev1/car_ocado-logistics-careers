@@ -541,6 +541,12 @@ function individualPage() {
       const categoryLinks = category_Menu.querySelectorAll('.filter-tab-links');
       const teamCategoryLinks =
         teamCategory_Menu.querySelectorAll('.filter-tab-links');
+      const locationActivePill = filter_wrap.querySelector(
+        "[map-filter-pill='location']",
+      );
+      const categoryActivePill = filter_wrap.querySelector(
+        "[map-filter-pill='team-category']",
+      );
 
       //Set active filters
       //Apply filters
@@ -654,6 +660,7 @@ function individualPage() {
             flyToCity(attr);
           }
           applyFilters();
+          locationActivePill.innerHTML = link.innerHTML;
         });
       });
       categoryLinks.forEach((link) => {
@@ -684,6 +691,7 @@ function individualPage() {
             activeFilters.teamCategory = attr;
           }
           applyFilters();
+          categoryActivePill.innerHTML = link.innerHTML;
         });
       });
 
