@@ -231,7 +231,7 @@ async function textFormating() {
 
 function mobileNavClose() {
   const nav = document.querySelector('.section_navigation1-light');
-  const navOpenButn = nav.querySelector('.navigation1_menu-button');
+  const navOpenButn = nav?.querySelector('.navigation1_menu-button');
   const closebutn = nav.querySelector('.navigation1_close-butn');
   const body = document.querySelector('body');
   let navOpen = false;
