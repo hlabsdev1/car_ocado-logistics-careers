@@ -71,7 +71,7 @@ function initFilterToggle() {
 
 function globalSwiper() {
   const swiperComponent = document.querySelectorAll(
-    "[swiper-component='global']"
+    "[swiper-component='global']",
   );
   swiperComponent.forEach((item) => {
     const swiperContainer = item.querySelector('.swiper');
@@ -167,7 +167,7 @@ async function markDivsWithDirectText() {
   divs.forEach((div) => {
     const hasDirectText = Array.from(div.childNodes).some(
       (node) =>
-        node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+        node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0,
     );
 
     if (hasDirectText) {
@@ -187,7 +187,7 @@ async function formatingV_Text() {
       element,
       NodeFilter.SHOW_TEXT,
       null,
-      false
+      false,
     );
 
     const nodes = [];
@@ -233,6 +233,24 @@ function mobileNavClose() {
   const nav = document.querySelector('.section_navigation1-light');
   const navOpenButn = nav.querySelector('.navigation1_menu-button');
   const closebutn = nav.querySelector('.navigation1_close-butn');
+  const body = document.querySelector('body');
+  let navOpen = false;
+
+  body.addEventListener('click', () => {
+    const navMenu = document.querySelector('.navigation1_menu-light');
+    const activeAttr = navMenu.getAttributeNode('data-nav-menu-open');
+    if (activeAttr) {
+      console.log('nav close now');
+      if (body.classList.contains('is--noscroll')) {
+        body.classList.remove('is--noscroll');
+      }
+    } else {
+      console.log('nav open now');
+      if (!body.classList.contains('is--noscroll')) {
+        body.classList.add('is--noscroll');
+      }
+    }
+  });
 
   if (closebutn) {
     closebutn.addEventListener('click', () => {
@@ -277,7 +295,7 @@ function createScrollTrigger(
   timeline,
   playValue,
   reverseValue,
-  markers
+  markers,
 ) {
   // Play tl when scrolled into view (60% from top of screen)
   ScrollTrigger.create({
@@ -324,7 +342,7 @@ function globalHeaderAnimation() {
           },
           ease: textEase,
         },
-        '>-0.3'
+        '>-0.3',
       );
     }
 
@@ -339,7 +357,7 @@ function globalHeaderAnimation() {
           },
           ease: textEase,
         },
-        '0.5'
+        '0.5',
       );
     }
 
