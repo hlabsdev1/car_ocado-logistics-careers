@@ -244,11 +244,12 @@ function mobileNavClose() {
       if (body.classList.contains('is--noscroll')) {
         body.classList.remove('is--noscroll');
       }
-    } else {
-      console.log('nav open now');
-      if (!body.classList.contains('is--noscroll')) {
-        body.classList.add('is--noscroll');
-      }
+    }
+  });
+
+  navOpenButn.addEventListener('click', () => {
+    if (!body.classList.contains('is--noscroll')) {
+      body.classList.add('is--noscroll');
     }
   });
 
