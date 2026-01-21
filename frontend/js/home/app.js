@@ -493,7 +493,11 @@ function individualPage() {
     const categoryFragment = document.createDocumentFragment();
     const teamCategoryFragment = document.createDocumentFragment();
 
-    cities.forEach((item) => {
+    const sortedCities = [...cities].sort((a, b) =>
+      a.Name.localeCompare(b.Name),
+    );
+
+    sortedCities.forEach((item) => {
       const clone1 = filter_link.cloneNode(true);
       clone1.textContent = item.Name;
       clone1.setAttribute('location-name', item.Name);
@@ -547,6 +551,7 @@ function individualPage() {
       const categoryActivePill = filter_wrap.querySelector(
         "[map-filter-pill='team-category']",
       );
+      const mapNoResult = document.querySelector('.map-no-result');
 
       //Set active filters
       //Apply filters
@@ -617,6 +622,19 @@ function individualPage() {
           }
         });
 
+        //Remove filter location if there's no job
+        locationLinks.forEach((link) => {
+          const cityName = link.getAttribute('location-name');
+
+          if (cityName === 'all') {
+            link.style.display = '';
+            return;
+          }
+
+          const total = cityFilteredCounts.get(cityName) || 0;
+          link.style.display = total > 0 ? '' : 'none';
+        });
+
         let filterCityMarker = cityMarkers.filter((item) => {
           const cityName = item.cityName;
           const locationMatch =
@@ -642,6 +660,7 @@ function individualPage() {
       }
 
       locationLinks.forEach((link) => {
+        //Click event
         link.addEventListener('click', () => {
           const attr = link.getAttribute('location-name');
           //Toggling active Class
@@ -708,7 +727,16 @@ function individualPage() {
         innerM.forEach((marker) => {
           marker.markerEl.style.display = 'block';
         });
-        // console.log(innerMarker);
+
+        if (cityM.length === 0) {
+          if (!mapNoResult.classList.contains('is--active')) {
+            mapNoResult.classList.add('is--active');
+          }
+        } else {
+          if (mapNoResult.classList.contains('is--active')) {
+            mapNoResult.classList.remove('is--active');
+          }
+        }
       }
 
       //Fly to city when clicking on cities
