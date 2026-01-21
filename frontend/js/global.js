@@ -411,6 +411,17 @@ async function globalScrollAnimation() {
 
 window.globalScrollAnimation = globalScrollAnimation;
 
+function mapStyleMoveTabDown() {
+  const mapWrap = document.querySelector('.map-wrapper');
+  const map = document.querySelector('.map-parent');
+  const heading = mapWrap.querySelector('[map-heading]');
+  const tablet = window.innerWidth < 991;
+
+  if (tablet) {
+    mapWrap.insertBefore(heading, map);
+  }
+}
+
 document.fonts.ready.then(() => {
   headerSplit();
   globalHeaderAnimation();
@@ -425,6 +436,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.addEventListener('DOMContentLoaded', function () {
   initFilterToggle();
   globalSwiper();
+  mapStyleMoveTabDown();
   hideEmptyButn();
   mobileNavClose();
 });
