@@ -67,7 +67,6 @@ function getLocation() {
 
 //On Page load check if Geolocation is on
 async function geoCheckonLoad() {
-  console.log('is this working?');
   // secure context check
   if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
     console.warn('Geolocation & Permissions API require HTTPS or localhost.');
@@ -84,9 +83,9 @@ async function geoCheckonLoad() {
     if (result.state === 'granted') {
       await getLocation().catch((e) => console.warn('autoget failed:', e));
     } else if (result.state === 'prompt') {
-      console.log('still choosing');
+      // console.log('still choosing');
     } else if (result.state === 'denied') {
-      console.log('Permission denied.');
+      // console.log('Permission denied.');
     }
 
     // listen for live changes (user flips permission in browser UI)
@@ -99,15 +98,15 @@ async function geoCheckonLoad() {
             // call any follow-up logic that depends on userLat/userLng
             wait();
           } catch (e) {
-            console.warn('getLocation after permission change failed:', e);
+            // console.warn('getLocation after permission change failed:', e);
           }
         }
       };
     } else {
-      console.log('Permissions result.onchange not supported in this browser.');
+      // console.log('Permissions result.onchange not supported in this browser.');
     }
   } catch (err) {
-    console.warn('Error checking Permission API: ', err);
+    // console.warn('Error checking Permission API: ', err);
   }
 }
 
@@ -180,6 +179,5 @@ function setUserCoordsToMap(map) {
 }
 
 window.addEventListener('load', () => {
-  console.log('loaded');
   geoCheckonLoad();
 });
