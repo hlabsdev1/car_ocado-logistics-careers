@@ -145,11 +145,11 @@ function individualPage() {
       spaceBetween: 20,
       // mousewheel: true,
       // loop: true,
-      //   navigation: {
-      //     nextEl: nextEl,
-      //     prevEl: prevEl,
-      //     disabledClass: 'is--disabled',
-      //   },
+      navigation: {
+        nextEl: nextEl,
+        prevEl: prevEl,
+        disabledClass: 'is--disabled',
+      },
       // custom pagination
       //   pagination: {
       //     el: pagination,
