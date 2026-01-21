@@ -64,7 +64,7 @@ html.w-editor .home_hero-img {
 
 /* USER LOCATION ACTIVE STATES */
 [get-userloc].is--active {
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 [get-userloc].is--active .search-butn_icon-img.is--1 {
     opacity: 0;
