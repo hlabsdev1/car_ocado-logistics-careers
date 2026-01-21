@@ -429,18 +429,18 @@ function individualPage() {
       spaceBetween: 20,
       // mousewheel: true,
       // loop: true,
-      //   navigation: {
-      //     nextEl: nextEl,
-      //     prevEl: prevEl,
-      //     disabledClass: 'is--disabled',
-      //   },
+      navigation: {
+        nextEl: nextEl,
+        prevEl: prevEl,
+        disabledClass: 'is--disabled',
+      },
       // custom pagination
-      //   pagination: {
-      //     el: pagination,
-      //     bulletClass: 'swiper-bullet',
-      //     bulletActiveClass: 'is--active',
-      //     clickable: true,
-      //   },
+      // pagination: {
+      //   el: pagination,
+      //   bulletClass: 'swiper-bullet',
+      //   bulletActiveClass: 'is--active',
+      //   clickable: true,
+      // },
     });
   }
 
