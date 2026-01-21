@@ -73,6 +73,7 @@ const globalCities = [
   { Name: 'Wimbledon', Latitude: '51.4346312', Longitude: '-0.2010254' },
   { Name: 'Merton', Latitude: '51.4122001', Longitude: '-0.1914294' },
   { Name: 'Acton', Latitude: '51.5018002', Longitude: '-0.2763387' },
+  { Name: 'Leyton', Latitude: '51.5648302', Longitude: '-0.0338744' },
 ];
 
 window.getData = getData;
