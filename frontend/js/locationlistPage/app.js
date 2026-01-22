@@ -537,7 +537,7 @@ function individualPage() {
       const categoryLinks = category_Menu.querySelectorAll('.filter-tab-links');
       const teamCategoryLinks =
         teamCategory_Menu.querySelectorAll('.filter-tab-links');
-      const locationActivePill = filter_wrap.querySelector(
+      const locationActivePill = filter_wrap.querySelectorAll(
         "[map-filter-pill='location']",
       );
       const categoryActivePill = filter_wrap.querySelectorAll(
