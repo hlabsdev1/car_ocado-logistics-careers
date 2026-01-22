@@ -540,7 +540,7 @@ function individualPage() {
       const locationActivePill = filter_wrap.querySelector(
         "[map-filter-pill='location']",
       );
-      const categoryActivePill = filter_wrap.querySelector(
+      const categoryActivePill = filter_wrap.querySelectorAll(
         "[map-filter-pill='team-category']",
       );
       const mapNoResult = document.querySelector('.map-no-result');
@@ -671,7 +671,10 @@ function individualPage() {
             flyToCity(attr);
           }
           applyFilters();
-          locationActivePill.innerHTML = link.innerHTML;
+           // locationActivePill.innerHTML = link.innerHTML;
+            locationActivePill.forEach(pill => {
+                pill.innerHTML = link.innerHTML;
+              });
         });
       });
       categoryLinks.forEach((link) => {
@@ -702,7 +705,10 @@ function individualPage() {
             activeFilters.teamCategory = attr;
           }
           applyFilters();
-          categoryActivePill.innerHTML = link.innerHTML;
+          // categoryActivePill.innerHTML = link.innerHTML;
+            categoryActivePill.forEach(pill => {
+                pill.innerHTML = link.innerHTML;
+              });
         });
       });
 
@@ -800,3 +806,24 @@ function individualPage() {
 }
 
 individualPage();
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (e) => {
+    const clickedFilterOption = e.target.closest('.filter-tab-links');
+    if (!clickedFilterOption) return;
+
+    const filterDropdown = clickedFilterOption.closest('[map-filter]');
+
+    setTimeout(() => {
+      // Close the filter dropdown
+      if (filterDropdown) {
+        filterDropdown.classList.remove('is--open');
+      }
+
+      // Close any open Mapbox popups
+      document
+        .querySelectorAll('.mapboxgl-popup-close-button')
+        .forEach((closeButton) => closeButton.click());
+
+    }, 100);
+  });
+});
