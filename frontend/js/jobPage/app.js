@@ -1166,7 +1166,7 @@ function individualPage() {
 
     document
       .querySelectorAll(
-        '[hs-list-element="filter-wrap2"] h1,[hs-list-element="filter-wrap2"] h2, [hs-list-element="filter-wrap2"] h3,[hs-list-element="filter-wrap2"], [hs-list-element="filter-wrap2"] p, [hs-list-element="filter-wrap2"] [text-content-div], [map-filter] li',
+        '[hs-list-element="job-page"] h1,[hs-list-element="job-page"] h2, [hs-list-element="job-page"] h3,[hs-list-element="job-page"], [hs-list-element="job-page"] p, [hs-list-element="job-page"] [text-content-div], [map-filter] li',
       )
       .forEach(highlightV);
   }

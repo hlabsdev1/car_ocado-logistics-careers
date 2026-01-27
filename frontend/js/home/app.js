@@ -57,7 +57,7 @@ function individualPage() {
       subLocation: subLoc_map.get(job.location.location_code) || [],
     }));
 
-    console.log(allJobs);
+    // console.log(allJobs);
 
     //Function calling-
     map(dataItems, locations, cities);
@@ -940,7 +940,7 @@ function individualPage() {
       link.addEventListener('click', () => {
         const attr = link.getAttribute('team-cat');
         currentIndex = index;
-        console.log(currentIndex);
+        // console.log(currentIndex);
         //Tab pane method
         tabPane.forEach((pane) => {
           if (pane.getAttribute('team-cat') === attr) {
