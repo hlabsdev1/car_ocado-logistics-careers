@@ -114,7 +114,7 @@ function individualPage() {
       const applyLink = card.querySelector('.cta-link');
       const job_categoryWrap = job_category.parentNode;
 
-      const newUrl = job.application_url.split('/apply')[0];
+      const newUrl = `${job.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
       job_categoryWrap.style.background = job.subLocation[0]?.color;
 
       job_name.innerHTML = job.title;

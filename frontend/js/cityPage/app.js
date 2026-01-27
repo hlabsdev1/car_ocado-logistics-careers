@@ -314,9 +314,10 @@ function individualPage() {
       const jobList = jobArray
         .map((a) => {
           const category = a.job_family?.job_family_name || '';
+          const applicationURL = `${a.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
           return `
                 <li category="${category}" class="popup_vac-list-item">
-                   <a href=${a.application_url} target="_blank" class="popup_vac-link">${a.title}</a>
+                   <a href=${applicationURL} target="_blank" class="popup_vac-link">${a.title}</a>
                 </li>
                 `;
         })
@@ -400,7 +401,7 @@ function individualPage() {
       const applyLink = card.querySelector('.cta-link');
       const job_categoryWrap = job_category.parentNode;
 
-      const newUrl = job.application_url.split('/apply')[0];
+      const newUrl = `${job.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
       job_categoryWrap.style.background = job.subLocation[0]?.color;
 
       job_name.innerHTML = job.title;

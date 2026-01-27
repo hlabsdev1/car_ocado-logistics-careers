@@ -419,9 +419,10 @@ function individualPage() {
       const jobList = jobArray
         .map((a) => {
           const category = a.job_family?.job_family_name || '';
+          const applicationURL = `${a.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
           return `
                 <li category="${category}" class="popup_vac-list-item">
-                   <a href=${a.application_url} target="_blank" class="popup_vac-link">${a.title}</a>
+                   <a href=${applicationURL} target="_blank" class="popup_vac-link">${a.title}</a>
                 </li>
                 `;
         })
@@ -671,10 +672,10 @@ function individualPage() {
             flyToCity(attr);
           }
           applyFilters();
-           // locationActivePill.innerHTML = link.innerHTML;
-            locationActivePill.forEach(pill => {
-                pill.innerHTML = link.innerHTML;
-              });
+          // locationActivePill.innerHTML = link.innerHTML;
+          locationActivePill.forEach((pill) => {
+            pill.innerHTML = link.innerHTML;
+          });
         });
       });
       categoryLinks.forEach((link) => {
@@ -706,9 +707,9 @@ function individualPage() {
           }
           applyFilters();
           // categoryActivePill.innerHTML = link.innerHTML;
-            categoryActivePill.forEach(pill => {
-                pill.innerHTML = link.innerHTML;
-              });
+          categoryActivePill.forEach((pill) => {
+            pill.innerHTML = link.innerHTML;
+          });
         });
       });
 
@@ -823,7 +824,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document
         .querySelectorAll('.mapboxgl-popup-close-button')
         .forEach((closeButton) => closeButton.click());
-
     }, 100);
   });
 });
