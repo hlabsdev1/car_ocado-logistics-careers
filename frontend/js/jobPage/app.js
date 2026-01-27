@@ -1104,9 +1104,7 @@ function individualPage() {
     if (directTextProcessed) return;
     directTextProcessed = true;
 
-    const divs = document.querySelectorAll(
-      '[hs-list-element="filter-wrap2"] div',
-    );
+    const divs = document.querySelectorAll('[hs-list-element="job-page"] div');
 
     divs.forEach((div) => {
       const hasDirectText = Array.from(div.childNodes).some(
