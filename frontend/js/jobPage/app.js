@@ -62,6 +62,10 @@ function individualPage() {
     map(dataItems, locations, cities);
     latestJobs(allJobs);
     await globalScrollAnimation();
+
+    //Calling v text formating
+    await markDivsWithDirectText();
+    await formatingV_Text();
   }
 
   init();
@@ -1093,6 +1097,78 @@ function individualPage() {
     }
 
     filterSystem();
+  }
+
+  let directTextProcessed = false;
+  async function markDivsWithDirectText() {
+    if (directTextProcessed) return;
+    directTextProcessed = true;
+
+    const divs = document.querySelectorAll(
+      '[hs-list-element="filter-wrap2"] div',
+    );
+
+    divs.forEach((div) => {
+      const hasDirectText = Array.from(div.childNodes).some(
+        (node) =>
+          node.nodeType === Node.TEXT_NODE &&
+          node.textContent.trim().length > 0,
+      );
+
+      if (hasDirectText) {
+        div.setAttribute('text-content-div', '');
+      }
+    });
+  }
+
+  async function formatingV_Text() {
+    function isVisuallyUppercase(el) {
+      const style = window.getComputedStyle(el);
+      return style.textTransform === 'uppercase';
+    }
+    function highlightV(element) {
+      const forceUppercase = isVisuallyUppercase(element);
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false,
+      );
+
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach((node) => {
+        const text = node.nodeValue;
+        // skip if no possible v/V
+        if (!/[vV]/.test(text)) return;
+
+        const fragment = document.createDocumentFragment();
+        const parts = text.split(/([vV])/g);
+        // console.log(parts);
+
+        parts.forEach((part) => {
+          const isV = part === 'V';
+          const isLowerV = part === 'v';
+          if (isV || (isLowerV && forceUppercase)) {
+            const span = document.createElement('span');
+            span.className = 'kerning-v';
+            span.textContent = part;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(part));
+          }
+        });
+
+        node.parentNode.replaceChild(fragment, node);
+      });
+    }
+
+    document
+      .querySelectorAll(
+        '[hs-list-element="filter-wrap2"] h1,[hs-list-element="filter-wrap2"] h2, [hs-list-element="filter-wrap2"] h3,[hs-list-element="filter-wrap2"], [hs-list-element="filter-wrap2"] p, [hs-list-element="filter-wrap2"] [text-content-div], [map-filter] li',
+      )
+      .forEach(highlightV);
   }
 }
 
