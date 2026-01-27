@@ -72,7 +72,7 @@ function individualPage() {
 
     if (bodyAttr === 'LGV Drivers') {
       bodyAttr = 'HGV/LGV Transport';
-      console.log(bodyAttr);
+      // console.log(bodyAttr);
     }
 
     // console.log(bodyAttr);
@@ -163,7 +163,7 @@ function individualPage() {
   function sectionHideIfEmpty() {
     const sec = document.querySelector('.life-logistic-section');
     const container = sec.querySelector('.container');
-    console.log(sec);
+    // console.log(sec);
     if (container.classList.contains('w-condition-invisible')) {
       const vertPad = sec.querySelector('.padding-vertical');
       vertPad.classList.add('is--top-0px');

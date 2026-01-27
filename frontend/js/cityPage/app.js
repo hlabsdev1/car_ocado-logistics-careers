@@ -1,5 +1,5 @@
 function individualPage() {
-  console.log('city page');
+  // console.log('city page');
   async function init() {
     const data = await getData();
     const locations = await getLocations();
@@ -214,7 +214,7 @@ function individualPage() {
 
         // console.log(location.properties);
 
-        console.log(allJobs);
+        // console.log(allJobs);
         if (allJobs.length === 0) return;
 
         // City Marker

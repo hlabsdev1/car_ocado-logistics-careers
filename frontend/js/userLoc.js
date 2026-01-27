@@ -21,7 +21,7 @@ function success(position) {
   };
 
   if (userLat !== undefined && userLang !== undefined) {
-    console.log('all good');
+    // console.log('all good');
     if (mapLayer) {
       mapLayer.classList.add('is--hide');
     }
@@ -91,7 +91,7 @@ async function geoCheckonLoad() {
     // listen for live changes (user flips permission in browser UI)
     if (typeof result.onchange === 'function') {
       result.onchange = async () => {
-        console.log('Permission changed ->', result.state);
+        // console.log('Permission changed ->', result.state);
         if (result.state === 'granted') {
           try {
             await getLocation();
@@ -111,7 +111,7 @@ async function geoCheckonLoad() {
 }
 
 function wait() {
-  console.log('what the heck?');
+  // console.log('what the heck?');
 }
 
 function drawRadiusCircle(map, lng, lat) {

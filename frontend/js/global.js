@@ -35,7 +35,7 @@ function headerSplit() {
 function initFilterToggle() {
   const OPEN_CLASS = 'is--open';
   const dropdowns = document.querySelectorAll('.filter-dropdown');
-  console.log('init filter');
+  // console.log('init filter');
 
   dropdowns.forEach((dropdown) => {
     const toggleBtn = dropdown.querySelector('.filter-dropdown-toggle');
@@ -240,7 +240,7 @@ function mobileNavClose() {
     const navMenu = document.querySelector('.navigation1_menu-light');
     const activeAttr = navMenu.getAttributeNode('data-nav-menu-open');
     if (activeAttr) {
-      console.log('nav close now');
+      // console.log('nav close now');
       if (body.classList.contains('is--noscroll')) {
         body.classList.remove('is--noscroll');
       }

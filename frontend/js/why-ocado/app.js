@@ -1,7 +1,7 @@
 function storySlider() {
-  console.log('ocado page');
+  // console.log('ocado page');
   const swiperComponent = document.querySelectorAll(
-    "[swiper-component='story']"
+    "[swiper-component='story']",
   );
   swiperComponent.forEach((item) => {
     const swiperContainer = item.querySelector('.swiper');
