@@ -9,7 +9,7 @@ async function getData() {
     if (response.ok) {
       const result = await response.json();
       const EXCLUDED = [
-        803, 163, 796, 819, 810, 590, 801, 772, 727, 823, 701, 781, 824,
+        803, 163, 796, 819, 810, 590, 616, 772, 727, 823, 701, 781, 824,
       ];
       result.items = result.items.filter((job) => {
         const reqNum = Number(job.requisition_number);
