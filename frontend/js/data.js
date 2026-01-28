@@ -8,12 +8,22 @@ async function getData() {
     const response = await fetch(JOB_URL);
     if (response.ok) {
       const result = await response.json();
+      const EXCLUDED = [
+        803, 163, 796, 819, 810, 590, 801, 772, 727, 823, 701, 781, 824,
+      ];
+      result.items = result.items.filter((job) => {
+        const reqNum = Number(job.requisition_number);
+        // console.log(reqNum);
+        return !EXCLUDED.includes(reqNum);
+      });
+      // console.log('Filtered items:', result.items);
       return result;
     } else {
       throw new Error(`Response status: ${response.status}`);
     }
   } catch (error) {
     console.error(error.message);
+    return { items: [] };
   }
 }
 
@@ -76,6 +86,8 @@ const globalCities = [
   { Name: 'Leyton', Latitude: '51.5648302', Longitude: '-0.0338744' },
   { Name: 'Walthamstow', Latitude: '51.5722418', Longitude: '-0.0371206' },
 ];
+// const testData = getData();
+// console.log(testData);
 
 window.getData = getData;
 window.getLocations = getLocations;
