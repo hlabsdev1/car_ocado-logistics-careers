@@ -74,6 +74,7 @@ const globalCities = [
   { Name: 'Merton', Latitude: '51.4122001', Longitude: '-0.1914294' },
   { Name: 'Acton', Latitude: '51.5018002', Longitude: '-0.2763387' },
   { Name: 'Leyton', Latitude: '51.5648302', Longitude: '-0.0338744' },
+  { Name: 'Walthamstow', Latitude: '51.5722418', Longitude: '-0.0371206' },
 ];
 
 window.getData = getData;
