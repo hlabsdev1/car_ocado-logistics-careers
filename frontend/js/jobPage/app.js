@@ -59,8 +59,8 @@ function individualPage() {
     }));
 
     //Function calling-
-    map(dataItems, locations, cities);
     latestJobs(allJobs);
+    observeMapSection(dataItems, locations, cities);
     await globalScrollAnimation();
 
     //Calling v text formating
@@ -69,6 +69,43 @@ function individualPage() {
   }
 
   init();
+
+  function loadMapbox(callback) {
+    if (mapboxLoaded) {
+      callback();
+      return;
+    }
+
+    mapboxLoaded = true;
+
+    // Load JS
+    const script = document.createElement('script');
+    script.src = 'https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js';
+    script.defer = true;
+
+    script.onload = callback;
+
+    document.body.appendChild(script);
+  }
+
+  function observeMapSection(dataItems, locations, cities) {
+    const mapSection = document.querySelector('#map-canva');
+    if (!mapSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMapbox(() => {
+            map(dataItems, locations, cities);
+          });
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }, // preload slightly before visible
+    );
+
+    observer.observe(mapSection);
+  }
 
   function map(jobData, locations, cities) {
     /*===========
