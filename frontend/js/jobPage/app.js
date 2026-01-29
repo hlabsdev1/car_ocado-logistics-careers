@@ -70,6 +70,8 @@ function individualPage() {
 
   init();
 
+  let mapboxLoaded = false;
+
   function loadMapbox(callback) {
     if (mapboxLoaded) {
       callback();
