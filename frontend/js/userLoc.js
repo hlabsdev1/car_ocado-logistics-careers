@@ -6,8 +6,8 @@
 
 const geoButn = document.querySelectorAll('[get-userloc]');
 const mapLayer = document.querySelector('.ma-get_loc-wrap');
-const searchLocation = document.querySelectorAll('.search-utils-location');
-const homeMap = document.querySelector('[home-map]');
+// const searchLocation = document.querySelectorAll('.search-utils-location');
+const homeMap = document.querySelector('#map-canva');
 let userLat, userLang;
 let userLocationMarker = null;
 function success(position) {
@@ -148,18 +148,15 @@ function drawRadiusCircle(map, lng, lat) {
 
 window.drawRadiusCircle = drawRadiusCircle;
 
-function setUserCoordsToMap(map) {
+function setUserCoordsToMap() {
   if (!geoButn) return;
 
   geoButn.forEach((butn) => {
     butn.addEventListener('click', async (e) => {
+      e.preventDefault();
       try {
         const position = await getLocation();
 
-        // const lat = position.coords.latitude;
-        // const lng = position.coords.longitude;
-        // map.setCenter([lng, lat]);
-        // drawRadiusCircle(map, lng, lat);
         if (homeMap) {
           const mapElementPos = homeMap.getBoundingClientRect().top;
           const offsetMap = mapElementPos + window.scrollY - 100;
@@ -177,6 +174,8 @@ function setUserCoordsToMap(map) {
     });
   });
 }
+
+window.setUserCoordsToMap = setUserCoordsToMap;
 
 window.addEventListener('load', () => {
   geoCheckonLoad();

@@ -809,7 +809,7 @@ function individualPage() {
 
     // initFilterToggle();
     filteringSystem();
-    setUserCoordsToMap(map);
+    // setUserCoordsToMap(map);
 
     map.on('load', () => {
       // 1️⃣ Listen for future updates
@@ -865,4 +865,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((closeButton) => closeButton.click());
     }, 100);
   });
+  setUserCoordsToMap();
 });

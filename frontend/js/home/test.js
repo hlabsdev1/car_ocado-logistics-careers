@@ -95,7 +95,7 @@ function individualPage() {
   }
 
   function observeMapSection(dataItems, locations, cities) {
-    const mapSection = document.querySelector('[home-map]');
+    const mapSection = document.querySelector('#map-canva');
     if (!mapSection) return;
 
     const observer = new IntersectionObserver(
@@ -818,7 +818,7 @@ function individualPage() {
 
     // initFilterToggle();
     filteringSystem();
-    setUserCoordsToMap(map);
+    // setUserCoordsToMap(map);
 
     map.on('load', () => {
       // 1️⃣ Listen for future updates
@@ -1315,4 +1315,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((closeButton) => closeButton.click());
     }, 100);
   });
+  setUserCoordsToMap();
 });

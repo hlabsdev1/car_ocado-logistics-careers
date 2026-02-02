@@ -814,7 +814,7 @@ function individualPage() {
 
     // initFilterToggle();
     filteringSystem();
-    setUserCoordsToMap(map);
+    // setUserCoordsToMap(map);
 
     map.on('load', () => {
       // 1️⃣ Listen for future updates
