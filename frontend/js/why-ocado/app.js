@@ -10,6 +10,7 @@ function storySlider() {
     const pagination = item.querySelector('.swiper-pagination');
     const bullet = item.querySelector('.swiper-bullet');
     const swiperComp = new Swiper(swiperContainer, {
+      a11y: false,
       slidesPerView: 'auto',
       followFinger: false,
       slideActiveClass: 'is-active',
