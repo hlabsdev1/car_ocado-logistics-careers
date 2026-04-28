@@ -85,6 +85,11 @@ const globalCities = [
   { Name: 'Acton', Latitude: '51.5018002', Longitude: '-0.2763387' },
   { Name: 'Leyton', Latitude: '51.5648302', Longitude: '-0.0338744' },
   { Name: 'Walthamstow', Latitude: '51.5722418', Longitude: '-0.0371206' },
+  {
+    Name: 'Gateshead',
+    Latitude: '54.95254709302742',
+    Longitude: '-1.6055270786947116',
+  },
 ];
 // const testData = getData();
 // console.log(testData);
