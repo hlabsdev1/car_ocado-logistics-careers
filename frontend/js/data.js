@@ -87,8 +87,8 @@ const globalCities = [
   { Name: 'Walthamstow', Latitude: '51.5722418', Longitude: '-0.0371206' },
   {
     Name: 'Gateshead',
-    Latitude: '54.95254709302742',
-    Longitude: '-1.6055270786947116',
+    Latitude: '54.9415542',
+    Longitude: '-1.6285297',
   },
 ];
 // const testData = getData();
