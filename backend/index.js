@@ -1,37 +1,34 @@
-// import express from 'express';
-// import fetch from 'node-fetch';
-// import cors from 'cors';
-// import 'dotenv/config';
+/* 
+    extra from ocado location
+  {
+    "Map Results": "44",
+    "Name": "GMDC Erith",
+    "Code": "OL_LOC_0008",
+    "Location Set": "Common Set",
+    "Status": "Active",
+    "ending Change": "No",
+    "Address Line 1": "1 Church ManorwayErith",
+    "City": "Erith",
+    "Postal Code": "DA8 1PQ",
+    "Country": "United Kingdom",
+    "Latitude": 51.6770893,
+    "Logtitude": -0.0253364,
+    "Category": "Warehouse"
+  },
+  {
+    "Map Results": "45",
+    "Name": "GMDC Welwyn",
+    "Code": "OL_LOC_0009",
+    "Location Set": "Common Set",
+    "Status": "Active",
+    "ending Change": "No",
+    "Address Line 1": "Aquarius House, BWessemer elwyn Garden Road CitAL7 y 1HH",
+    "City": "Welwyn Garden City",
+    "Postal Code": "EN3 7XY",
+    "Country": "United Kingdom",
+    "Latitude": 51.6771073,
+    "Logtitude": -0.0253664,
+    "Category": "Warehouse"
+  }
 
-// import { createRequire } from 'module';
-// const require = createRequire(import.meta.url);
-// const locations = require('./ocado-location.json');
-
-// const app = express();
-// app.use(cors()); // allow your browser to call this server
-
-// // console.log(process.env.API_KEY);
-
-// // Proxy endpoint
-// app.get('/api/jobs', async (req, res) => {
-//   try {
-//     const r = await fetch(process.env.API_KEY);
-//     if (!r.ok) {
-//       return res.status(r.status).json({ error: `Upstream error ${r.status}` });
-//     }
-//     const data = await r.json();
-//     res.json(data);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message || 'Proxy error' });
-//   }
-// });
-
-// //Get location data
-// app.get('/api/location', (req, res) => {
-//   return res.json(locations);
-// });
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+*/
