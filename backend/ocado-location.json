@@ -447,7 +447,7 @@
     "Country": "United Kingdom",
     "Latitude": 51.511953,
     "Logtitude": -2.6840311,
-    "Category": "Customer Delivery"
+    "Category": "Warehouse"
   },
   {
     "Map Results": "30",
@@ -659,7 +659,7 @@
     "Logtitude": -0.0253564,
     "Category": "Customer Delivery"
   },
-      {
+  {
     "Map Results": "46",
     "Name": "Spoke Gateshead",
     "Code": "OL_LOC_0051",
@@ -670,8 +670,8 @@
     "City": "Gateshead",
     "Postal Code": "NE11 9EZ",
     "Country": "United Kingdom",
-    "Latitude": 54.9415542,
-    "Logtitude": -1.6285297,
-    "Category": "Warehouse"
+    "Latitude": 54.9580416147279,
+    "Logtitude": -1.64739011639323,
+    "Category": "Customer Delivery"
   }
 ]
