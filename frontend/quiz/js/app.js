@@ -46,9 +46,9 @@ async function addingJson() {
         revealContainer.className = "quiz-reveal-item"
     const revealHtml = `
         <div class="quiz-reveal-cat" category="customerService"></div>
-        <div class="quiz-reveal-cat" category="LGV"></div>
-        <div class="quiz-reveal-cat" category="warehouse"></div>
-        <div class="quiz-reveal-cat" category="headOffice"></div>
+        // <div class="quiz-reveal-cat" category="LGV"></div>
+        // <div class="quiz-reveal-cat" category="warehouse"></div>
+        // <div class="quiz-reveal-cat" category="headOffice"></div>
     `
 
     revealContainer.insertAdjacentHTML('beforeend', revealHtml)
@@ -69,9 +69,23 @@ function saveAnswer(questionId) {
 function calculateResults() {
   const scores = {
     customerService: 0,
-    LGV: 0,
-    warehouse: 0,
     headOffice: 0,
+    warehouse: 0,
+    LGV: 0,
+
+  };
+  const eliminate = {
+    customerService: -8,
+    headOffice: -1,
+    warehouse: -3,
+    LGV: -5,
+  }
+
+  const messages = {
+    customerService: 'Enter this button to see customer service links',
+    headOffice: 'Check out our head office opportunities below',
+    warehouse: 'Take a look at our warehouse roles here',
+    LGV: 'Take a look at our LGV roles here',
   };
 
   json.forEach((question) => {
@@ -92,17 +106,28 @@ function calculateResults() {
     });
   });
 
+  const winningCategory = Object.keys(scores).reduce((a, b) =>
+    scores[a] > scores[b] ? a : b
+  );
+
 
   //Adding to the revealItem
   const revealParent = document.querySelector(".quiz-reveal-item")
-  const revealCat = document.querySelectorAll('.quiz-reveal-cat');
-  revealCat.forEach(cat => {
-    const category = cat.getAttribute('category');
-    cat.innerHTML = `
-        <h3>${category}</h3>
-        <p>${scores[category] ?? 0}</p>
-    `;
-  })
+  const revealCat = document.querySelector('.quiz-reveal-cat');
+  // revealCat.forEach(cat => {
+  //   const category = cat.getAttribute('category');
+  //   cat.innerHTML = `
+  //       <h3>${category}</h3>
+  //       <p>${scores[category] ?? 0}</p>
+  //       <p>${scores[category] <= eliminate[category] ? 'Eliminated' : ''}</p>
+  //   `;
+  // })
+
+  revealParent.innerHTML = `
+    <h3>${winningCategory}</h3>
+    <p>${scores[winningCategory]}</p>
+    <p>${messages[winningCategory]}</p>
+  `;
 
   if(revealParent) revealParent.classList.add('is--active')
 
