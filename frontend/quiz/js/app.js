@@ -72,27 +72,28 @@ function calculateResults() {
     headOffice: 0,
     warehouse: 0,
     LGV: 0,
-
   };
   const eliminate = {
-    customerService: -8,
+    customerService: -1,
     headOffice: -1,
-    warehouse: -3,
-    LGV: -5,
-  }
-
-  const messages = {
-    customerService: 'Enter this button to see customer service links',
-    headOffice: 'Check out our head office opportunities below',
-    warehouse: 'Take a look at our warehouse roles here',
-    LGV: 'Take a look at our LGV roles here',
+    warehouse: -1,
+    LGV: -1,
   };
 
-  json.forEach((question) => {
+  const messages = {
+    customerService: "Enter this button to see customer service links",
+    headOffice: "Check out our head office opportunities below",
+    warehouse: "Take a look at our warehouse roles here",
+    LGV: "Take a look at our LGV roles here",
+  };
 
+  const revealParent = document.querySelector(".quiz-reveal-item");
+  const revealCat = document.querySelector(".quiz-reveal-cat");
+
+  json.forEach((question) => {
     const selected = document.querySelector(
-            `input[name="q${question.id}"]:checked`
-        );
+      `input[name="q${question.id}"]:checked`,
+    );
     const answer = userAnswers[question.id];
 
     if (!selected) return;
@@ -106,30 +107,99 @@ function calculateResults() {
     });
   });
 
-  const winningCategory = Object.keys(scores).reduce((a, b) =>
-    scores[a] > scores[b] ? a : b
+  // 2 edge cases
+  // if score are positives and equal share both
+  // if score is negative - don't show any jobs
+
+  const validCategories = Object.keys(scores).filter(
+    (category) => scores[category] >= 0,
   );
 
+  const eliminatedCategories = Object.keys(scores).filter((category) => {
+    return scores[category] <= eliminate[category];
+  });
 
-  //Adding to the revealItem
-  const revealParent = document.querySelector(".quiz-reveal-item")
-  const revealCat = document.querySelector('.quiz-reveal-cat');
-  // revealCat.forEach(cat => {
-  //   const category = cat.getAttribute('category');
-  //   cat.innerHTML = `
-  //       <h3>${category}</h3>
-  //       <p>${scores[category] ?? 0}</p>
-  //       <p>${scores[category] <= eliminate[category] ? 'Eliminated' : ''}</p>
-  //   `;
-  // })
-
-  revealParent.innerHTML = `
-    <h3>${winningCategory}</h3>
-    <p>${scores[winningCategory]}</p>
-    <p>${messages[winningCategory]}</p>
+  // Edge case #2: Everything is eliminated-- Working...
+  if (validCategories.length === 0) {
+    revealParent.innerHTML = `
+    <h3>No suitable role found</h3>
+    <p>Unfortunately none of our categories matched your answers.</p>
+          ${
+            eliminatedCategories.length
+              ? `
+        <h4>Eliminated Categories</h4>
+        <ul>
+          ${eliminatedCategories
+            .map((category) => `<li>${category}</li>`)
+            .join("")}
+        </ul>
+      `
+              : ""
+          }
   `;
 
-  if(revealParent) revealParent.classList.add('is--active')
+    revealParent.classList.add("is--active");
+    return scores;
+  }
+
+  // Find the highest score among valid categories
+const highestScore = Math.max(
+  ...validCategories.map(category => scores[category])
+);
+
+
+  // const winningCategory = validCategories.reduce((a, b) =>
+  //   scores[a] > scores[b] ? a : b,
+  // );
+
+  const winningCategories = validCategories.filter(
+  category => scores[category] === highestScore
+);
+
+
+  revealParent.innerHTML = `
+    ${winningCategories.map(category =>`
+      <div class="quiz-result">
+      <h3>${category}</h3>
+      <p>${scores[category]}</p>
+      <p>${messages[category]}</p>
+    </div>
+      `).join("")}
+    ${
+      eliminatedCategories.length
+              ? `
+        <h4>Eliminated Categories</h4>
+        <ul>
+          ${eliminatedCategories
+            .map((category) => `<li>${category}</li>`)
+            .join("")}
+        </ul>
+      `
+              : ""
+          }
+  `
+
+
+  // revealParent.innerHTML = `
+  //   <h3>${winningCategory}</h3>
+  //   <p>${scores[winningCategory]}</p>
+  //   <p>${messages[winningCategory]}</p>
+
+  //     ${
+  //       eliminatedCategories.length
+  //         ? `
+  //       <h4>Eliminated Categories</h4>
+  //       <ul>
+  //         ${eliminatedCategories
+  //           .map((category) => `<li>${category}</li>`)
+  //           .join("")}
+  //       </ul>
+  //     `
+  //         : ""
+  //     }
+  // `;
+
+  if (revealParent) revealParent.classList.add("is--active");
 
   return scores;
 }
