@@ -1,0 +1,22 @@
+.quiz_item-wrap.is--active {
+    display: flex;
+}
+
+.quiz_item-result-wrap.is--active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.quiz_item-arrow.is--disabled {
+    border-color: #D9D9D6;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+[quiz-result-on] {
+    transition: opacity .2s;
+}
+
+[quiz-result-on].is--active {
+    opacity: 0.5;
+}
