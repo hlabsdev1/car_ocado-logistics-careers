@@ -314,3 +314,24 @@ function sliderFunc() {
 }
 
 mainFunc()
+
+
+const progressPath = document.getElementById('progress');
+const total = progressPath.getTotalLength();
+progressPath.style.strokeDasharray = total;
+  let currentTime = 10;
+
+function render(pct) {
+  const drawn = total * (pct / 100);
+  progressPath.style.strokeDashoffset = total - drawn;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const intervalId = setInterval(() => {
+    currentTime+=10
+  render(currentTime)
+   if (currentTime >= 100) {
+    clearInterval(intervalId);
+  }
+}, 200);
+})

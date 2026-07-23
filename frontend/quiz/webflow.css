@@ -2,6 +2,25 @@
     display: flex;
 }
 
+.quiz_radio-butn-wrap input {
+  display: none;
+}
+
+.quiz_radio-butn-wrap label {
+  display: block;
+  padding: 18px 32px;
+  border: 1px solid #D9D9D6;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.quiz_radio-butn-wrap label:has(input:checked) {
+  background: #FAEA00;
+  border-color: #FAEA00;
+}
+
 .quiz_item-result-wrap.is--active {
     opacity: 1;
     pointer-events: auto;
@@ -19,4 +38,19 @@
 
 [quiz-result-on].is--active {
     opacity: 0.5;
+}
+
+.quiz_join-item.is--active {
+    display: flex;
+}
+
+.quiz_item-final-result.is--active {
+    display: flex;
+}
+
+
+@media screen and (min-width: 991px) {
+   .quiz_radio-butn-wrap label {
+        max-width: calc(50% - 0.6rem);
+    } 
 }

@@ -4,33 +4,27 @@ const userAnswers = {};
 
 async function addingJson() {
   const mainWrap = document.querySelector(".sec-wrap.is--quiz");
-  const quizWrap = document.querySelector(".quiz_item-wrap");
+  const quizWrap = document.querySelector(".quiz_item-wrap .quiz_item-content");
   json.forEach((item) => {
     const mainContainer = document.createElement("div");
-    mainContainer.className = "quiz_item";
+    mainContainer.className = "quiz_item-change";
 
     //html
       const html = `
-  <div class="sec-bg is--home-hero">
-    <div class="hero-bg_img">
-      <img class="image" src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG.webp" alt="" sizes="(max-width: 2881px) 100vw, 2881px" loading="eager" fetchpriority="high" srcset="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-500.webp 500w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-800.webp 800w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-1080.webp 1080w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-1600.webp 1600w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-2000.webp 2000w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG-p-2600.webp 2600w, https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a5f910829707f9728bf13f3_BG.webp 2881w">
-    </div>
-  </div>
-  <div class="quiz_item-content">
     <div class="quiz_item-c-inner">
       <div quiz-result-on="" class="quiz_intro-c-top">
         <div class="quiz_item-c-top-col1">
           <div class="pill-content">
-            <div class="label-40px" text-content-div="">${item.id}/${json.length}</div>
+            <div class="label-40px">${item.id}/${json.length}</div>
           </div>
-          <div pill="hero1">
+          <div class="quiz_iitem-h-pill">
             <div class="text-h1" aria-label="On the go">
-              <div class="line">${item.label}</div>
+              ${item.label}
             </div>
           </div>
         </div>
         <div class="quiz_item-c-top-col1">
-          <div class="text-20px" text-content-div="">${item.question}</div>
+          <div class="text-20px">${item.question}</div>
         </div>
       </div>
       <div quiz-result-on="" class="quiz_radio-butn-wrap">
@@ -61,25 +55,11 @@ async function addingJson() {
         <img src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a6099de479f1133e183d05d_ocado-quiz-arrow.svg" loading="lazy" alt="" class="quiz_item-arrow-img">
       </div>
     </div>
-    <div class="quiz_item-circle"></div>
-  </div>
     `;
 
     mainContainer.insertAdjacentHTML("beforeend", html);
     quizWrap.appendChild(mainContainer);
   });
-
-  const revealContainer = document.createElement("div");
-  revealContainer.className = "quiz-reveal-item";
-  const revealHtml = `
-        <div class="quiz-reveal-cat" category="customerService"></div>
-        // <div class="quiz-reveal-cat" category="LGV"></div>
-        // <div class="quiz-reveal-cat" category="warehouse"></div>
-        // <div class="quiz-reveal-cat" category="headOffice"></div>
-    `;
-
-  revealContainer.insertAdjacentHTML("beforeend", revealHtml);
-  mainWrap.appendChild(revealContainer);
 }
 
 function saveAnswer(questionId) {
@@ -93,6 +73,11 @@ function saveAnswer(questionId) {
 }
 
 function calculateResults() {
+  const revealParent = document.querySelector(".quiz-reveal-item");
+  const revealContainer = document.querySelector(".quiz_item-final-result");
+  const revealHeading = revealContainer.querySelector("[reveal-heading]");
+  const revealPara = revealContainer.querySelector("[reveal-para]");
+  const butn = revealContainer.querySelector(".button");
   const scores = {
     customerService: 0,
     headOffice: 0,
@@ -112,9 +97,6 @@ function calculateResults() {
     warehouse: "Take a look at our warehouse roles here",
     LGV: "Take a look at our LGV roles here",
   };
-
-  const revealParent = document.querySelector(".quiz-reveal-item");
-  const revealCat = document.querySelector(".quiz-reveal-cat");
 
   json.forEach((question) => {
     const selected = document.querySelector(
@@ -147,24 +129,8 @@ function calculateResults() {
 
   // Edge case #2: Everything is eliminated-- Working...
   if (validCategories.length === 0) {
-    revealParent.innerHTML = `
-    <h3>No suitable role found</h3>
-    <p>Unfortunately none of our categories matched your answers.</p>
-          ${
-            eliminatedCategories.length
-              ? `
-        <h4>Eliminated Categories</h4>
-        <ul>
-          ${eliminatedCategories
-            .map((category) => `<li>${category}</li>`)
-            .join("")}
-        </ul>
-      `
-              : ""
-          }
-  `;
-
-    revealParent.classList.add("is--active");
+    revealHeading.innerHTML = 'No suitable role found';
+    revealPara.innerHTML = 'Unfortunately none of our categories matched your answers.';
     return scores;
   }
 
@@ -173,48 +139,43 @@ const highestScore = Math.max(
   ...validCategories.map(category => scores[category])
 );
 
-
-  // const winningCategory = validCategories.reduce((a, b) =>
-  //   scores[a] > scores[b] ? a : b,
-  // );
-
   const winningCategories = validCategories.filter(
   category => scores[category] === highestScore
 );
 
+  console.log(winningCategories, winningCategories[0])
 
-  revealParent.innerHTML = `
-    ${winningCategories.map(category =>`
-      <div class="quiz-result">
-      <h3>${category}</h3>
-      <p>${scores[category]}</p>
-      <p>${messages[category]}</p>
-    </div>
-      `).join("")}
-    ${
-      eliminatedCategories.length
-              ? `
-        <h4>Eliminated Categories</h4>
-        <ul>
-          ${eliminatedCategories
-            .map((category) => `<li>${category}</li>`)
-            .join("")}
-        </ul>
-      `
-              : ""
-          }
-  `
-
-  if (revealParent) revealParent.classList.add("is--active");
+  if(winningCategories.length > 0) {
+    if(winningCategories.length === 1) {
+      revealHeading.innerHTML = winningCategories[0];
+      revealPara.innerHTML = messages[winningCategories[0]];
+    } else if (winningCategories.length === 2) {
+      revealHeading.innerHTML = `${winningCategories[0]} & ${winningCategories[1]}`;
+    }
+  }
 
   return scores;
 }
 
+const progressPath = document.getElementById('progress');
+const total = progressPath.getTotalLength();
+progressPath.style.strokeDasharray = total;
+  let currentTime = 10;
+
+function render(pct) {
+  const drawn = total * (pct / 100);
+  progressPath.style.strokeDashoffset = total - drawn;
+}
+
+
 function sliderFunc() {
     const quizItemWrap = document.querySelector(".quiz_item-wrap");
-    const tabPane = quizItemWrap.querySelectorAll(".quiz_item");
+    const tabPane = quizItemWrap.querySelectorAll(".quiz_item-change"); //quiz_item
     const introCard = document.querySelector('.quiz_intro-item')
-    const introButn = introCard.querySelector(".button")
+    const introButn = introCard.querySelector(".button");
+    const quizJoinItem = document.querySelector(".quiz_join-item");
+    const quizFinalResult = document.querySelector(".quiz_item-final-result");
+    const showFinalResultButn = quizJoinItem.querySelector(".button")
 
 
     //##1 Initially prev and next button will be disabled if radio button are not selected
@@ -224,6 +185,9 @@ function sliderFunc() {
     let currentIndex = 0;
     const duration = 300;
     let isAnimating = false;
+
+    // let percentage = ((currentIndex + 1) / tabPane.length) * 100;
+    // render(percentage);
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
@@ -248,6 +212,9 @@ function sliderFunc() {
         }, duration);
       }, duration);
       currentIndex = newIndex;
+       // 👇 Update progress
+      const percentage = ((currentIndex + 1) / tabPane.length) * 100;
+      render(percentage);
     }
 
     //Initial Intro butn click
@@ -287,8 +254,12 @@ function sliderFunc() {
         } else {
           if (currentIndex < tabPane.length - 1) {
             handleIndexChange(currentIndex + 1);
-          } else if (currentIndex === tabPane.length) {
-
+          } else if (currentIndex === tabPane.length -1) {
+            console.log('This is last')
+            quizItemWrap.classList.remove('is--active')
+            const finalResult = calculateResults();
+            console.log(finalResult)
+            quizJoinItem.classList.add('is--active')
           }
         }
       });
@@ -301,20 +272,11 @@ function sliderFunc() {
   });
 
 
-  //Adding Submit button & Function
-    const submitButnDiv = document.createElement('button');
-    submitButnDiv.className = 'quiz-submit-button';
-    submitButnDiv.innerHTML = 'Submit butn'
-    const butnWrap = tabPane[tabPane.length - 1].querySelector(".quiz_item-arrow-wrap")
-
-    butnWrap.appendChild(submitButnDiv)
-
-    const submitButn = document.querySelector('.quiz-submit-button');
-    submitButn.addEventListener("click", () => {
-    const results = calculateResults();
-    console.log(results);
-    quizItemWrap.classList.remove('is--active')
-    });
+    //Show Final result page
+    showFinalResultButn.addEventListener('click', () => {
+      quizJoinItem.classList.remove('is--active')
+      quizFinalResult.classList.add('is--active')
+    })
 
 }
 

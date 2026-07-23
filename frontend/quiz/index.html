@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/quiz/style.css" rel="styleSheet" />
+    <link href="/frontend/quiz/style.css" rel="styleSheet" />
 </head>
 
 <body>
@@ -14,21 +14,46 @@
         <section class="quiz-section">
             <div class="container">
                 <div class="quiz-wrap">
+                    <div class="svg-wrap">
+                    <svg width="100%" viewBox="0 0 700 300" role="img">
+                        <defs>
+                            <clipPath id="arcClip">
+                                <path d="M0,0 H700 V170 Q350,20 0,170 Z"></path>
+                            </clipPath>
+                        </defs>
+
+                        <path id="track" d="M2,178 Q350,28 698,178" fill="none" stroke="var(--border)" stroke-width="2"
+                            stroke-dasharray="4 6" opacity="0.5"></path>
+
+                        <path id="progress" d="M2,178 Q350,28 698,178" fill="none" stroke="#1a1a1a" stroke-width="4"
+                            stroke-linecap="round" style="stroke-dasharray: 716.988; stroke-dashoffset: 716.988;">
+                        </path>
+
+                        <g clip-path="url(#arcClip)">
+                            <rect x="0" y="0" width="700" height="170" fill="#F0997B"></rect>
+                            <image id="banner-image" href="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a61f7f92c1d9ee3a10410d4_pink-quiz-bg.webp" x="0" y="0" width="700" height="170"
+                                preserveAspectRatio="xMidYMin slice"></image>
+                        </g>
+                    </svg>
+                    </div>
                     <div class="intro-item is--active">
                         <div class="content">
                             <h2>Start the Quiz</h2>
                             <button id="intro-butn">Let's start</button>
                         </div>
                     </div>
+
                     <div class="quiz-item-wrap">
                     </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
-    <script src="/quiz/js/quiz.js"></script>
-    <script src="/quiz/js/app.js"></script>
+    <script src="/frontend/quiz/js/quiz.js"></script>
+    <script src="/frontend/quiz/js/app.js"></script>
 </body>
 <!-- /frontend -->
 
