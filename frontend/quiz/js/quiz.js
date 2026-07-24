@@ -1,3 +1,28 @@
+const styleVariants = {
+  pink: {
+    color: '#FB83AD',
+    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a63398905cafa158a01ab80_quiz-bg-pink.webp',
+  },
+    orange: {
+    color: '#FF8700',
+    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989dfb16996cdaf38f7_quiz-bg-orange.webp',
+  },
+    green: {
+    color: '#7DDC1D',
+    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989240b6a9700870b5f_quiz-bg-green.webp',
+  },
+    red: {
+    color: '#F9001B',
+    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989d1bd20370034fffd_quiz-bg-red.webp',
+  },
+    blue: {
+    color: '#36D4E7',
+    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989357706f28432fa10_quiz-bg-blue.webp',
+  }
+
+
+}
+
 const json = [
   {
     id: 1,
@@ -8,6 +33,7 @@ const json = [
       (our Zoom last mile bike riders can make up to 30 drops per shift across busy
       city streets on power assisted bikes).
       Which of these best describes where you like to work?`,
+      styleVariants: styleVariants.pink,
     options: [
       {
         id: "A",
@@ -41,6 +67,7 @@ need to be able to couple and uncouple vehicles, our Zoom riders able to
 manage a 100kg fully-loaded ebike, and our warehouse teams roll large crates
 on and off lorries. Everyone needs to ensure they follow safety procedures and
 use the right equipment but how do you feel about heavy lifting?`,
+styleVariants: styleVariants.orange,
     options: [
       {
         id: "A",
@@ -71,6 +98,7 @@ use the right equipment but how do you feel about heavy lifting?`,
 them. There’s no telling when grumbling tummies might strike after all. That
 means many roles work 8-10 hour shifts at weekends or sometimes overnight.
 Which of these describes when you’re able to work?`,
+styleVariants: styleVariants.green,
     options: [
       {
         id: "A",
@@ -103,6 +131,7 @@ Which of these describes when you’re able to work?`,
       customer with a smile. For anyone needing a bit more help, they are there, and
       if something spills, they sort it out. How do you feel about putting the
       customer first every single day?`,
+      styleVariants: styleVariants.red,
     options: [
       {
         id: "A",
@@ -130,6 +159,7 @@ Which of these describes when you’re able to work?`,
     id: 5,
     label: `Busy vs steady pace`,
     question: `During busy shifts – when there is a list of drops to complete and traffic is bad, or lots of orders and a broken conveyer – the pace is fast, with priorities that can change quickly and decisions that need to be made on the go. At the same time, it’s important we do what’s right, especially for team safety. What sort of working pace suits you best?`,
+    styleVariants: styleVariants.blue,
     options: [
       {
         id: "A",
@@ -157,6 +187,7 @@ Which of these describes when you’re able to work?`,
     id: 6,
     label: `Being on the road`,
     question: `Some roles involve spending a lot of time on the road. We say you need to live within an hour of your base, so you're not adding to that distance. Our Customer Service Team Members regularly cover two hundred miles in a shift – that's the same as driving from London to Manchester! So, it's essential to stay focused, follow safety rules and avoid any distractions (like glancing at your phone). How do you feel about driving or riding a bike all day?`,
+    styleVariants: styleVariants.pink,
     options: [
       {
         id: "A",
@@ -184,6 +215,7 @@ Which of these describes when you’re able to work?`,
     id: 7,
     label: `Mental/physical resilience`,
     question: `As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand during busy holiday season, walking repeatedly across site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools. How do you stay positive and keep going even when the day is challenging?`,
+    styleVariants: styleVariants.orange,
     options: [
       {
         id: "A",
@@ -211,6 +243,7 @@ Which of these describes when you’re able to work?`,
     id: 8,
     label: `Time pressure`,
     question: `Because our customers pay for us to deliver bang on time, staying on track during a shift is vital, as delays anywhere along the supply chain can knock things off schedule. But safety and process are important across all our roles. You might be an LGV driver who needs to reverse into a tight bay in only 5 minutes or a Zoom last mile rider trying to make up time between deliveries – the day can change quickly, so working fast while staying safe and providing great customer service or respect to your peers is essential.`,
+    styleVariants: styleVariants.green,
     options: [
       {
         id: "A",
@@ -238,6 +271,7 @@ Which of these describes when you’re able to work?`,
     id: 9,
     label: `Teamwork`,
     question: `In many of our roles, the work only runs smoothly when people stay connected. That might mean a planner juggling shifts with a Team Lead, a driver flagging an issue on the road, an engineer working with operations to get a conveyor moving again or a personal shopper stepping in to support a busy area.\n\nClear communication matters here. Sometimes, you’ll need to share updates, ask for input, offer help or work through a problem with others so the right decision can be made quickly.\n\nWhen things get busy or plans change, how do you prefer to work?`,
+    styleVariants: styleVariants.red,
     options: [
       {
         id: "A",
@@ -265,6 +299,7 @@ Which of these describes when you’re able to work?`,
     id: 10,
     label: `Accountability`,
     question: `Some roles need people to work independently and sort out any problems without a manager immediately being present beside them. But everyone plays a part in keeping the day running smoothly and safely. And sometimes things go wrong – an order is missing, a robot stops, a route is delayed, or a customer needs extra help. When this happens, it’s important to take ownership of the part you play, follow the right process, speak up early and do what you can to fix the issue. When something goes wrong during your shift or time in the office, what are you most likely to do?`,
+    styleVariants: styleVariants.blue,
     options: [
       {
         id: "A",
@@ -292,6 +327,7 @@ Which of these describes when you’re able to work?`,
     id: 11,
     label: `Leadership`,
     question: `Some people naturally look out for the wider team. They notice when someone needs support, keep things calm when plans change and are comfortable stepping forward when a decision or action is needed. That does not always mean being the loudest person in the room. It can mean setting a good example, sharing useful information, encouraging others or helping the team stay focused on what needs to happen next. There are sometimes opportunities for Team Manager roles based at our Hatfield Head Office or warehouses. When the team is busy or something unexpected happens, what are you most likely to do?`,
+    styleVariants: styleVariants.pink,
     options: [
       {
         id: "A",
@@ -319,6 +355,7 @@ Which of these describes when you’re able to work?`,
     id: 12,
     label: `Career progression and learning`,
     question: `Lots of people join us and go on to build their career in different directions. That might be learning new skills. Many of our roles offer opportunities for building confidence, training, developing others or taking on more responsibility. Some roles require you to keep up to date with regulations (LGV drivers) or new technology (Engineers) or give the opportunity to develop deeper expertise in the role.\n\nWe’re interested to hear from those who are curious, open to learning and excited by the idea of growing with us over time – whether that growth is upwards, sideways or simply becoming brilliant at what they do.\n\nHow do you feel about learning and developing in your role?`,
+    styleVariants: styleVariants.orange,
     options: [
       {
         id: "A",
