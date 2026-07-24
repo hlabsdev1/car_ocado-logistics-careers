@@ -14,7 +14,13 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 500;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease,
+             background-color 0.3s ease;
+}
+
+.quiz_radio-butn-wrap label:hover {
+  background: #FAEA00;
+  border-color: #FAEA00;
 }
 
 .quiz_radio-butn-wrap label:has(input:checked) {
@@ -48,6 +54,10 @@
 
 .quiz_item-final-result.is--active {
     display: flex;
+}
+
+.quiz_item-overlay.is--active {
+    opacity: 1;
 }
 
 

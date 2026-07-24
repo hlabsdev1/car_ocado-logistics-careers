@@ -46,6 +46,7 @@ async function addingJson() {
           <div class="text-25px" text-content-div="">All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics. Let’s try and narrow that down!</div>
         </div>
       </div>
+      <div class="quiz_item-overlay"></div>
     </div>
     <div class="quiz_item-arrow-wrap">
       <div class="quiz_item-arrow is--prev is--disabled">
@@ -217,6 +218,7 @@ function sliderFunc() {
     const quizFinalResult = document.querySelector(".quiz_item-final-result");
     const showFinalResultButn = quizJoinItem.querySelector(".button")
     const quizItemBgImg = quizItemWrap.querySelector("#quiz-banner-image");
+    const overlay = quizItemWrap.querySelectorAll(".quiz_item-overlay")
     console.log(quizItemBgImg)
 
 
@@ -294,12 +296,15 @@ function sliderFunc() {
       nextButn.addEventListener("click", () => {
         if (!infoCard.classList.contains("is--active")) {
           infoCard.classList.add("is--active");
-          quizInnerItems.forEach(i => {
+          overlay.forEach(i => {
             i.classList.add('is--active')
           })
         } else {
           if (currentIndex < tabPane.length - 1) {
             handleIndexChange(currentIndex + 1);
+            overlay.forEach(i => {
+            i.classList.remove('is--active')
+          })
           } else if (currentIndex === tabPane.length -1) {
             console.log('This is last')
             quizItemWrap.classList.remove('is--active')
