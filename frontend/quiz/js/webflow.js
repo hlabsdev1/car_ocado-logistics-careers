@@ -158,14 +158,40 @@ const highestScore = Math.max(
 }
 
 const progressPath = document.getElementById('progress');
-const total = progressPath.getTotalLength();
-progressPath.style.strokeDasharray = total;
-  let currentTime = 10;
+// const total = progressPath.getTotalLength();
+// progressPath.style.strokeDasharray = total;
+const total = 0;
+let currentTime = 10;
+
+const variants = {
+  mobile:  "M2,205 Q350,-30 698,205",
+  tablet:  "M2,190 Q350,10 698,190",
+  desktop: "M2,178 Q350,28 698,178"
+};
+
+function applyVariant(name, pct) {
+  const d = variants[name];
+  progressPath.setAttribute('d', d);
+
+  total = progressPath.getTotalLength();// different per curve!
+  progressPath.style.strokeDasharray = total;
+  progressPath.style.strokeDashoffset = total - (total * (pct / 100));
+}
 
 function render(pct) {
+  currentTime = pct
   const drawn = total * (pct / 100);
   progressPath.style.strokeDashoffset = total - drawn;
 }
+
+// pick variant by breakpoint
+const mq = window.matchMedia('(max-width: 480px)');
+const mq2 = window.matchMedia('(max-width: 768px)');
+function pickVariant() {
+  return mq.matches ? 'mobile' : mq2.matches ? 'tablet' : 'desktop';
+}
+[mq, mq2].forEach(m => m.addEventListener('change', () => applyVariant(pickVariant(), currentTime)));
+applyVariant(pickVariant(), currentTime);
 
 
 function sliderFunc() {
