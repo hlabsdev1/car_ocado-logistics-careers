@@ -157,21 +157,35 @@ const highestScore = Math.max(
   return scores;
 }
 
-const progressPath = document.getElementById('progress');
+const progressPath = document.getElementById('quiz-progress');
+const trackPath = document.getElementById('quiz-track');
+const arcClipPath = document.querySelector('#arcClip path');
 // const total = progressPath.getTotalLength();
 // progressPath.style.strokeDasharray = total;
-const total = 0;
+let total = 0;
 let currentTime = 10;
 
+// const variants = {
+//   mobile:  "M2,205 Q350,-30 698,205",
+//   tablet:  "M2,190 Q350,10 698,190",
+//   desktop: "M2,178 Q350,28 698,178"
+// };
 const variants = {
-  mobile:  "M2,205 Q350,-30 698,205",
-  tablet:  "M2,190 Q350,10 698,190",
-  desktop: "M2,178 Q350,28 698,178"
+  mobile:  { apex: -30, edgeY: 205 },
+  tablet:  { apex: 10,  edgeY: 190 },
+  desktop: { apex: 28,  edgeY: 178 }
 };
 
 function applyVariant(name, pct) {
-  const d = variants[name];
-  progressPath.setAttribute('d', d);
+  // const d = variants[name];
+  const { apex, edgeY } = variants[name];
+  // progress + track lines
+  const lineD = `M2,${edgeY} Q350,${apex} 698,${edgeY}`;
+  progressPath.setAttribute('d', lineD);
+  trackPath.setAttribute('d', lineD);
+
+  const clipEdgeY = edgeY - 8; // small offset so line peeks past banner edge
+  arcClipPath.setAttribute('d', `M0,0 H700 V${clipEdgeY} Q350,${apex - 8} 0,${clipEdgeY} Z`);
 
   total = progressPath.getTotalLength();// different per curve!
   progressPath.style.strokeDasharray = total;
