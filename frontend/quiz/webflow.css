@@ -19,6 +19,7 @@
 .quiz_radio-butn-wrap label:has(input:checked) {
   background: #FAEA00;
   border-color: #FAEA00;
+  transform: rotate(-2deg);
 }
 
 .quiz_item-result-wrap.is--active {
