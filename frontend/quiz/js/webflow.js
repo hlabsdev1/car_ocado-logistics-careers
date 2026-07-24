@@ -17,7 +17,7 @@ async function addingJson() {
           <div class="pill-content">
             <div class="label-40px">${item.id}/${json.length}</div>
           </div>
-          <div class="quiz_iitem-h-pill">
+          <div class="quiz_iitem-h-pill" style="background-color: ${item.styleVariants.color}; color: ${item.styleVariants.textColor}">
             <div class="text-h1" aria-label="On the go">
               ${item.label}
             </div>
@@ -42,7 +42,7 @@ async function addingJson() {
                       .join("")}
       </div>
       <div class="quiz_item-result-wrap">
-        <div class="quiz_item-result">
+        <div class="quiz_item-result" style="background-color: ${item.styleVariants.color}; color: ${item.styleVariants.textColor} ">
           <div class="text-25px" text-content-div="">All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics. Let’s try and narrow that down!</div>
         </div>
       </div>
@@ -176,6 +176,8 @@ function sliderFunc() {
     const quizJoinItem = document.querySelector(".quiz_join-item");
     const quizFinalResult = document.querySelector(".quiz_item-final-result");
     const showFinalResultButn = quizJoinItem.querySelector(".button")
+    const quizItemBgImg = quizItemWrap.querySelector("#quiz-banner-image");
+    console.log(quizItemBgImg)
 
 
     //##1 Initially prev and next button will be disabled if radio button are not selected
@@ -188,6 +190,7 @@ function sliderFunc() {
 
     // let percentage = ((currentIndex + 1) / tabPane.length) * 100;
     // render(percentage);
+    quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
@@ -215,6 +218,9 @@ function sliderFunc() {
        // 👇 Update progress
       const percentage = ((currentIndex + 1) / tabPane.length) * 100;
       render(percentage);
+
+      //set image
+      quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
     }
 
     //Initial Intro butn click

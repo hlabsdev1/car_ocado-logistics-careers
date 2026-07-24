@@ -1,22 +1,27 @@
 const styleVariants = {
   pink: {
     color: '#FB83AD',
+    textColor: 'var(--_palette---grey)',
     image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a63398905cafa158a01ab80_quiz-bg-pink.webp',
   },
     orange: {
     color: '#FF8700',
+    textColor: 'var(--_palette---grey)',
     image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989dfb16996cdaf38f7_quiz-bg-orange.webp',
   },
     green: {
     color: '#7DDC1D',
+    textColor: 'var(--_palette---grey)',
     image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989240b6a9700870b5f_quiz-bg-green.webp',
   },
     red: {
     color: '#F9001B',
+    textColor: 'var(--_palette---white)',
     image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989d1bd20370034fffd_quiz-bg-red.webp',
   },
     blue: {
     color: '#36D4E7',
+    textColor: 'var(--_palette---grey)',
     image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989357706f28432fa10_quiz-bg-blue.webp',
   }
 
