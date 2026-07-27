@@ -1,6 +1,7 @@
 console.log(json);
 
 const userAnswers = {};
+const mobileWidth = window.innerWidth < 767;
 
 async function addingJson() {
   const mainWrap = document.querySelector(".sec-wrap.is--quiz");
@@ -17,8 +18,8 @@ async function addingJson() {
           <div class="pill-content">
             <div class="label-40px">${item.id}/${json.length}</div>
           </div>
-          <div class="quiz_iitem-h-pill" style="background-color: ${item.styleVariants.color}; color: ${item.styleVariants.textColor}">
-            <div class="text-h1" aria-label="On the go">
+          <div class="quiz_item-h-pill-wrap">
+            <div class="text-h1">
               ${item.label}
             </div>
           </div>
@@ -60,6 +61,23 @@ async function addingJson() {
 
     mainContainer.insertAdjacentHTML("beforeend", html);
     quizWrap.appendChild(mainContainer);
+
+    const pill = mainContainer.querySelector(".quiz_item-h-pill-wrap .text-h1");
+    // console.log(pill.offsetWidth);
+    // console.log(getComputedStyle(pill).width);
+    // const testSplit = SplitText.create(pill, {
+    //   type: 'lines',
+    //   linesClass: 'line-test',
+    //   mask: 'lines',
+    // });
+
+    // if (testSplit.lines.length === 1) {
+    //   testSplit.lines[0].style.backgroundColor = item.styleVariants.color;
+    // } else {
+    //   testSplit.lines.forEach((line) => {
+    //     line.style.backgroundColor = item.styleVariants.color;
+    //   });
+    // }
   });
 }
 
@@ -161,52 +179,87 @@ const highestScore = Math.max(
 const progressPath = document.getElementById('quiz-progress');
 const trackPath = document.getElementById('quiz-track');
 const arcClipPath = document.querySelector('#arcClip path');
-// const total = progressPath.getTotalLength();
-// progressPath.style.strokeDasharray = total;
-let total = 0;
-let currentTime = 10;
+const total = progressPath.getTotalLength();
+progressPath.style.strokeDasharray = total;
+console.log(total)
+// let total = 0;
+// let currentTime = 10;
 
 // const variants = {
 //   mobile:  "M2,205 Q350,-30 698,205",
 //   tablet:  "M2,190 Q350,10 698,190",
 //   desktop: "M2,178 Q350,28 698,178"
 // };
-const variants = {
-  mobile:  { apex: -30, edgeY: 205 },
-  tablet:  { apex: 10,  edgeY: 190 },
-  desktop: { apex: 28,  edgeY: 178 }
-};
+// const variants = {
+//   mobile:  { apex: -30, edgeY: 205 },
+//   tablet:  { apex: 10,  edgeY: 190 },
+//   desktop: { apex: 28,  edgeY: 178 }
+// };
 
-function applyVariant(name, pct) {
-  // const d = variants[name];
-  const { apex, edgeY } = variants[name];
-  // progress + track lines
-  const lineD = `M2,${edgeY} Q350,${apex} 698,${edgeY}`;
-  progressPath.setAttribute('d', lineD);
-  trackPath.setAttribute('d', lineD);
+// function applyVariant(name, pct) {
+//   // const d = variants[name];
+//   const { apex, edgeY } = variants[name];
+//   // progress + track lines
+//   const lineD = `M2,${edgeY} Q350,${apex} 698,${edgeY}`;
+//   progressPath.setAttribute('d', lineD);
+//   trackPath.setAttribute('d', lineD);
 
-  const clipEdgeY = edgeY - 8; // small offset so line peeks past banner edge
-  arcClipPath.setAttribute('d', `M0,0 H700 V${clipEdgeY} Q350,${apex - 8} 0,${clipEdgeY} Z`);
+//   const clipEdgeY = edgeY - 8; // small offset so line peeks past banner edge
+//   arcClipPath.setAttribute('d', `M0,0 H700 V${clipEdgeY} Q350,${apex - 8} 0,${clipEdgeY} Z`);
 
-  total = progressPath.getTotalLength();// different per curve!
-  progressPath.style.strokeDasharray = total;
-  progressPath.style.strokeDashoffset = total - (total * (pct / 100));
-}
+//   total = progressPath.getTotalLength();// different per curve!
+//   progressPath.style.strokeDasharray = total;
+//   progressPath.style.strokeDashoffset = total - (total * (pct / 100));
+// }
 
 function render(pct) {
-  currentTime = pct
-  const drawn = total * (pct / 100);
-  progressPath.style.strokeDashoffset = total - drawn;
+  // currentTime = pct
+  // const drawn = total * (pct / 100);
+  // progressPath.style.strokeDashoffset = total - drawn;
+
+  progressPath.style.strokeDashoffset = total * (1 - pct / 100);
 }
 
 // pick variant by breakpoint
-const mq = window.matchMedia('(max-width: 480px)');
-const mq2 = window.matchMedia('(max-width: 768px)');
-function pickVariant() {
-  return mq.matches ? 'mobile' : mq2.matches ? 'tablet' : 'desktop';
+// const mq = window.matchMedia('(max-width: 480px)');
+// const mq2 = window.matchMedia('(max-width: 768px)');
+// function pickVariant() {
+//   return mq.matches ? 'mobile' : mq2.matches ? 'tablet' : 'desktop';
+// }
+// [mq, mq2].forEach(m => m.addEventListener('change', () => applyVariant(pickVariant(), currentTime)));
+// applyVariant(pickVariant(), currentTime);
+
+function scrollTop() {
+  if (mobileWidth) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 }
-[mq, mq2].forEach(m => m.addEventListener('change', () => applyVariant(pickVariant(), currentTime)));
-applyVariant(pickVariant(), currentTime);
+
+function splitPill(panel, item) {
+  const pill = panel.querySelector(".text-h1");
+  const pillWrap = panel.querySelector(".quiz_item-h-pill-wrap");
+  console.log(panel, pillWrap)
+
+  if (!pill || pill.dataset.split) return;
+
+  const split = SplitText.create(pill, {
+    type: "lines",
+    // mask: "lines",
+    linesClass: "quiz_item-h-pill",
+  });
+
+  split.lines.forEach(line => {
+    line.style.backgroundColor = item.styleVariants.color;
+    line.style.color = item.styleVariants.textColor;
+    line.style.display = "inline-block";
+  });
+
+  pill.dataset.split = "true";
+  pillWrap.style.padding = '0rem'
+}
 
 
 function sliderFunc() {
@@ -219,7 +272,7 @@ function sliderFunc() {
     const showFinalResultButn = quizJoinItem.querySelector(".button")
     const quizItemBgImg = quizItemWrap.querySelector("#quiz-banner-image");
     const overlay = quizItemWrap.querySelectorAll(".quiz_item-overlay")
-    console.log(quizItemBgImg)
+    // console.log(quizItemBgImg)
 
 
     //##1 Initially prev and next button will be disabled if radio button are not selected
@@ -230,9 +283,9 @@ function sliderFunc() {
     const duration = 300;
     let isAnimating = false;
 
-    // let percentage = ((currentIndex + 1) / tabPane.length) * 100;
-    // render(percentage);
-    quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+    let percentage = ((currentIndex + 1) / tabPane.length) * 100;
+    render(percentage);
+    // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
@@ -249,6 +302,8 @@ function sliderFunc() {
         tabPane[newIndex].style.display = "flex";
 
         tabPane[newIndex].offsetHeight;
+        // Split now that it's visible
+        splitPill(tabPane[newIndex], json[newIndex]);
 
         tabPane[newIndex].style.opacity = "1";
 
@@ -262,7 +317,7 @@ function sliderFunc() {
       render(percentage);
 
       //set image
-      quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+      // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
     }
 
     //Initial Intro butn click
@@ -299,6 +354,19 @@ function sliderFunc() {
           overlay.forEach(i => {
             i.classList.add('is--active')
           })
+          //Mobile 
+          if(mobileWidth) {
+            const rect = infoCard.getBoundingClientRect();
+            const top =
+                window.scrollY +
+                rect.top -
+                (window.innerHeight / 2 - rect.height / 2);
+
+                window.scrollTo({
+                  top,
+                  behavior: "smooth"
+              });
+          }
         } else {
           if (currentIndex < tabPane.length - 1) {
             handleIndexChange(currentIndex + 1);
@@ -312,6 +380,8 @@ function sliderFunc() {
             console.log(finalResult)
             quizJoinItem.classList.add('is--active')
           }
+            //Mobile 
+            scrollTop()
         }
       });
     });
@@ -320,6 +390,10 @@ function sliderFunc() {
   tabPane.forEach((pane, i) => {
     pane.style.display = i === 0 ? "flex" : "none";
     pane.style.opacity = i === 0 ? "1" : "0";
+
+    if(i === 0) {
+      splitPill(tabPane[i], json[i]);
+    }
   });
 
 
@@ -327,6 +401,8 @@ function sliderFunc() {
     showFinalResultButn.addEventListener('click', () => {
       quizJoinItem.classList.remove('is--active')
       quizFinalResult.classList.add('is--active')
+      //Mobile 
+      scrollTop()
     })
 
 }

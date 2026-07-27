@@ -1,3 +1,8 @@
+.quiz_item-h-pill-wrap {
+    padding: 1.125rem 2.5rem;
+}
+
+
 .quiz_item-wrap.is--active {
     display: flex;
 }
@@ -12,7 +17,7 @@
   border: 1px solid #D9D9D6;
   border-radius: 30px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   transition: transform 0.3s ease,
              background-color 0.3s ease;
@@ -65,4 +70,14 @@
    .quiz_radio-butn-wrap label {
         max-width: calc(50% - 0.6rem);
     } 
+}
+
+/* MOBILE */
+@media screen and (max-width: 767px) {
+.quiz_radio-butn-wrap label {
+    font-size: 1.06rem;
+}
+.quiz_item-h-pill-wrap {
+    padding: 0.8125 1.25rem;
+}
 }
