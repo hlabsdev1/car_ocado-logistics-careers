@@ -285,7 +285,8 @@ function sliderFunc() {
 
     let percentage = ((currentIndex + 1) / tabPane.length) * 100;
     render(percentage);
-    quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+    // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+    quizItemBgImg.src = `${json[currentIndex].styleVariants.image}`;
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
@@ -317,7 +318,8 @@ function sliderFunc() {
       render(percentage);
 
       //set image
-      quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+      // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
+      quizItemBgImg.src = `${json[currentIndex].styleVariants.image}`;
     }
 
     //Initial Intro butn click
