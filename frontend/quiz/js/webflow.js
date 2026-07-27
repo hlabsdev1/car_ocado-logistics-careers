@@ -287,6 +287,7 @@ function sliderFunc() {
     render(percentage);
     // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
     quizItemBgImg.src = `${json[currentIndex].styleVariants.image}`;
+    console.log(quizItemBgImg.src)
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
