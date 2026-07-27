@@ -272,7 +272,7 @@ function sliderFunc() {
     const showFinalResultButn = quizJoinItem.querySelector(".button")
     const quizItemBgImg = quizItemWrap.querySelector("#quiz-banner-image");
     const overlay = quizItemWrap.querySelectorAll(".quiz_item-overlay")
-    // console.log(quizItemBgImg)
+    console.log(quizItemBgImg)
 
 
     //##1 Initially prev and next button will be disabled if radio button are not selected
