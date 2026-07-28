@@ -44,7 +44,7 @@ async function addingJson() {
       </div>
       <div class="quiz_item-result-wrap">
         <div class="quiz_item-result" style="background-color: ${item.styleVariants.color}; color: ${item.styleVariants.textColor} ">
-          <div class="text-25px" text-content-div="">All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics. Let’s try and narrow that down!</div>
+          <div class="text-25px">${item.answer}</div>
         </div>
       </div>
       <div class="quiz_item-overlay"></div>
@@ -96,7 +96,9 @@ function calculateResults() {
   const revealContainer = document.querySelector(".quiz_item-final-result");
   const revealHeading = revealContainer.querySelector("[reveal-heading]");
   const revealPara = revealContainer.querySelector("[reveal-para]");
-  const butn = revealContainer.querySelector(".button");
+  const butnWrap = revealContainer.querySelector(".quiz_final-result-butn-wrap")
+  const butn = butnWrap.querySelector(".button");
+  const quizItemVisual = revealContainer.querySelector('.quiz_item-visual-wrap')
   const scores = {
     customerService: 0,
     headOffice: 0,
@@ -111,10 +113,22 @@ function calculateResults() {
   };
 
   const messages = {
-    customerService: "Enter this button to see customer service links",
-    headOffice: "Check out our head office opportunities below",
-    warehouse: "Take a look at our warehouse roles here",
-    LGV: "Take a look at our LGV roles here",
+    customerService:{ 
+      title: 'Customer Delivery',
+      link: '/team-categories/customer-delivery',
+      para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. They calm the breakfast panic or boost dinner time satisfaction by adding smiles to doorsteps. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,},
+    headOffice: {
+      title: 'Head Office',
+      link: '/team-categories/head-office',
+      para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. These noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, finance, marketing or HR, the resilient team work together to keep us all safe and efficient.`,},
+    warehouse: {
+      title: 'Warehouse',
+      link: '/team-categories/warehouse-roles',
+      para:`Our warehouse crew are our beating heart. While everyone works shifts, they are based at the site nearest to them. If you’re over 18, happy handling all products and working quickly then this could be perfect for you. The shifts can be long, which requires top physical fitness, whichever area of the warehouse you’re in. You might be picking and packing alongside our robots, receiving inbound products for loading into our state-of-the-art hive, or in despatch - loading the customer delivery vans. We’re all one team, humans and robots working together to ensure customers’ groceries leave on time and in peak condition.`,},
+    LGV:{ 
+      title: 'LGV Drivers',
+      link: '/team-categories/lgv-drivers',
+      para: `Our LGV drivers are world class – fast paced, able to back into a narrow bay in under 5 minutes, they move seamlessly between our state-of-the-art automated warehouses and distribution sites. They’re our heroes steering our largest vehicles round pre-planned routes. Your answers show us that if you have the relevant category license, you could help us keep our automated supply chain moving 24/7, getting to know each site in detail and taking the responsibility to deliver groceries to the right hub in time for customers’ deliveries.`,}
   };
 
   json.forEach((question) => {
@@ -148,8 +162,8 @@ function calculateResults() {
 
   // Edge case #2: Everything is eliminated-- Working...
   if (validCategories.length === 0) {
-    revealHeading.innerHTML = 'No suitable role found';
-    revealPara.innerHTML = 'Unfortunately none of our categories matched your answers.';
+    revealHeading.innerHTML = 'No roles available right now';
+    revealPara.innerHTML = `Ahh, it looks like we don’t have an open role matching your results right now! But don't worry, our teams are constantly growing. Keep an eye on our careers page or check back soon to see when your perfect match pops up.`;
     return scores;
   }
 
@@ -164,14 +178,49 @@ const highestScore = Math.max(
 
   console.log(winningCategories, winningCategories[0])
 
-  if(winningCategories.length > 0) {
-    if(winningCategories.length === 1) {
+  if (winningCategories.length > 0) {
+    if (winningCategories.length === 1) {
       revealHeading.innerHTML = winningCategories[0];
-      revealPara.innerHTML = messages[winningCategories[0]];
+      revealPara.innerHTML = messages[winningCategories[0]].para;
+
+      //clone the butn
+      const clonebutn = butn.cloneNode(true);
+      const link = clonebutn.querySelector("a");
+      link.href = messages[winningCategories[0]].link;
+      butnWrap.append(clonebutn);
+      butn.remove();
+
+      if (mobileWidth) {
+        quizItemVisual.appendChild(butnWrap);
+      }
     } else if (winningCategories.length === 2) {
       revealHeading.innerHTML = `${winningCategories[0]} & ${winningCategories[1]}`;
     }
   }
+
+  function splitPill() {
+    const pill = revealHeading;
+    const pillWrap = document.querySelector(".pill-quiz");
+    // console.log(panel, pillWrap)
+
+    if (!pill || pill.dataset.split) return;
+
+    const split = SplitText.create(pill, {
+      type: "lines",
+      linesClass: "quiz_item-h-pill",
+    });
+
+    split.lines.forEach((line) => {
+      line.style.backgroundColor = "var(--_palette---purple)";
+      line.style.color = "var(--_palette---white)";
+      line.style.display = "inline-block";
+    });
+
+    pill.dataset.split = "true";
+    pillWrap.style.padding = "0rem";
+  }
+
+  splitPill();
 
   return scores;
 }
@@ -241,7 +290,7 @@ function scrollTop() {
 function splitPill(panel, item) {
   const pill = panel.querySelector(".text-h1");
   const pillWrap = panel.querySelector(".quiz_item-h-pill-wrap");
-  console.log(panel, pillWrap)
+  // console.log(panel, pillWrap)
 
   if (!pill || pill.dataset.split) return;
 
@@ -272,7 +321,7 @@ function sliderFunc() {
     const showFinalResultButn = quizJoinItem.querySelector(".button")
     const quizItemBgImg = quizItemWrap.querySelector("#quiz-banner-image");
     const overlay = quizItemWrap.querySelectorAll(".quiz_item-overlay")
-    console.log(quizItemBgImg)
+    // console.log(quizItemBgImg)
 
 
     //##1 Initially prev and next button will be disabled if radio button are not selected
