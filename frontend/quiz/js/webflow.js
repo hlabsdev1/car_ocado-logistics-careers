@@ -176,7 +176,7 @@ const highestScore = Math.max(
   category => scores[category] === highestScore
 );
 
-  console.log(winningCategories, winningCategories[0])
+  // console.log(winningCategories, winningCategories[0])
 
   if (winningCategories.length > 0) {
     if (winningCategories.length === 1) {
@@ -230,7 +230,7 @@ const trackPath = document.getElementById('quiz-track');
 const arcClipPath = document.querySelector('#arcClip path');
 const total = progressPath.getTotalLength();
 progressPath.style.strokeDasharray = total;
-console.log(total)
+// console.log(total)
 // let total = 0;
 // let currentTime = 10;
 
@@ -336,7 +336,6 @@ function sliderFunc() {
     render(percentage);
     // quizItemBgImg.setAttribute('href', `${json[currentIndex].styleVariants.image}`)
     quizItemBgImg.src = `${json[currentIndex].styleVariants.image}`;
-    console.log(quizItemBgImg.src)
 
     function handleIndexChange(newIndex) {
       if (isAnimating || newIndex === currentIndex) return;
@@ -426,10 +425,10 @@ function sliderFunc() {
             i.classList.remove('is--active')
           })
           } else if (currentIndex === tabPane.length -1) {
-            console.log('This is last')
+            // console.log('This is last')
             quizItemWrap.classList.remove('is--active')
             const finalResult = calculateResults();
-            console.log(finalResult)
+            // console.log(finalResult)
             quizJoinItem.classList.add('is--active')
           }
             //Mobile 
