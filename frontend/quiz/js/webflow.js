@@ -63,21 +63,6 @@ async function addingJson() {
     quizWrap.appendChild(mainContainer);
 
     const pill = mainContainer.querySelector(".quiz_item-h-pill-wrap .text-h1");
-    // console.log(pill.offsetWidth);
-    // console.log(getComputedStyle(pill).width);
-    // const testSplit = SplitText.create(pill, {
-    //   type: 'lines',
-    //   linesClass: 'line-test',
-    //   mask: 'lines',
-    // });
-
-    // if (testSplit.lines.length === 1) {
-    //   testSplit.lines[0].style.backgroundColor = item.styleVariants.color;
-    // } else {
-    //   testSplit.lines.forEach((line) => {
-    //     line.style.backgroundColor = item.styleVariants.color;
-    //   });
-    // }
   });
 }
 
@@ -189,10 +174,8 @@ const highestScore = Math.max(
       link.href = messages[winningCategories[0]].link;
       butnWrap.append(clonebutn);
       butn.remove();
-
-      if (mobileWidth) {
-        quizItemVisual.appendChild(butnWrap);
-      }
+      const cloneButnWrap = butnWrap.cloneNode(true);
+      quizItemVisual.appendChild(cloneButnWrap)
     } else if (winningCategories.length === 2) {
       revealHeading.innerHTML = `${winningCategories[0]} & ${winningCategories[1]}`;
     }
@@ -230,53 +213,11 @@ const trackPath = document.getElementById('quiz-track');
 const arcClipPath = document.querySelector('#arcClip path');
 const total = progressPath.getTotalLength();
 progressPath.style.strokeDasharray = total;
-// console.log(total)
-// let total = 0;
-// let currentTime = 10;
-
-// const variants = {
-//   mobile:  "M2,205 Q350,-30 698,205",
-//   tablet:  "M2,190 Q350,10 698,190",
-//   desktop: "M2,178 Q350,28 698,178"
-// };
-// const variants = {
-//   mobile:  { apex: -30, edgeY: 205 },
-//   tablet:  { apex: 10,  edgeY: 190 },
-//   desktop: { apex: 28,  edgeY: 178 }
-// };
-
-// function applyVariant(name, pct) {
-//   // const d = variants[name];
-//   const { apex, edgeY } = variants[name];
-//   // progress + track lines
-//   const lineD = `M2,${edgeY} Q350,${apex} 698,${edgeY}`;
-//   progressPath.setAttribute('d', lineD);
-//   trackPath.setAttribute('d', lineD);
-
-//   const clipEdgeY = edgeY - 8; // small offset so line peeks past banner edge
-//   arcClipPath.setAttribute('d', `M0,0 H700 V${clipEdgeY} Q350,${apex - 8} 0,${clipEdgeY} Z`);
-
-//   total = progressPath.getTotalLength();// different per curve!
-//   progressPath.style.strokeDasharray = total;
-//   progressPath.style.strokeDashoffset = total - (total * (pct / 100));
-// }
 
 function render(pct) {
-  // currentTime = pct
-  // const drawn = total * (pct / 100);
-  // progressPath.style.strokeDashoffset = total - drawn;
-
   progressPath.style.strokeDashoffset = total * (1 - pct / 100);
 }
 
-// pick variant by breakpoint
-// const mq = window.matchMedia('(max-width: 480px)');
-// const mq2 = window.matchMedia('(max-width: 768px)');
-// function pickVariant() {
-//   return mq.matches ? 'mobile' : mq2.matches ? 'tablet' : 'desktop';
-// }
-// [mq, mq2].forEach(m => m.addEventListener('change', () => applyVariant(pickVariant(), currentTime)));
-// applyVariant(pickVariant(), currentTime);
 
 function scrollTop() {
   if (mobileWidth) {
