@@ -405,7 +405,7 @@ function sliderFunc() {
     showFinalResultButn.addEventListener('click', () => {
       quizJoinItem.classList.remove('is--active')
       quizFinalResult.classList.add('is--active')
-      finalRevealSplit()
+      finalRevealSplit
       //Mobile 
       scrollTop()
     })
