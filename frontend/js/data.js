@@ -90,6 +90,11 @@ const globalCities = [
     Latitude: '54.9580416147279',
     Longitude: '-1.64739011639323',
   },
+  {
+    Name: 'Stoke-on-Trent',
+    Latitude: '53.00414705020592',
+    Longitude: '-2.1892715858314307',
+  },
 ];
 // const testData = getData();
 // console.log(testData);
