@@ -177,13 +177,29 @@ const highestScore = Math.max(
       const cloneButnWrap = butnWrap.cloneNode(true);
       quizItemVisual.appendChild(cloneButnWrap)
     } else if (winningCategories.length === 2) {
-      revealHeading.innerHTML = `${winningCategories[0]} & ${winningCategories[1]}`;
+      revealHeading.innerHTML = `Tie between two job families`
+      // `${winningCategories[0]} & ${winningCategories[1]}`;
+      revealPara.innerHTML = `Looks like you’re a great match for not one, but two roles! Explore both options below to discover where your strengths could take you and find the role that feels right for you.`
+
+      winningCategories.forEach(winCat => {
+        const clonebutn = butn.cloneNode(true);
+        const link = clonebutn.querySelector("a");
+        link.href = messages[winCat].link;
+        butnWrap.append(clonebutn);
+      })
+      butn.remove();
+      const cloneButnWrap = butnWrap.cloneNode(true);
+      quizItemVisual.appendChild(cloneButnWrap)
     }
   }
 
-  function splitPill() {
-    const pill = revealHeading;
-    const pillWrap = document.querySelector(".pill-quiz");
+  return scores;
+}
+
+function finalRevealSplit() {
+    const revealContainer = document.querySelector(".quiz_item-final-result");
+    const pill = revealContainer.querySelector("[reveal-heading]");
+    const pillWrap = revealContainer.querySelector(".pill-quiz");
     // console.log(panel, pillWrap)
 
     if (!pill || pill.dataset.split) return;
@@ -201,11 +217,6 @@ const highestScore = Math.max(
 
     pill.dataset.split = "true";
     pillWrap.style.padding = "0rem";
-  }
-
-  splitPill();
-
-  return scores;
 }
 
 const progressPath = document.getElementById('quiz-progress');
@@ -393,6 +404,7 @@ function sliderFunc() {
     showFinalResultButn.addEventListener('click', () => {
       quizJoinItem.classList.remove('is--active')
       quizFinalResult.classList.add('is--active')
+      finalRevealSplit()
       //Mobile 
       scrollTop()
     })
