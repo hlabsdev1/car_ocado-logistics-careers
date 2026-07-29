@@ -185,6 +185,7 @@ const highestScore = Math.max(
         const clonebutn = butn.cloneNode(true);
         const link = clonebutn.querySelector("a");
         link.href = messages[winCat].link;
+        link.textContent = `See ${messages[winCat].title} Roles`
         butnWrap.append(clonebutn);
       })
       butn.remove();
