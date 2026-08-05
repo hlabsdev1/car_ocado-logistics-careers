@@ -147,7 +147,7 @@ const json = [
     label: `Customer interaction`,
     question: `<div>We appreciate the part we all play in ensuring our success and our van drivers
         and ebike riders are the face of Ocado and our partners. They don’t chuck
-        shopping outside the door it in the rain – they ring the bell, say hello and hand
+        shopping outside the door in the rain – they ring the bell, say hello and hand
         the order over with a smile. They are there if someone needs more help, and if
         something spills, they sort it out.</div>
         How do you feel about putting the customer first every day?`,
@@ -174,9 +174,8 @@ const json = [
         },
       },
     ],
-    answer: `We expect everyone at Ocado Logistics to treat each with empathy
-        and respect whilst making a big impact. If you need to go that little bit
-        further and help and put your customers shopping in the kitchen we don’t
+    answer: `We expect everyone at Ocado Logistics to treat each other as well as
+        our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and help and put your customers shopping in the kitchen we don’t
         mind as long as you are comfortable doing so – as delivering smiles is our
         thing and our hometown heroes make service pop.`
   },
@@ -187,7 +186,7 @@ const json = [
         the day, and there’s the occasional ‘that wasn’t part of the plan!’ moment. When
         there are lots of customers waiting and traffic is bad, or a conveyer is broken,
         priorities can change quickly and decisions need to be made on the go. Pace
-        matters, but safety comes first. Always</div>`,
+        matters, but safety comes first. Always. Fast is good. Rushed and risky is not.</div>`,
     styleVariants: styleVariants.blue,
     options: [
       {
@@ -258,24 +257,22 @@ always stay focused and safe.`,
 focused and cracking on safely with more people around them throughout the
 day. Whichever driver role you apply for safety is paramount and our vans are
 fitted with various safety measures and you must remain alert, patient and safe
-– even when traffic, delays or tricky routes test your patienc`
+– even when traffic, delays or tricky routes test your patience.`
   },
   {
     id: 7,
     label: `Mental/physical resilience`,
-    question: `<div>As with most jobs, there will be difficult days and we don’t expect anyone to be
-cheerful all the time. It might be working all day in cold storage (0-5 degrees),
-walking repeatedly across site (our Erith site is 7x the size of Wembley and our
-stock availability advisors regularly clock up 20,000 steps), or spending your
-Engineering shift manually clearing conveyors instead of using your tools.
-Being able to stay calm when things get tricky can make a huge difference.</div>
+    question: `<div>As with most jobs, there will be difficult days and we don’t expect anyone to be cheerful all the time. It might be working all day in cold storage (0-5 degrees), walking repeatedly across site (our Erith site is 7x the size of Wembley and our
+    stock availability advisors regularly clock up 20,000 steps), or spending your
+    Engineering shift manually clearing conveyors instead of using your tools.
+    Being able to stay calm when things get tricky can make a huge difference.</div>
     How do you stay positive when the day is challenging?`,
     styleVariants: styleVariants.orange,
     options: [
       {
         id: "A",
-        text: ` am resilient and can keep a positive mindset even when the work is
-physically or mentally demanding`,
+        text: `I am resilient and can keep a positive mindset even when the work is
+        physically or mentally demanding`,
         scores: {
           customerService: 1,
           headOffice: 0,
@@ -286,7 +283,7 @@ physically or mentally demanding`,
       {
         id: "B",
         text: `I would prefer to work with less pressure, and fewer physical demands or
-unexpected challenges.`,
+        unexpected challenges.`,
         scores: {
           customerService: 0,
           headOffice: 1,
@@ -343,14 +340,14 @@ the pressure.`
   {
     id: 9,
     label: `Teamwork`,
-    question: `<div>No one keeps this operation moving alone. In many of our roles, things only run
-smoothly when the team stays connected. That might mean a planner juggling
-shifts with a Team Lead, a driver flagging a delay, an engineer working with
-operations to get a conveyor moving or a personal shopper moving to support
-a busy area</div>
-    <div>Teamwork means knowing when to communicate, when to listen or ask for help
-and when to work through a problem together or step in for someone els</div>
-    How do you prefer to work alongside others?`,
+    question: `<div>In many of our roles, the work only runs smoothly when people stay connected.
+    That might mean a planner juggling shifts with a Team Lead, a driver flagging
+    an issue on the road, an engineer working with operations to get a conveyor
+    moving again or a personal shopper stepping in to support a busy area.</div>
+    <div>Clear communication matters here. Sometimes, you’ll need to share updates,
+    ask for input, offer help or work through a problem with others so the right
+    decision can be made quickly.</div>
+    When things get busy or plans change, how do you prefer to work?`,
     styleVariants: styleVariants.red,
     options: [
       {
@@ -440,9 +437,7 @@ most likely to do?`,
     options: [
       {
         id: "A",
-        text: `I’ve managed teams before and get huge satisfaction helping people
-develop at work. If there’s a problem, I instinctively step up and calmly support
-everyone to solve it.`,
+        text: `When there’s a problem, I naturally step up, take the lead and help the team find a way forward.`,
         scores: {
           customerService: 0,
           headOffice: 1,
@@ -452,9 +447,7 @@ everyone to solve it.`,
       },
       {
         id: "B",
-        text: ` I’m always ready to help, but I haven’t been a manager before and prefer to
-focus on my own tasks, letting someone else take the lead on supporting others
-and fixing problems.`,
+        text: `I’m a strong team player who’s happiest following a clear plan, working to schedule and doing my role to the best of my ability.`,
         scores: {
           customerService: 0,
           headOffice: 0,
@@ -463,9 +456,12 @@ and fixing problems.`,
         },
       },
     ],
-    answer: `Busy moments often call for a clear head Focusing on what matters
-most in the moment and making a sensible call and bringing others in when it
-helps – giving them the guidance and confidence to respond calmly and safely.`
+    answer: `Here, leadership is not about a job title. It’s about attitude, awareness
+    and helping the team do the right thing. Some people have a knack for helping
+    the team find its feet when the day throws a bit of a curve ball. Not by barking
+    orders or waving a clipboard around, but by staying calm, leading by example,
+    identifying what needs doing and supporting teammates with a bit of a steady
+    energy to help keep things moving.`
   },
   {
     id: 12,

@@ -12,6 +12,7 @@ async function addingJson() {
 
     //html
       const html = `
+    <div class="quiz_bg-svg is--inner"></div>
     <div class="quiz_item-c-inner">
       <div quiz-result-on="" class="quiz_intro-c-top">
         <div class="quiz_item-c-top-col1">
@@ -101,19 +102,31 @@ function calculateResults() {
     customerService:{ 
       title: 'Customer Delivery',
       link: '/team-categories/customer-delivery',
-      para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. They calm the breakfast panic or boost dinner time satisfaction by adding smiles to doorsteps. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,},
+      para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. They calm the breakfast panic or boost dinner time satisfaction by adding smiles to doorsteps. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,
+      butntext: 'CSTM',
+    },
+
     headOffice: {
       title: 'Head Office',
       link: '/team-categories/head-office',
-      para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. These noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, finance, marketing or HR, the resilient team work together to keep us all safe and efficient.`,},
+      para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. These noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, finance, marketing or HR, the resilient team work together to keep us all safe and efficient.`,
+      butnTxt: 'Head Office',
+    },
+      
     warehouse: {
       title: 'Warehouse',
       link: '/team-categories/warehouse-roles',
-      para:`Our warehouse crew are our beating heart. While everyone works shifts, they are based at the site nearest to them. If you’re over 18, happy handling all products and working quickly then this could be perfect for you. The shifts can be long, which requires top physical fitness, whichever area of the warehouse you’re in. You might be picking and packing alongside our robots, receiving inbound products for loading into our state-of-the-art hive, or in despatch - loading the customer delivery vans. We’re all one team, humans and robots working together to ensure customers’ groceries leave on time and in peak condition.`,},
+      para:`Our warehouse crew are our beating heart. While everyone works shifts, they are based at the site nearest to them. If you’re over 18, happy handling all products and working quickly then this could be perfect for you. The shifts can be long, which requires top physical fitness, whichever area of the warehouse you’re in. You might be picking and packing alongside our robots, receiving inbound products for loading into our state-of-the-art hive, or in despatch - loading the customer delivery vans. We’re all one team, humans and robots working together to ensure customers’ groceries leave on time and in peak condition.`,
+      butnTxt: 'Warehouse',
+    },
+      
     LGV:{ 
       title: 'LGV Drivers',
       link: '/team-categories/lgv-drivers',
-      para: `Our LGV drivers are world class – fast paced, able to back into a narrow bay in under 5 minutes, they move seamlessly between our state-of-the-art automated warehouses and distribution sites. They’re our heroes steering our largest vehicles round pre-planned routes. Your answers show us that if you have the relevant category license, you could help us keep our automated supply chain moving 24/7, getting to know each site in detail and taking the responsibility to deliver groceries to the right hub in time for customers’ deliveries.`,}
+      para: `Our LGV drivers are world class – fast paced, able to back into a narrow bay in under 5 minutes, they move seamlessly between our state-of-the-art automated warehouses and distribution sites. They’re our heroes steering our largest vehicles round pre-planned routes. Your answers show us that if you have the relevant category license, you could help us keep our automated supply chain moving 24/7, getting to know each site in detail and taking the responsibility to deliver groceries to the right hub in time for customers’ deliveries.`,
+      butnTxt: 'LGV',
+  },
+      
   };
 
   json.forEach((question) => {
@@ -149,6 +162,7 @@ function calculateResults() {
   if (validCategories.length === 0) {
     revealHeading.innerHTML = 'No roles available right now';
     revealPara.innerHTML = `Ahh, it looks like we don’t have an open role matching your results right now! But don't worry, our teams are constantly growing. Keep an eye on our careers page or check back soon to see when your perfect match pops up.`;
+    butnWrap.remove()
     return scores;
   }
 
@@ -165,27 +179,32 @@ const highestScore = Math.max(
 
   if (winningCategories.length > 0) {
     if (winningCategories.length === 1) {
-      revealHeading.innerHTML = winningCategories[0];
+      revealHeading.innerHTML = winningCategories[0].title;
       revealPara.innerHTML = messages[winningCategories[0]].para;
 
       //clone the butn
       const clonebutn = butn.cloneNode(true);
       const link = clonebutn.querySelector("a");
+      const butnTxt = clonebutn.querySelector(".button-txt");
       link.href = messages[winningCategories[0]].link;
+      link.textContent = `Explore ${messages[winningCategories[0]].butnTxt} roles`
+      butnTxt.textContent = `Explore ${messages[winningCategories[0]].butnTxt} roles`
       butnWrap.append(clonebutn);
       butn.remove();
       const cloneButnWrap = butnWrap.cloneNode(true);
       quizItemVisual.appendChild(cloneButnWrap)
     } else if (winningCategories.length === 2) {
-      revealHeading.innerHTML = `Tie between two job families`
+      revealHeading.innerHTML = `You’ve got two great matches!`
       // `${winningCategories[0]} & ${winningCategories[1]}`;
-      revealPara.innerHTML = `Looks like you’re a great match for not one, but two roles! Explore both options below to discover where your strengths could take you and find the role that feels right for you.`
+      revealPara.innerHTML = `Based on your answers, we think you could be a great fit for more than one role. Take a look at both options and see which one feels right for you.`
 
       winningCategories.forEach(winCat => {
         const clonebutn = butn.cloneNode(true);
         const link = clonebutn.querySelector("a");
+        const butnTxt = clonebutn.querySelector(".button-txt");
         link.href = messages[winCat].link;
-        link.textContent = `Explore ${messages[winCat].title} roles`
+        link.textContent = `Explore ${messages[winCat].butnTxt} roles`
+        butnTxt.textContent = `Explore ${messages[winCat].butnTxt} roles`
         butnWrap.append(clonebutn);
       })
       butn.remove();
@@ -193,6 +212,8 @@ const highestScore = Math.max(
       quizItemVisual.appendChild(cloneButnWrap)
     }
   }
+
+  console.log(scores)
 
   return scores;
 }
@@ -358,6 +379,7 @@ function sliderFunc() {
           overlay.forEach(i => {
             i.classList.add('is--active')
           })
+          prevButn.classList.remove('is--disabled')
           //Mobile 
           if(mobileWidth) {
             const rect = infoCard.getBoundingClientRect();
@@ -388,6 +410,16 @@ function sliderFunc() {
             scrollTop()
         }
       });
+
+      prevButn.addEventListener('click', () => {
+        if(infoCard.classList.contains('is--active')) {
+          infoCard.classList.remove('is--active');
+          prevButn.classList.add('is--disabled')
+          overlay.forEach(i => {
+            i.classList.remove('is--active')
+          })
+        }
+      })
     });
 
   // 👉 Init first slide

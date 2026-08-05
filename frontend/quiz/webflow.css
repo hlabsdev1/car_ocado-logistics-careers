@@ -13,7 +13,7 @@
 
 .quiz_radio-butn-wrap label {
   display: block;
-  padding: 18px 32px;
+  padding: 1.125rem 2rem;
   border: 1px solid #D9D9D6;
   border-radius: 30px;
   cursor: pointer;
@@ -70,6 +70,18 @@
    .quiz_radio-butn-wrap label {
         max-width: calc(50% - 0.6rem);
     } 
+    /* .text-20px, .quiz_radio-butn-wrap label {
+        font-size: 20px;
+    }
+    .text-h1 {
+        font-size: 3rem;
+    }
+    .label-40px {
+        font-size: 2rem;
+    } */
+     html {
+        font-size: calc(0.55rem + 0.3vw) !important;
+     }
 }
 
 /* MOBILE */
