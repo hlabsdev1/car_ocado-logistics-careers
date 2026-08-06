@@ -104,6 +104,7 @@ function calculateResults() {
       link: '/team-categories/customer-delivery',
       para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. They calm the breakfast panic or boost dinner time satisfaction by adding smiles to doorsteps. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,
       butntext: 'CSTM',
+      videoURL: 'https://youtu.be/mM_JCzkgmcQ',
     },
 
     headOffice: {
@@ -111,6 +112,7 @@ function calculateResults() {
       link: '/team-categories/head-office',
       para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. These noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, finance, marketing or HR, the resilient team work together to keep us all safe and efficient.`,
       butnTxt: 'Head Office',
+      videoURL: 'https://youtu.be/mM_JCzkgmcQ',
     },
       
     warehouse: {
@@ -118,6 +120,7 @@ function calculateResults() {
       link: '/team-categories/warehouse-roles',
       para:`Our warehouse crew are our beating heart. While everyone works shifts, they are based at the site nearest to them. If you’re over 18, happy handling all products and working quickly then this could be perfect for you. The shifts can be long, which requires top physical fitness, whichever area of the warehouse you’re in. You might be picking and packing alongside our robots, receiving inbound products for loading into our state-of-the-art hive, or in despatch - loading the customer delivery vans. We’re all one team, humans and robots working together to ensure customers’ groceries leave on time and in peak condition.`,
       butnTxt: 'Warehouse',
+      videoURL: 'https://youtu.be/mM_JCzkgmcQ',
     },
       
     LGV:{ 
@@ -125,6 +128,7 @@ function calculateResults() {
       link: '/team-categories/lgv-drivers',
       para: `Our LGV drivers are world class – fast paced, able to back into a narrow bay in under 5 minutes, they move seamlessly between our state-of-the-art automated warehouses and distribution sites. They’re our heroes steering our largest vehicles round pre-planned routes. Your answers show us that if you have the relevant category license, you could help us keep our automated supply chain moving 24/7, getting to know each site in detail and taking the responsibility to deliver groceries to the right hub in time for customers’ deliveries.`,
       butnTxt: 'LGV',
+      videoURL: 'https://youtu.be/mM_JCzkgmcQ',
   },
       
   };
