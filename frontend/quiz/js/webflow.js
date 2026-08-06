@@ -162,7 +162,17 @@ function calculateResults() {
   if (validCategories.length === 0) {
     revealHeading.innerHTML = 'No roles available right now';
     revealPara.innerHTML = `Ahh, it looks like we don’t have an open role matching your results right now! But don't worry, our teams are constantly growing. Keep an eye on our careers page or check back soon to see when your perfect match pops up.`;
-    butnWrap.remove()
+    //clone the butn
+      const clonebutn = butn.cloneNode(true);
+      const link = clonebutn.querySelector("a");
+      const butnTxt = clonebutn.querySelector(".button-txt");
+      link.href = '/';
+      link.textContent = `Explore website`
+      butnTxt.textContent = `xplore website`
+      butnWrap.append(clonebutn);
+      butn.remove();
+      const cloneButnWrap = butnWrap.cloneNode(true);
+      quizItemVisual.appendChild(cloneButnWrap)
     return scores;
   }
 
