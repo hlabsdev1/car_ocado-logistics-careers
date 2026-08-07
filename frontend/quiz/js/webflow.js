@@ -458,9 +458,51 @@ function sliderFunc() {
 
 }
 
+function videoFunc() {
+  const vidWrap = document.querySelector(".quiz_item-visual-inner");
+  const vid = vidWrap.querySelector('video');
+  const playButn = vidWrap.querySelector(".quiz_visual-play-butn");
+  const pauseButn = vidWrap.querySelector(".quiz_visual-pause-butn");
+  let playing = false;
+
+  // vid.src = 'https://ocado.netlify.app/quiz/videos/quiz_vid.mp4'
+  // vid.load();
+  
+
+  // vid.pause();
+
+  function vidPlayer(isPlaying) {
+    if(!isPlaying) {
+      vid.play()
+      pauseButn.style.pointerEvents = 'auto';
+      playButn.style.cssText = "opacity: 0; pointer-events: 'none'"
+    } else {
+      vid.pause()
+      playButn.style.cssText = ""
+    }
+  }
+
+  playButn.addEventListener('click', async () => {
+    vid.play();
+    pauseButn.style.pointerEvents = 'auto';
+    playButn.style.opacity = '0';
+    playButn.style.pointerEvents = 'none';
+  })
+
+  pauseButn.addEventListener('click', () => {
+    vid.pause()
+    pauseButn.style.pointerEvents = "";
+    playButn.style.pointerEvents = "";
+    playButn.style.opacity = '';
+  })
+
+
+}
+
 async function mainFunc() {
   await addingJson();
   sliderFunc()
 }
 
+videoFunc()
 mainFunc();
