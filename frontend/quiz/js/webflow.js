@@ -193,7 +193,7 @@ const highestScore = Math.max(
 
   if (winningCategories.length > 0) {
     if (winningCategories.length === 1) {
-      revealHeading.innerHTML = winningCategories[0].title;
+      revealHeading.innerHTML = messages[winningCategories[0]].title;
       revealPara.innerHTML = messages[winningCategories[0]].para;
 
       //clone the butn
