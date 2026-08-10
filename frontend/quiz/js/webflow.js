@@ -177,7 +177,7 @@ function calculateResults() {
     const butnTxt = clonebutn.querySelector(".button-txt");
     link.href = "/";
     link.textContent = `Explore website`;
-    butnTxt.textContent = `xplore website`;
+    butnTxt.textContent = `Explore website`;
     butnWrap.append(clonebutn);
     butn.remove();
     const cloneButnWrap = butnWrap.cloneNode(true);
