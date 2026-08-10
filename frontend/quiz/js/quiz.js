@@ -1,32 +1,35 @@
 const styleVariants = {
   pink: {
-    color: '#FB83AD',
-    textColor: 'var(--_palette---grey)',
-    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a63398905cafa158a01ab80_quiz-bg-pink.webp',
+    color: "#FB83AD",
+    textColor: "var(--_palette---grey)",
+    image:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a63398905cafa158a01ab80_quiz-bg-pink.webp",
   },
-    orange: {
-    color: '#FF8700',
-    textColor: 'var(--_palette---grey)',
-    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989dfb16996cdaf38f7_quiz-bg-orange.webp',
+  orange: {
+    color: "#FF8700",
+    textColor: "var(--_palette---grey)",
+    image:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989dfb16996cdaf38f7_quiz-bg-orange.webp",
   },
-    green: {
-    color: '#7DDC1D',
-    textColor: 'var(--_palette---grey)',
-    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989240b6a9700870b5f_quiz-bg-green.webp',
+  green: {
+    color: "#7DDC1D",
+    textColor: "var(--_palette---grey)",
+    image:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989240b6a9700870b5f_quiz-bg-green.webp",
   },
-    red: {
-    color: '#F9001B',
-    textColor: 'var(--_palette---white)',
-    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989d1bd20370034fffd_quiz-bg-red.webp',
+  red: {
+    color: "#F9001B",
+    textColor: "var(--_palette---white)",
+    image:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989d1bd20370034fffd_quiz-bg-red.webp",
   },
-    blue: {
-    color: '#36D4E7',
-    textColor: 'var(--_palette---grey)',
-    image: 'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989357706f28432fa10_quiz-bg-blue.webp',
-  }
-
-
-}
+  blue: {
+    color: "#36D4E7",
+    textColor: "var(--_palette---grey)",
+    image:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989357706f28432fa10_quiz-bg-blue.webp",
+  },
+};
 
 const json = [
   {
@@ -57,7 +60,7 @@ const json = [
         },
       },
     ],
-    answer: `All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics.  Let’s try and narrow that down!`
+    answer: `All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics.  Let’s try and narrow that down!`,
   },
   {
     id: 2,
@@ -87,7 +90,7 @@ const json = [
         },
       },
     ],
-    answer: `Our robots might do a lot of heavy lifting but every role within the supply chain network we have created has an element of heavy lifting involved every day. But fear not it might be you are still applicable for a role within our head office or have the specialist qualifications to join us elsewhere.`
+    answer: `Our robots might do a lot of heavy lifting but every role within the supply chain network we have created has an element of heavy lifting involved every day. But fear not it might be you are still applicable for a role within our head office or have the specialist qualifications to join us elsewhere.`,
   },
   {
     id: 3,
@@ -116,14 +119,14 @@ const json = [
         },
       },
     ],
-    answer: `All of our Warehouse, Customer Delivery and LGV drivers work shift patterns and some shifts for our Engineers can be up to 12 hours long. This isn’t always for everyone, and we prefer you to have had some experience working in this kind of environment, there’s only so much coffee will power you through. You have to be just as alert and operate within the same high levels of safety we require during the day. You can find some roster examples on the website to see how this might fall.`
+    answer: `All of our Warehouse, Customer Delivery and LGV drivers work shift patterns and some shifts for our Engineers can be up to 12 hours long. This isn’t always for everyone, and we prefer you to have had some experience working in this kind of environment, there’s only so much coffee will power you through. You have to be just as alert and operate within the same high levels of safety we require during the day. You can find some roster examples on the website to see how this might fall.`,
   },
   {
     id: 4,
     label: `Customer interaction`,
     question: `<div>The people who deliver to our customers are the face of Ocado and our partners. They don’t chuck shopping outside the door or leave it on the drive in the pouring rain – they ring the bell, say hello and hand the order to the customer with a smile. For anyone needing a bit more help, they are there, and if something spills, they sort it out.</div>
     How do you feel about putting the customer first every day?`,
-      styleVariants: styleVariants.red,
+    styleVariants: styleVariants.red,
     options: [
       {
         id: "A",
@@ -146,7 +149,7 @@ const json = [
         },
       },
     ],
-    answer: `We expect everyone at Ocado Logistics to treat each other as well as our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and help and put your customers shopping in the kitchen we don’t mind as long as you are comfortable doing so – as delivering smiles is our thing and our hometown heroes make service pop.`
+    answer: `We expect everyone at Ocado Logistics to treat each other as well as our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and help and put your customers shopping in the kitchen we don’t mind as long as you are comfortable doing so – as delivering smiles is our thing and our hometown heroes make service pop.`,
   },
   {
     id: 5,
@@ -175,7 +178,7 @@ const json = [
         },
       },
     ],
-    answer: `Some days here move fast. Really fast! We pick and pack one order every single second of the day. Think full vans, busy roads, lots of orders, changing priorities and the occasional ‘well, that wasn’t part of the plan’ moments. Pace matters, but safety comes first. Always. Fast is good. Rushed and risky is not.`
+    answer: `Some days here move fast. Really fast! We pick and pack one order every single second of the day. Think full vans, busy roads, lots of orders, changing priorities and the occasional ‘well, that wasn’t part of the plan’ moments. Pace matters, but safety comes first. Always. Fast is good. Rushed and risky is not.`,
   },
   {
     id: 6,
@@ -206,7 +209,7 @@ const json = [
       },
     ],
     answer: `Some people enjoy the rhythm of being out and about, others staying focused and cracking on safely with more people around them throughout the day.
-    Whichever driver role you apply for safety is paramount and our vans are fitted with various  safety measures and you must remain alert, patient and safe – even when traffic, delays or tricky routes test your patience.`
+    Whichever driver role you apply for safety is paramount and our vans are fitted with various  safety measures and you must remain alert, patient and safe – even when traffic, delays or tricky routes test your patience.`,
   },
   {
     id: 7,
@@ -237,7 +240,7 @@ const json = [
         },
       },
     ],
-    answer: `Let’s be honest not every shift offers sunshine – and we don’t expect anyone to be cheerful every second of the day – we’re human after all and we have enough robots to look after. But being able to stay calm, resilient and safe when things get tricky or tense can make a huge difference here for you and your team.`
+    answer: `Let’s be honest not every shift offers sunshine – and we don’t expect anyone to be cheerful every second of the day – we’re human after all and we have enough robots to look after. But being able to stay calm, resilient and safe when things get tricky or tense can make a huge difference here for you and your team.`,
   },
   {
     id: 8,
@@ -266,7 +269,7 @@ const json = [
         },
       },
     ],
-    answer: `Around here – we like pace - but we love good judgement. Speed matters, safety matters more but teamwork keeps the whole thing moving. As our customers are counting on us to deliver when we say we will, one delay can have a knock on effect across the whole day and we know the pressure that can bring.`
+    answer: `Around here – we like pace - but we love good judgement. Speed matters, safety matters more but teamwork keeps the whole thing moving. As our customers are counting on us to deliver when we say we will, one delay can have a knock on effect across the whole day and we know the pressure that can bring.`,
   },
   {
     id: 9,
@@ -297,7 +300,7 @@ const json = [
         },
       },
     ],
-    answer: `No one keeps this operation moving completely on their own – not even the person with the best spreadsheet, the quickest route or the most heroic tea round. Here, teamwork means knowing when to communicate, when to listen and when to ask for help and step in for someone else. That’s what keeps us moving.`
+    answer: `No one keeps this operation moving completely on their own – not even the person with the best spreadsheet, the quickest route or the most heroic tea round. Here, teamwork means knowing when to communicate, when to listen and when to ask for help and step in for someone else. That’s what keeps us moving.`,
   },
   {
     id: 10,
@@ -327,7 +330,7 @@ const json = [
         },
       },
     ],
-    answer: `Here, accountability is not about taking the blame for everything. It’s about being honest, speaking up, following the process and doing your bit to help things get back on track. If you chose A your likely to be someone who problem solves, flags issues early and focuses on what can be done next. If you identify more with B that’s OK too. It may just mean you prefer clearer handovers, speaking up, following the process and doing your bit to help get things back on track.`
+    answer: `Here, accountability is not about taking the blame for everything. It’s about being honest, speaking up, following the process and doing your bit to help things get back on track. If you chose A your likely to be someone who problem solves, flags issues early and focuses on what can be done next. If you identify more with B that’s OK too. It may just mean you prefer clearer handovers, speaking up, following the process and doing your bit to help get things back on track.`,
   },
   {
     id: 11,
@@ -357,13 +360,13 @@ const json = [
         },
       },
     ],
-    answer: `Here, leadership is not about a job title. It’s about attitude, awareness and helping the team do the right thing. Some people have a knack for helping the team find its feet when the day throws a bit of a curve ball. Not by barking orders or waving a clipboard around, but by staying calm, leading by example, identifying what needs doing and supporting teammates with a bit of a steady energy to help keep things moving.`
+    answer: `Here, leadership is not about a job title. It’s about attitude, awareness and helping the team do the right thing. Some people have a knack for helping the team find its feet when the day throws a bit of a curve ball. Not by barking orders or waving a clipboard around, but by staying calm, leading by example, identifying what needs doing and supporting teammates with a bit of a steady energy to help keep things moving.`,
   },
   {
     id: 12,
     label: `Career progression and learning`,
     question: `<div>Lots of people join us and go on to build their career in different directions. That might be learning new skills. Many of our roles offer opportunities for building confidence, training, developing others or taking on more responsibility. Some roles require you to keep up to date with regulations (LGV drivers) or new technology (Engineers) or give the opportunity to develop deeper expertise in the role.</div>
-    <div>We’re interested to hear from those who are curious, open to learning and excited by the idea of growing with us over time – whether that growth is upwards, sideways or simply becoming brilliant at what they do.</div>
+    <div>Whether you’re looking to progress or simply want to become great at what you do, there’s a place for you in our team.</div>
     How do you feel about learning and developing in your role?`,
     styleVariants: styleVariants.orange,
     options: [
@@ -388,6 +391,6 @@ const json = [
         },
       },
     ],
-    answer: `Some people join us for a job – others for a career. And sometimes the best career moves are not straight up – their sideways, diagonal, or maybe even into a role you didn’t know existed or from across the group.`
+    answer: `Some people join us for a job – others for a career. And sometimes the best career moves are not straight up – their sideways, diagonal, or maybe even into a role you didn’t know existed or from across the group.`,
   },
 ];
