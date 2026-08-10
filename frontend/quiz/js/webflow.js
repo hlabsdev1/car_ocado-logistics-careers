@@ -382,6 +382,12 @@ function sliderFunc() {
       });
     });
 
+    //remove disable from every prev button if its not the first.
+    if (i !== 0) {
+      prevButn.classList.remove("is--disabled");
+      console.log(prevButn);
+    }
+
     //Hide last tab next button
     if (i === tabPane.length - 1) {
       nextButn.classList.add("is--hide");
@@ -414,6 +420,7 @@ function sliderFunc() {
           overlay.forEach((i) => {
             i.classList.remove("is--active");
           });
+          infoCard.classList.remove("is--active");
         } else if (currentIndex === tabPane.length - 1) {
           // console.log('This is last')
           quizItemWrap.classList.remove("is--active");
@@ -429,10 +436,22 @@ function sliderFunc() {
     prevButn.addEventListener("click", () => {
       if (infoCard.classList.contains("is--active")) {
         infoCard.classList.remove("is--active");
-        prevButn.classList.add("is--disabled");
+        // prevButn.classList.add("is--disabled");
+        if (i === 0) {
+          prevButn.classList.add("is--disabled");
+        }
         overlay.forEach((i) => {
           i.classList.remove("is--active");
         });
+      } else {
+        handleIndexChange(currentIndex - 1);
+        overlay.forEach((i) => {
+          i.classList.add("is--active");
+        });
+        // prettier-ignore
+        const prevInfoCard = tabPane[currentIndex].querySelector(".quiz_item-result-wrap");
+        // console.log(tabPane[currentIndex]);
+        prevInfoCard.classList.add("is--active");
       }
     });
   });
