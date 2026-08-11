@@ -35,7 +35,7 @@ const json = [
   {
     id: 1,
     label: `On the go`,
-    question: `<div>Our roles are as varied as our teams and some are office based or in one particular warehouse or fulfilment centre (Personal Shoppers who load the bags, and Team Managers for example), and some are out and about every day (our Zoom last mile bike riders can make up to 30 drops per shift across busy city streets on power assisted bikes).</div>
+    question: `<div>Our roles are as varied as our teams and some are office-based or in one particular warehouse or fulfilment centre (Personal Shoppers who load the bags, and Team Managers for example), and some are out and about every day (our Zoom last mile bike riders can make up to 30 drops per shift across busy city streets on power-assisted bikes).</div>
     Which of these best describes where you like to work?`,
     styleVariants: styleVariants.pink,
     options: [
@@ -90,7 +90,7 @@ const json = [
         },
       },
     ],
-    answer: `Our robots might do a lot of heavy lifting but every role within the supply chain network we have created has an element of heavy lifting involved every day. But fear not it might be you are still applicable for a role within our head office or have the specialist qualifications to join us elsewhere.`,
+    answer: `Our robots might do a lot of heavy lifting but every role within the supply chain network we have created has an element of heavy lifting involved every day. But fear not – you may still be suited to a role within our head office or another specialist area.`,
   },
   {
     id: 3,
@@ -119,7 +119,7 @@ const json = [
         },
       },
     ],
-    answer: `All of our Warehouse, Customer Delivery and LGV drivers work shift patterns and some shifts for our Engineers can be up to 12 hours long. This isn’t always for everyone, and we prefer you to have had some experience working in this kind of environment, there’s only so much coffee will power you through. You have to be just as alert and operate within the same high levels of safety we require during the day. You can find some roster examples on the website to see how this might fall.`,
+    answer: `All of our Warehouse, Customer Delivery and LGV drivers work shift patterns and some shifts for our Engineers can be up to 12 hours long. This isn’t always for everyone, and we prefer you to have had some experience working in this kind of environment, there’s only so much coffee will power you through. You have to be just as alert and operate within the same high levels of safety we require during the day. You can view example rosters on our website to see how the shifts may fall.`,
   },
   {
     id: 4,
@@ -149,12 +149,12 @@ const json = [
         },
       },
     ],
-    answer: `We expect everyone at Ocado Logistics to treat each other as well as our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and help and put your customers shopping in the kitchen we don’t mind as long as you are comfortable doing so – as delivering smiles is our thing and our hometown heroes make service pop.`,
+    answer: `We expect everyone at Ocado Logistics to treat each other as well as our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and If a customer needs a little extra help, you may take their shopping into the kitchen, as long as you’re comfortable doing so and follow the correct process we don’t mind as long as you are comfortable doing so – as delivering smiles is our thing and our hometown heroes make service pop.`,
   },
   {
     id: 5,
     label: `Busy vs steady pace`,
-    question: `<div>During busy shifts – when there is a list of drops to complete and traffic is bad, or lots of orders and a broken conveyer – the pace is fast, with priorities that can change quickly and decisions that need to be made on the go. At the same time, it’s important we do what’s right, especially for team safety. What sort of working pace suits you best?</div>`,
+    question: `<div>During busy shifts – when there is a list of drops to complete and traffic is bad, or lots of orders and a broken conveyor – the pace is fast, with priorities that can change quickly and decisions that need to be made on the go. At the same time, it’s important we do what’s right, especially for team safety. What sort of working pace suits you best?</div>`,
     styleVariants: styleVariants.blue,
     options: [
       {
@@ -169,7 +169,7 @@ const json = [
       },
       {
         id: "B",
-        text: `I prefer slower paced work – where I can take my time, consider the outcomes safely and avoid feeling rushed.`,
+        text: `I prefer slower-paced work – where I can take my time, consider the outcomes safely and avoid feeling rushed.`,
         scores: {
           customerService: -100,
           headOffice: 0,
@@ -209,12 +209,12 @@ const json = [
       },
     ],
     answer: `Some people enjoy the rhythm of being out and about, others staying focused and cracking on safely with more people around them throughout the day.
-    Whichever driver role you apply for safety is paramount and our vans are fitted with various  safety measures and you must remain alert, patient and safe – even when traffic, delays or tricky routes test your patience.`,
+    Whichever driver role you apply for safety is paramount and our vans are fitted with various safety measures and you must remain alert, patient and safe – even when traffic, delays or tricky routes test your patience.`,
   },
   {
     id: 7,
     label: `Mental/physical resilience`,
-    question: `<div>As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand during busy holiday season, walking repeatedly across site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools.</div>
+    question: `<div>As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand dduring the busy holiday season, walking repeatedly across the site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools.</div>
     How do you stay positive and keep going even when the day is challenging?`,
     styleVariants: styleVariants.orange,
     options: [
@@ -240,7 +240,7 @@ const json = [
         },
       },
     ],
-    answer: `Let’s be honest not every shift offers sunshine – and we don’t expect anyone to be cheerful every second of the day – we’re human after all and we have enough robots to look after. But being able to stay calm, resilient and safe when things get tricky or tense can make a huge difference here for you and your team.`,
+    answer: `Let’s be honest, not every shift offers sunshine – and we don’t expect anyone to be cheerful every second of the day – we’re human after all and we have enough robots to look after. But being able to stay calm, resilient and safe when things get tricky or tense can make a huge difference here for you and your team.`,
   },
   {
     id: 8,
@@ -269,7 +269,7 @@ const json = [
         },
       },
     ],
-    answer: `Around here – we like pace - but we love good judgement. Speed matters, safety matters more but teamwork keeps the whole thing moving. As our customers are counting on us to deliver when we say we will, one delay can have a knock on effect across the whole day and we know the pressure that can bring.`,
+    answer: `Around here, we like pace – but we love good judgement. Speed matters, safety matters more but teamwork keeps the whole thing moving. As our customers are counting on us to deliver when we say we will, one delay can have a knock-on effect across the whole day and we know the pressure that can bring.`,
   },
   {
     id: 9,
@@ -330,7 +330,8 @@ const json = [
         },
       },
     ],
-    answer: `Here, accountability is not about taking the blame for everything. It’s about being honest, speaking up, following the process and doing your bit to help things get back on track. If you chose A your likely to be someone who problem solves, flags issues early and focuses on what can be done next. If you identify more with B that’s OK too. It may just mean you prefer clearer handovers, speaking up, following the process and doing your bit to help get things back on track.`,
+    answer: `Here, accountability isn’t about taking the blame for everything. It’s about being honest, speaking up, following the process and doing your bit to help things get back on track.
+    If you chose the first response, you’re likely to be someone who solves problems, flags issues early and focuses on what can be done next. If you identify more with the second response, that’s OK too. It may simply mean you prefer clearer guidance and handovers before deciding what to do next.`,
   },
   {
     id: 11,
@@ -360,7 +361,7 @@ const json = [
         },
       },
     ],
-    answer: `Here, leadership is not about a job title. It’s about attitude, awareness and helping the team do the right thing. Some people have a knack for helping the team find its feet when the day throws a bit of a curve ball. Not by barking orders or waving a clipboard around, but by staying calm, leading by example, identifying what needs doing and supporting teammates with a bit of a steady energy to help keep things moving.`,
+    answer: `Here, leadership is not about a job title. It’s about attitude, awareness and helping the team do the right thing. Some people have a knack for helping the team find its feet when the day throws a bit of a curveball. Not by barking orders or waving a clipboard around, but by staying calm, leading by example, identifying what needs doing and supporting teammates with a bit of a steady energy to help keep things moving.`,
   },
   {
     id: 12,
@@ -382,7 +383,7 @@ const json = [
       },
       {
         id: "B",
-        text: `I like learning new things and would be interested in building a longer-term career, whether than means progressing, trying different areas or developing specialist skills over time. I am happy to seek these opportunities out and put myself forward.`,
+        text: `I like learning new things and would be interested in building a longer-term career, whether that means progressing, trying different areas or developing specialist skills over time. I am happy to seek these opportunities out and put myself forward.`,
         scores: {
           customerService: 0,
           headOffice: 1,
@@ -391,6 +392,6 @@ const json = [
         },
       },
     ],
-    answer: `Some people join us for a job – others for a career. And sometimes the best career moves are not straight up – their sideways, diagonal, or maybe even into a role you didn’t know existed or from across the group.`,
+    answer: `Some people join us for a job – others for a career. And sometimes the best career moves are not straight up – they’re sideways or diagonal, or maybe even into a role you didn’t know existed or from across the group.`,
   },
 ];
