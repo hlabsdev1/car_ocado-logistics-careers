@@ -110,7 +110,7 @@ function calculateResults() {
     customerService: {
       title: "Customer Delivery",
       link: "/team-categories/customer-delivery",
-      para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. They calm the breakfast panic or boost dinner time satisfaction by adding smiles to doorsteps. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,
+      para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders.You’ll help make mealtimes go smoothly by delivering groceries bang on time. Along the way, you’ll provide the great service that puts a smile on our customers’ faces. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,
       butnTxt: "CSTM",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
     },
