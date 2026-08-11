@@ -214,7 +214,7 @@ const json = [
   {
     id: 7,
     label: `Mental/physical resilience`,
-    question: `<div>As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand dduring the busy holiday season, walking repeatedly across the site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools.</div>
+    question: `<div>As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand during the busy holiday season, walking repeatedly across the site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools.</div>
     How do you stay positive and keep going even when the day is challenging?`,
     styleVariants: styleVariants.orange,
     options: [
