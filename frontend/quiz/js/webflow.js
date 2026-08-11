@@ -53,9 +53,11 @@ async function addingJson() {
     <div class="quiz_item-arrow-wrap">
       <div class="quiz_item-arrow is--prev is--disabled">
         <img src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a6099de479f1133e183d05d_ocado-quiz-arrow.svg" loading="lazy" alt="" class="quiz_item-arrow-img is--prev">
+        <div>PREV</div>
       </div>
       <div class="quiz_item-arrow is--next is--disabled">
         <img src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a6099de479f1133e183d05d_ocado-quiz-arrow.svg" loading="lazy" alt="" class="quiz_item-arrow-img">
+        <div>NEXT</div>
       </div>
     </div>
     `;
