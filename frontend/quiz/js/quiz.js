@@ -18,10 +18,10 @@ const styleVariants = {
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989240b6a9700870b5f_quiz-bg-green.webp",
   },
   red: {
-    color: "#F9001B",
+    color: "#8453CF",
     textColor: "var(--_palette---white)",
     image:
-      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a633989d1bd20370034fffd_quiz-bg-red.webp",
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f1037262b45168d555e54_quiz-bg-purple.webp",
   },
   blue: {
     color: "#36D4E7",
@@ -372,7 +372,7 @@ const json = [
     options: [
       {
         id: "A",
-        text: `I’m looking for a job I can settle into as it is, hone my skillset and I’m less interested in extra learning, or future career moves, preferring to give my ‘all’ during my shift and then go home. `,
+        text: `I’m looking for a role I can settle into and become really good at. I’d prefer to focus on doing my current role well rather than pursuing extra learning or future career moves.`,
         scores: {
           customerService: 1,
           headOffice: 0,

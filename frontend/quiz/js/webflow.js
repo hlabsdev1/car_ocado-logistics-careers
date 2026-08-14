@@ -86,6 +86,7 @@ function calculateResults() {
   const revealContainer = document.querySelector(".quiz_item-final-result");
   const revealHeading = revealContainer.querySelector("[reveal-heading]");
   const revealPara = revealContainer.querySelector("[reveal-para]");
+  const resultColumn = revealContainer.querySelector("#result-column");
   const butnWrap = revealContainer.querySelector(
     ".quiz_final-result-butn-wrap",
   );
@@ -93,6 +94,10 @@ function calculateResults() {
   const quizItemVisual = revealContainer.querySelector(
     ".quiz_item-visual-wrap",
   );
+  const imgWrapper = revealContainer.querySelector(
+    ".quiz_item-result-sum-img-wrap",
+  );
+  const quizMedal = revealContainer.querySelector(".quiz_medal-img");
   const scores = {
     customerService: 0,
     headOffice: 0,
@@ -113,6 +118,8 @@ function calculateResults() {
       para: `Your answers showed that you have some of the ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders.You’ll help make mealtimes go smoothly by delivering groceries bang on time. Along the way, you’ll provide the great service that puts a smile on our customers’ faces. It’s no mean feat as, while their vans are loaded for them, they need tenacity and peak physical fitness to make all the deliveries in their shift safely, climb stairs with heavy bags, or trouble shoot when the traffic’s bad. And they do all of this without compromising the excellent customer service they pride themselves on.`,
       butnTxt: "CSTM",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
+      imgURL:
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f07a0cd45378caa70d8e0_img1.webp",
     },
 
     headOffice: {
@@ -121,6 +128,8 @@ function calculateResults() {
       para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. These noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, finance, marketing or HR, the resilient team work together to keep us all safe and efficient.`,
       butnTxt: "Head Office",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
+      imgURL:
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f07a0a75897d18f3a27a1_img4.webp",
     },
 
     warehouse: {
@@ -129,6 +138,8 @@ function calculateResults() {
       para: `Our warehouse crew are our beating heart. While everyone works shifts, they are based at the site nearest to them. If you’re over 18, happy handling all products and working quickly then this could be perfect for you. The shifts can be long, which requires top physical fitness, whichever area of the warehouse you’re in. You might be picking and packing alongside our robots, receiving inbound products for loading into our state-of-the-art hive, or in despatch - loading the customer delivery vans. We’re all one team, humans and robots working together to ensure customers’ groceries leave on time and in peak condition.`,
       butnTxt: "Warehouse",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
+      imgURL:
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f07a09b209dc16f92762b_img3.webp",
     },
 
     LGV: {
@@ -137,6 +148,8 @@ function calculateResults() {
       para: `Our LGV drivers are world class – fast paced, able to back into a narrow bay in under 5 minutes, they move seamlessly between our state-of-the-art automated warehouses and distribution sites. They’re our heroes steering our largest vehicles round pre-planned routes. Your answers show us that if you have the relevant category C+E licence, you could help us keep our automated supply chain moving 24/7, getting to know each site in detail and taking the responsibility to deliver groceries to the right hub in time for customers’ deliveries.`,
       butnTxt: "LGV",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
+      imgURL:
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f07a0cc8d908db6cf4d35_img2.webp",
     },
   };
 
@@ -184,6 +197,7 @@ function calculateResults() {
     butn.remove();
     const cloneButnWrap = butnWrap.cloneNode(true);
     quizItemVisual.appendChild(cloneButnWrap);
+    resultColumn.classList.add("is--nojobs");
     return scores;
   }
 
@@ -198,7 +212,16 @@ function calculateResults() {
 
   // console.log(winningCategories, winningCategories[0])
 
+  function addingImages(winCat) {
+    const imgElement = document.createElement("img");
+    imgElement.className = "quiz_item-result-img";
+    imgElement.src = winCat.imgURL;
+
+    imgWrapper.append(imgElement);
+  }
+
   if (winningCategories.length > 0) {
+    resultColumn.classList.add("is--jobs");
     if (winningCategories.length === 1) {
       revealHeading.innerHTML = messages[winningCategories[0]].title;
       revealPara.innerHTML = messages[winningCategories[0]].para;
@@ -214,6 +237,8 @@ function calculateResults() {
       butn.remove();
       const cloneButnWrap = butnWrap.cloneNode(true);
       quizItemVisual.appendChild(cloneButnWrap);
+      addingImages(messages[winningCategories[0]]);
+      quizMedal.style.opacity = "1";
     } else if (winningCategories.length === 2) {
       revealHeading.innerHTML = `You’ve got two great matches!`;
       // `${winningCategories[0]} & ${winningCategories[1]}`;
@@ -227,6 +252,7 @@ function calculateResults() {
         link.textContent = `Explore ${messages[winCat].butnTxt} roles`;
         butnTxt.textContent = `Explore ${messages[winCat].butnTxt} roles`;
         butnWrap.append(clonebutn);
+        addingImages(messages[winCat]);
       });
       butn.remove();
       const cloneButnWrap = butnWrap.cloneNode(true);
