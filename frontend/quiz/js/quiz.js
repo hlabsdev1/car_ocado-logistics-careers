@@ -149,7 +149,7 @@ const json = [
         },
       },
     ],
-    answer: `We expect everyone at Ocado Logistics to treat each other as well as our customers - with empathy and respect whilst making a big impact. If you need to go that little bit further and If a customer needs a little extra help, you may take their shopping into the kitchen, as long as you’re comfortable doing so and follow the correct process we don’t mind as long as you are comfortable doing so – as delivering smiles is our thing and our hometown heroes make service pop.`,
+    answer: `At Ocado Logistics, we treat colleagues and customers with empathy and respect. Sometimes, a small act can make a big impact. If a customer needs extra help, you may take their shopping into the kitchen - as long as you feel comfortable and follow the correct process. It’s all part of delivering smiles and making great service pop.`,
   },
   {
     id: 5,
@@ -208,8 +208,7 @@ const json = [
         },
       },
     ],
-    answer: `Some people enjoy the rhythm of being out and about, others staying focused and cracking on safely with more people around them throughout the day.
-    Whichever driver role you apply for safety is paramount and our vans are fitted with various safety measures and you must remain alert, patient and safe – even when traffic, delays or tricky routes test your patience.`,
+    answer: `Some people enjoy the rhythm of being out on the road, while others prefer a role with more people around them throughout the day. Whichever driving role you apply for, safety always comes first. Our vehicles are fitted with a range of safety features, but you’ll also need to stay alert, patient and calm -even when traffic, delays or tricky routes put you to the test.`,
   },
   {
     id: 7,
@@ -269,7 +268,7 @@ const json = [
         },
       },
     ],
-    answer: `Around here, we like pace – but we love good judgement. Speed matters, safety matters more but teamwork keeps the whole thing moving. As our customers are counting on us to deliver when we say we will, one delay can have a knock-on effect across the whole day and we know the pressure that can bring.`,
+    answer: `Around here, we like pace - but we love good judgement. Speed matters, safety matters more, and teamwork keeps everything moving. Our customers count on us to deliver when we say we will, so one delay can have a knock-on effect across the whole day. We know that can bring pressure, which is why staying calm, making good decisions and supporting each other really matters.`,
   },
   {
     id: 9,
@@ -311,7 +310,7 @@ const json = [
     options: [
       {
         id: "A",
-        text: `I am comfortable taking responsibility for my part, using my initiative and judgement, to let the right people know and focus on what I can do to help put things right.`,
+        text: `I am comfortable taking responsibility for my part, using my initiative and judgement to let the right people know and focus on what I can do to help put things right.`,
         scores: {
           customerService: 1,
           headOffice: 0,
@@ -392,6 +391,6 @@ const json = [
         },
       },
     ],
-    answer: `Some people join us for a job – others for a career. And sometimes the best career moves are not straight up – they’re sideways or diagonal, or maybe even into a role you didn’t know existed or from across the group.`,
+    answer: `Some people join us for a job; others come to build a career. And the best career moves aren’t always straight up. Your next step could be sideways, diagonal, into a role you didn’t know existed- or even somewhere else across the Ocado Group.`,
   },
 ];
