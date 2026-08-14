@@ -52,11 +52,16 @@ async function addingJson() {
     </div>
     <div class="quiz_item-arrow-wrap">
       <div class="quiz_item-arrow is--prev is--disabled">
-        <img src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a6099de479f1133e183d05d_ocado-quiz-arrow.svg" loading="lazy" alt="" class="quiz_item-arrow-img is--prev">
+        <svg class="quiz_item-arrow-img is--prev" width="100%" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.40503 1.40503L7.45776 7.02542L1.40503 12.6458" stroke="#49C5B1" stroke-width="2.8102" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <div>PREV</div>
       </div>
       <div class="quiz_item-arrow is--next is--disabled">
-        <img src="https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a6099de479f1133e183d05d_ocado-quiz-arrow.svg" loading="lazy" alt="" class="quiz_item-arrow-img">
+        <svg class="quiz_item-arrow-img" width="100%" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.40503 1.40503L7.45776 7.02542L1.40503 12.6458" stroke="#49C5B1" stroke-width="2.8102" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
         <div>NEXT</div>
       </div>
     </div>
