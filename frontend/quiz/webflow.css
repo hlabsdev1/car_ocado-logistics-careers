@@ -101,6 +101,31 @@
     transform: rotate(2deg);
 }
 
+.quiz_item-change:nth-of-type(5) .quiz_item-h-pill-wrap {
+    max-width: 400px;
+}
+
+.quiz_item-c-top-col1 .quiz_item-h-pill:nth-of-type(even) {
+    transform-origin: top;
+    transform: rotate(-2deg)
+}
+
+.quiz_item-c-top-col1.is--nojobs {
+    align-items: stretch;
+}
+
+.quiz_item-c-top-col1.is--nojobs .quiz_item-result-summary-wrap {
+    justify-content: space-between;
+}
+
+.quiz_item-c-top-col1.is--nojobs .quiz_item-result-sum-img-wrap {
+    display: none;
+}
+
+#quiz-result-top.is--norole {
+    max-width: 540px;
+}
+
 
 @media screen and (min-width: 991px) {
    .quiz_radio-butn-wrap label {

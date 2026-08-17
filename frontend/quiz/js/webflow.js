@@ -103,6 +103,8 @@ function calculateResults() {
     ".quiz_item-result-sum-img-wrap",
   );
   const quizMedal = revealContainer.querySelector(".quiz_medal-img");
+  const topPillWrap = revealContainer.querySelector("#quiz-result-top");
+  console.log(topPillWrap);
   const scores = {
     customerService: 0,
     headOffice: 0,
@@ -203,6 +205,7 @@ function calculateResults() {
     const cloneButnWrap = butnWrap.cloneNode(true);
     quizItemVisual.appendChild(cloneButnWrap);
     resultColumn.classList.add("is--nojobs");
+    topPillWrap.classList.add("is--norole");
     return scores;
   }
 
