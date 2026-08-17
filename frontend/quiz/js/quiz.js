@@ -36,6 +36,7 @@ const json = [
     id: 1,
     label: `On the go`,
     question: `<div>Our roles are as varied as our teams and some are office-based or in one particular warehouse or fulfilment centre (Personal Shoppers who load the bags, and Team Managers for example), and some are out and about every day (our Zoom last mile bike riders can make up to 30 drops per shift across busy city streets on power-assisted bikes).</div>
+    <div class="quiz-ques-break"></div>
     Which of these best describes where you like to work?`,
     styleVariants: styleVariants.pink,
     options: [
@@ -125,6 +126,7 @@ const json = [
     id: 4,
     label: `Customer interaction`,
     question: `<div>The people who deliver to our customers are the face of Ocado and our partners. They don’t chuck shopping outside the door or leave it on the drive in the pouring rain – they ring the bell, say hello and hand the order to the customer with a smile. For anyone needing a bit more help, they are there, and if something spills, they sort it out.</div>
+    <div class="quiz-ques-break"></div>
     How do you feel about putting the customer first every day?`,
     styleVariants: styleVariants.red,
     options: [
