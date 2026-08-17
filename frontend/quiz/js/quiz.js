@@ -184,7 +184,7 @@ const json = [
     id: 6,
     label: `Being on the road`,
     question: `<div>Some roles involve spending a lot of time on the road. We say you need to live within an hour of your base, so you’re not adding to that distance. Our Customer Service Team Members regularly cover two hundred miles in a shift – that’s the same as driving from London to Manchester! So, it’s essential to stay focused, follow safety rules and avoid any distractions (like glancing at your phone).</div>
-    <div></div>
+    <div class="quiz-ques-break"></div>
     How do you feel about driving or riding a bike all day?`,
     styleVariants: styleVariants.pink,
     options: [
@@ -215,6 +215,7 @@ const json = [
     id: 7,
     label: `Mental/physical resilience`,
     question: `<div>As with most jobs, there will be difficult days. That might mean anything from working all day in cold storage (0-5 degrees), planning shift patterns in advance to ensure we meet demand during the busy holiday season, walking repeatedly across the site (our Erith site is 7x the size of Wembley and our stock availability advisors regularly complete their 20,000 steps a day), or spending your Engineering shift manually clearing conveyors instead of using your tools.</div>
+    <div class="quiz-ques-break"></div>
     How do you stay positive and keep going even when the day is challenging?`,
     styleVariants: styleVariants.orange,
     options: [
@@ -276,6 +277,7 @@ const json = [
     label: `Teamwork`,
     question: `<div>In many of our roles, the work only runs smoothly when people stay connected. That might mean a planner juggling shifts with a Team Lead, a driver flagging an issue on the road, an engineer working with operations to get a conveyor moving again or a personal shopper stepping in to support a busy area.</div>
     <div>Clear communication matters here. Sometimes, you’ll need to share updates, ask for input, offer help or work through a problem with others so the right decision can be made quickly.</div>
+    <div class="quiz-ques-break"></div>
     When things get busy or plans change, how do you prefer to work?`,
     styleVariants: styleVariants.red,
     options: [
@@ -306,6 +308,7 @@ const json = [
     id: 10,
     label: `Accountability`,
     question: `<div>Some roles need people to work independently and sort out any problems without a manager immediately being present beside them. But everyone plays a part in keeping the day running smoothly and safely. And sometimes things go wrong – an order is missing, a robot stops, a route is delayed, or a customer needs extra help. When this happens, it’s important to take ownership of the part you play, follow the right process, speak up early and do what you can to fix the issue.</div>
+    <div class="quiz-ques-break"></div>
     When something goes wrong during your shift or time in the office, what are you most likely to do?`,
     styleVariants: styleVariants.blue,
     options: [
@@ -337,6 +340,7 @@ const json = [
     id: 11,
     label: `Leadership`,
     question: `<div>Some people naturally look out for the wider team. They notice when someone needs support, keep things calm when plans change and are comfortable stepping forward when a decision or action is needed. That does not always mean being the loudest person in the room. It can mean setting a good example, sharing useful information, encouraging others or helping the team stay focused on what needs to happen next. There are sometimes opportunities for Team Manager roles based at our Hatfield Head Office or warehouses.</div>
+    <div class="quiz-ques-break"></div>
     When the team is busy or something unexpected happens, what are you most likely to do?`,
     styleVariants: styleVariants.pink,
     options: [
@@ -367,7 +371,9 @@ const json = [
     id: 12,
     label: `Career progression and learning`,
     question: `<div>Lots of people join us and go on to build their career in different directions. That might be learning new skills. Many of our roles offer opportunities for building confidence, training, developing others or taking on more responsibility. Some roles require you to keep up to date with regulations (LGV drivers) or new technology (Engineers) or give the opportunity to develop deeper expertise in the role.</div>
+    <div class="quiz-ques-break"></div>
     <div>Whether you’re looking to progress or simply want to become great at what you do, there’s a place for you in our team.</div>
+    <div class="quiz-ques-break"></div>
     How do you feel about learning and developing in your role?`,
     styleVariants: styleVariants.orange,
     options: [

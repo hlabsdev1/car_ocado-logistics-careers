@@ -126,6 +126,10 @@
     max-width: 540px;
 }
 
+.quiz-ques-break {
+    height: 1em;
+}
+
 
 @media screen and (min-width: 991px) {
    .quiz_radio-butn-wrap label {
