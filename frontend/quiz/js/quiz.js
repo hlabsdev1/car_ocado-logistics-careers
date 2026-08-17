@@ -184,6 +184,7 @@ const json = [
     id: 6,
     label: `Being on the road`,
     question: `<div>Some roles involve spending a lot of time on the road. We say you need to live within an hour of your base, so you’re not adding to that distance. Our Customer Service Team Members regularly cover two hundred miles in a shift – that’s the same as driving from London to Manchester! So, it’s essential to stay focused, follow safety rules and avoid any distractions (like glancing at your phone).</div>
+    <div></div>
     How do you feel about driving or riding a bike all day?`,
     styleVariants: styleVariants.pink,
     options: [
