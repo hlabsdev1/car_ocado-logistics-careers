@@ -125,9 +125,9 @@
     justify-content: space-between;
 }
 
-.quiz_item-c-top-col1.is--nojobs .quiz_item-result-sum-img-wrap {
+/* .quiz_item-c-top-col1.is--nojobs .quiz_item-result-sum-img-wrap {
     display: none;
-}
+} */
 
 #quiz-result-top.is--norole {
     max-width: 540px;

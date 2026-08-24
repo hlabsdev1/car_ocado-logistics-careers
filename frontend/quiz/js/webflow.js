@@ -207,6 +207,11 @@ function calculateResults() {
     quizItemVisual.appendChild(cloneButnWrap);
     resultColumn.classList.add("is--nojobs");
     topPillWrap.classList.add("is--norole");
+    const noJobImgObject = {
+      imgURL:
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a7f07a09b209dc16f92762b_img3.webp",
+    };
+    addingImages(noJobImgObject);
     return scores;
   }
 
