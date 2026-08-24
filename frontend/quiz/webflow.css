@@ -101,6 +101,13 @@
     transform: rotate(2deg);
 }
 
+.quiz_item-change .quiz_item-answer-img {
+    transform: rotate(2deg) translate(-50%, -100%);
+}
+.quiz_item-change:nth-of-type(even) .quiz_item-answer-img {
+    transform: rotate(-2deg) translate(-50%, -100%);
+}
+
 .quiz_item-change:nth-of-type(5) .quiz_item-h-pill-wrap {
     max-width: 400px;
 }

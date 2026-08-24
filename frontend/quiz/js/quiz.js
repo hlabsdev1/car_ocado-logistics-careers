@@ -62,6 +62,8 @@ const json = [
       },
     ],
     answer: `All of our teams are transforming the future of grocery deliveries and making sure everyday moments flow. Whether you prefer to be based in one site – so might be more suitable for one of our warehouse roles or more suited to powering one of our zippy bikes or purple vans - there’s a hometown hero role for you within Ocado Logistics.  Let’s try and narrow that down!`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c2b23dbd39f65f65ef323_Sample.png",
   },
   {
     id: 2,
@@ -92,6 +94,8 @@ const json = [
       },
     ],
     answer: `Our robots might do a lot of heavy lifting but every role within the supply chain network we have created has an element of heavy lifting involved every day. But fear not – you may still be suited to a role within our head office or another specialist area.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4ca5a4e9c5f43e506_1.webp",
   },
   {
     id: 3,
@@ -121,6 +125,8 @@ const json = [
       },
     ],
     answer: `All of our Warehouse, Customer Delivery and LGV drivers work shift patterns and some shifts for our Engineers can be up to 12 hours long. This isn’t always for everyone, and we prefer you to have had some experience working in this kind of environment, there’s only so much coffee will power you through. You have to be just as alert and operate within the same high levels of safety we require during the day. You can view example rosters on our website to see how the shifts may fall.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d47eab4bd21b8a8803_2.webp",
   },
   {
     id: 4,
@@ -152,6 +158,8 @@ const json = [
       },
     ],
     answer: `At Ocado Logistics, we treat colleagues and customers with empathy and respect. Sometimes, a small act can make a big impact. If a customer needs extra help, you may take their shopping into the kitchen - as long as you feel comfortable and follow the correct process. It’s all part of delivering smiles and making great service pop.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d43893a257daf53104_3.webp",
   },
   {
     id: 5,
@@ -181,6 +189,8 @@ const json = [
       },
     ],
     answer: `Some days here move fast. Really fast! We pick and pack one order every single second of the day. Think full vans, busy roads, lots of orders, changing priorities and the occasional ‘well, that wasn’t part of the plan’ moments. Pace matters, but safety comes first. Always. Fast is good. Rushed and risky is not.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d46cbc7ab805bdb9c7_4.webp",
   },
   {
     id: 6,
@@ -212,6 +222,8 @@ const json = [
       },
     ],
     answer: `Some people enjoy the rhythm of being out on the road, while others prefer a role with more people around them throughout the day. Whichever driving role you apply for, safety always comes first. Our vehicles are fitted with a range of safety features, but you’ll also need to stay alert, patient and calm -even when traffic, delays or tricky routes put you to the test.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4feeb6ad25bc05199_5.webp",
   },
   {
     id: 7,
@@ -244,6 +256,8 @@ const json = [
       },
     ],
     answer: `Let’s be honest, not every shift offers sunshine – and we don’t expect anyone to be cheerful every second of the day – we’re human after all and we have enough robots to look after. But being able to stay calm, resilient and safe when things get tricky or tense can make a huge difference here for you and your team.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4def9dac5b8a092c4_6.webp",
   },
   {
     id: 8,
@@ -273,6 +287,8 @@ const json = [
       },
     ],
     answer: `Around here, we like pace - but we love good judgement. Speed matters, safety matters more, and teamwork keeps everything moving. Our customers count on us to deliver when we say we will, so one delay can have a knock-on effect across the whole day. We know that can bring pressure, which is why staying calm, making good decisions and supporting each other really matters.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4162f50d743d9a357_7.webp",
   },
   {
     id: 9,
@@ -305,6 +321,8 @@ const json = [
       },
     ],
     answer: `No one keeps this operation moving completely on their own – not even the person with the best spreadsheet, the quickest route or the most heroic tea round. Here, teamwork means knowing when to communicate, when to listen and when to ask for help and step in for someone else. That’s what keeps us moving.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d444c353b424cb935a_8.webp",
   },
   {
     id: 10,
@@ -337,6 +355,8 @@ const json = [
     ],
     answer: `Here, accountability isn’t about taking the blame for everything. It’s about being honest, speaking up, following the process and doing your bit to help things get back on track.
     If you chose the first response, you’re likely to be someone who solves problems, flags issues early and focuses on what can be done next. If you identify more with the second response, that’s OK too. It may simply mean you prefer clearer guidance and handovers before deciding what to do next.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4d059983417be9e13_9.webp",
   },
   {
     id: 11,
@@ -368,6 +388,8 @@ const json = [
       },
     ],
     answer: `Here, leadership is not about a job title. It’s about attitude, awareness and helping the team do the right thing. Some people have a knack for helping the team find its feet when the day throws a bit of a curveball. Not by barking orders or waving a clipboard around, but by staying calm, leading by example, identifying what needs doing and supporting teammates with a bit of a steady energy to help keep things moving.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4909c47b86b915cdf_10.webp",
   },
   {
     id: 12,
@@ -401,5 +423,7 @@ const json = [
       },
     ],
     answer: `Some people join us for a job; others come to build a career. And the best career moves aren’t always straight up. Your next step could be sideways, diagonal, into a role you didn’t know existed- or even somewhere else across the Ocado Group.`,
+    answerImg:
+      "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d58a50d2d94436a25f_11.webp",
   },
 ];

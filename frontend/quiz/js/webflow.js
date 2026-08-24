@@ -45,6 +45,7 @@ async function addingJson() {
       </div>
       <div class="quiz_item-result-wrap">
         <div class="quiz_item-result" style="background-color: ${item.styleVariants.color}; color: ${item.styleVariants.textColor} ">
+          <img class="quiz_item-answer-img" src=${item.answerImg} alt="answer people photo">
           <div class="text-25px">${item.answer}</div>
         </div>
       </div>
