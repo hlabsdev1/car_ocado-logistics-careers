@@ -673,5 +673,20 @@
     "Latitude": 54.9580416147279,
     "Logtitude": -1.64739011639323,
     "Category": "Customer Delivery"
+  },
+  {
+    "Map Results": "47",
+    "Name": "Spoke Stoke",
+    "Code": "OL_LOC_0052",
+    "Location Set": "Common Set",
+    "Status": "Active",
+    "ending Change": "No",
+    "Address Line 1": "Unit C51, Stoke-On-Trent, Staffordshire, ST1 5GP, GB",
+    "City": "Stoke-on-Trent",
+    "Postal Code": "NE11 9EZ",
+    "Country": "United Kingdom",
+    "Latitude": 53.00414705020592,
+    "Logtitude": -2.1892715858314307,
+    "Category": "Logistics Operations"
   }
 ]
