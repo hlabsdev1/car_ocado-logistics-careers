@@ -9,10 +9,10 @@ function individualPage() {
     const cities = globalCities;
 
     const teamCategories = [
-      { Name: 'Head Office', Color: '#f7ea48' },
-      { Name: 'Warehouse', Color: '#6ad1e3' },
-      { Name: 'HGV/LGV Transport', Color: '#fb83ad' },
-      { Name: 'Customer Delivery', Color: '#49c5b1' },
+      { Name: "Head Office", Color: "#f7ea48" },
+      { Name: "Warehouse", Color: "#6ad1e3" },
+      { Name: "HGV/LGV Transport", Color: "#fb83ad" },
+      { Name: "Customer Delivery", Color: "#49c5b1" },
     ];
 
     // COMBINNING ALL DATA STRUCTURE-
@@ -79,8 +79,8 @@ function individualPage() {
     mapboxLoaded = true;
 
     // Load JS
-    const script = document.createElement('script');
-    script.src = 'https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js';
+    const script = document.createElement("script");
+    script.src = "https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js";
     script.defer = true;
 
     script.onload = callback;
@@ -89,7 +89,7 @@ function individualPage() {
   }
 
   function observeMapSection(dataItems, locations, cities) {
-    const mapSection = document.querySelector('#map-canva');
+    const mapSection = document.querySelector("#map-canva");
     if (!mapSection) return;
 
     const observer = new IntersectionObserver(
@@ -101,7 +101,7 @@ function individualPage() {
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }, // preload slightly before visible
+      { rootMargin: "200px" }, // preload slightly before visible
     );
 
     observer.observe(mapSection);
@@ -111,14 +111,14 @@ function individualPage() {
     /*===========
       VARIABLES
       ==============*/
-    const mapCanva = document.querySelector('#map-canva');
+    const mapCanva = document.querySelector("#map-canva");
     const accessToken =
-      'pk.eyJ1IjoiaGxhYnMiLCJhIjoiY2w1d2JqeHZlMGR6eTNibTViZ3czc28ycyJ9.p5A4twIQJID-f1Tci32wWA';
-    const hStyle = 'mapbox://styles/hlabs/cmj7a440w000f01s929gs8c9d';
-    const searchTemplate = document.getElementById('search-template');
+      "pk.eyJ1IjoiaGxhYnMiLCJhIjoiY2w1d2JqeHZlMGR6eTNibTViZ3czc28ycyJ9.p5A4twIQJID-f1Tci32wWA";
+    const hStyle = "mapbox://styles/hlabs/cmj7a440w000f01s929gs8c9d";
+    const searchTemplate = document.getElementById("search-template");
     const bodyAttr = document
-      .querySelector('body')
-      .getAttribute('city-name')
+      .querySelector("body")
+      .getAttribute("city-name")
       .toLowerCase();
 
     //Mapping function - getting key from jobData to match with specific city
@@ -170,7 +170,7 @@ function individualPage() {
 
     // create empty locations geojson object
     let mapLocations = {
-      type: 'FeatureCollection',
+      type: "FeatureCollection",
       features: [],
     };
 
@@ -192,7 +192,7 @@ function individualPage() {
     map.scrollZoom.disable();
 
     // Remove the Mapbox logo
-    const logo = document.querySelector('.mapboxgl-ctrl-logo');
+    const logo = document.querySelector(".mapboxgl-ctrl-logo");
     if (logo) logo.remove();
 
     // Add zoom and rotation controls to the map.
@@ -203,7 +203,7 @@ function individualPage() {
     });
 
     // Add the controls to the bottom-right corner
-    map.addControl(zoomControl, 'bottom-right');
+    map.addControl(zoomControl, "bottom-right");
 
     // console.log(listLocations.length);
 
@@ -220,16 +220,16 @@ function individualPage() {
 
         let arrayID = i + 1 - 1;
         let geoData = {
-          type: 'Feature',
+          type: "Feature",
           geometry: {
-            type: 'Point',
+            type: "Point",
             coordinates: coordinates,
           },
           properties: {
             arrayID: arrayID,
             cityName: cityName,
             allJobs: loc.allJobs,
-            address: loc['Address Line 1'],
+            address: loc["Address Line 1"],
           },
         };
         if (mapLocations.features.includes(geoData) === false) {
@@ -243,7 +243,7 @@ function individualPage() {
       let missingData = [];
 
       const icon =
-        'https://cdn.prod.website-files.com/691db317d5523108e489fad8/6925c33b02c9af6561d992cf_Location%20Pin.svg';
+        "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6925c33b02c9af6561d992cf_Location%20Pin.svg";
 
       //NEW CUSTOM MAP PINS CODE
       mapLocations.features.forEach((location) => {
@@ -257,19 +257,19 @@ function individualPage() {
         if (allJobs.length === 0) return;
 
         // City Marker
-        const cityEl = document.createElement('div');
-        cityEl.className = 'map-marker is--inner';
-        cityEl.style.position = 'absolute';
+        const cityEl = document.createElement("div");
+        cityEl.className = "map-marker is--inner";
+        cityEl.style.position = "absolute";
 
         // imgElement.src = icon;
         const imgElement = searchTemplate.content
           .cloneNode(true)
-          .querySelector('[map-marker]');
+          .querySelector("[map-marker]");
 
         cityEl.append(imgElement);
 
-        cityEl.setAttribute('data-marker-id', `marker-${arrayID}`);
-        cityEl.setAttribute('location-name', `${cityName}`);
+        cityEl.setAttribute("data-marker-id", `marker-${arrayID}`);
+        cityEl.setAttribute("location-name", `${cityName}`);
 
         if (!coordinates) {
           // console.log(placeName);
@@ -291,7 +291,7 @@ function individualPage() {
         //------------------------------------------------------------------
 
         // Add event listeners for interactivity
-        cityEl.addEventListener('click', () => {
+        cityEl.addEventListener("click", () => {
           // map.flyTo({
           //   center: coordinates,
           //   speed: 0.5,
@@ -302,7 +302,7 @@ function individualPage() {
           // Push event details to the Data Layer
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
-            event: 'map_pin_click',
+            event: "map_pin_click",
             place_name: arrayID, // Replace 'id' with the name or ID of the place
           });
 
@@ -331,14 +331,14 @@ function individualPage() {
         function popupMediaQuery() {
           const desktopMedia = window.innerWidth > 991;
           // Add hover event listeners for marker
-          cityEl.addEventListener('click', (e) => {
+          cityEl.addEventListener("click", (e) => {
             e.stopPropagation();
 
-            document.querySelectorAll('.mapboxgl-popup').forEach((p) => {
+            document.querySelectorAll(".mapboxgl-popup").forEach((p) => {
               p.remove();
             });
             addingPopup.addTo(map);
-            cityEl.style.zIndex = '3';
+            cityEl.style.zIndex = "3";
           });
         }
 
@@ -352,15 +352,15 @@ function individualPage() {
     function getPopupHtml(address, jobArray) {
       const jobList = jobArray
         .map((a) => {
-          const category = a.job_family?.job_family_name || '';
-          const applicationURL = `${a.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
+          const category = a.job_family?.job_family_name || "";
+          const applicationURL = `${a.application_url.split("/apply")[0]}/?utm_source=caraffi&utm_medium=careerssite`;
           return `
                 <li category="${category}" class="popup_vac-list-item">
                    <a href=${applicationURL} target="_blank" class="popup_vac-link">${a.title}</a>
                 </li>
                 `;
         })
-        .join('');
+        .join("");
 
       return `
                 <div class="popup-box_inner"><div class="popup-box_logo"><img   
@@ -394,16 +394,16 @@ function individualPage() {
     // }
 
     if (totalJobs === 0) {
-      const mapSec = document.querySelector('.map-section');
-      mapSec.style.display = 'none';
+      const mapSec = document.querySelector(".map-section");
+      mapSec.style.display = "none";
     } else {
       addMapPoints();
     }
   }
 
   function addingCityJobs(allJobs) {
-    const body = document.querySelector('body');
-    let bodyAttr = body.getAttribute('city-name');
+    const body = document.querySelector("body");
+    let bodyAttr = body.getAttribute("city-name");
 
     const filteredJobs = allJobs.filter((job) => {
       const city = job.subLocation[0]?.City.toLowerCase();
@@ -412,18 +412,18 @@ function individualPage() {
     });
 
     const swiperComp = document.querySelector("[swiper-component='city-jobs']");
-    const swiperWrap = swiperComp.querySelector('.swiper-wrapper');
-    const swiperItem = swiperComp.querySelector('.swiper-slide');
-    const noJobCard = document.querySelector('.no-job-card');
+    const swiperWrap = swiperComp.querySelector(".swiper-wrapper");
+    const swiperItem = swiperComp.querySelector(".swiper-slide");
+    const noJobCard = document.querySelector(".no-job-card");
     swiperItem.remove();
 
     if (filteredJobs.length === 0) {
-      noJobCard.style.display = 'flex';
-      noJobCard.style.opacity = '1';
+      noJobCard.style.display = "flex";
+      noJobCard.style.opacity = "1";
       const jobSectionPadding = document.querySelector(
-        '.job-2col-section .padding-vertical',
+        ".job-2col-section .padding-vertical",
       );
-      jobSectionPadding.classList.add('is--bottom-0px');
+      jobSectionPadding.classList.add("is--bottom-0px");
       return;
     }
 
@@ -431,21 +431,21 @@ function individualPage() {
 
     filteredJobs.forEach((job) => {
       const newItem = swiperItem.cloneNode(true);
-      const card = newItem.querySelector('.search-item');
+      const card = newItem.querySelector(".search-item");
       const job_name = card.querySelector('[search-field="job-name"]');
       const job_type = card.querySelector('[search-field="job-type"]');
       const job_category = card.querySelector('[search-field="category"]');
       const locationName = card.querySelector('[search-field="location-name"]');
       const date = card.querySelector('[search-field="date-posted"]');
-      const applyLink = card.querySelector('.cta-link');
+      const applyLink = card.querySelector(".cta-link");
       const job_categoryWrap = job_category.parentNode;
 
-      const newUrl = `${job.application_url.split('/apply')[0]}/?utm_source=caraffi&utm_medium=careerssite`;
+      const newUrl = `${job.application_url.split("/apply")[0]}/?utm_source=caraffi&utm_medium=careerssite`;
       job_categoryWrap.style.background = job.subLocation[0]?.color;
 
       job_name.innerHTML = job.title;
       locationName.innerHTML = job.subLocation[0]?.Name;
-      job_type.innerHTML = job.job_schedule.replace('_', ' ');
+      job_type.innerHTML = job.job_schedule.replace("_", " ");
       job_category.innerHTML = job.subLocation[0]?.Category;
       date.innerHTML = formatCreatedAgo(job.creation_date);
       applyLink.href = newUrl;
@@ -460,22 +460,22 @@ function individualPage() {
       "[swiper-component='city-jobs']",
     );
 
-    const swiperContainer = swiperComponent.querySelector('.swiper');
-    const nextEl = swiperComponent.querySelector('.swiper-arrow.is--next');
-    const prevEl = swiperComponent.querySelector('.swiper-arrow.is--prev');
-    const pagination = swiperComponent.querySelector('.swiper-pagination');
-    const bullet = swiperComponent.querySelector('.swiper-bullet');
+    const swiperContainer = swiperComponent.querySelector(".swiper");
+    const nextEl = swiperComponent.querySelector(".swiper-arrow.is--next");
+    const prevEl = swiperComponent.querySelector(".swiper-arrow.is--prev");
+    const pagination = swiperComponent.querySelector(".swiper-pagination");
+    const bullet = swiperComponent.querySelector(".swiper-bullet");
     const swiperComp = new Swiper(swiperContainer, {
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       followFinger: true,
-      slideActiveClass: 'is-active',
+      slideActiveClass: "is-active",
       spaceBetween: 20,
       // mousewheel: true,
       // loop: true,
       navigation: {
         nextEl: nextEl,
         prevEl: prevEl,
-        disabledClass: 'is--disabled',
+        disabledClass: "is--disabled",
       },
       // custom pagination
       // pagination: {
@@ -489,11 +489,11 @@ function individualPage() {
 
   function addingNumToCards() {
     // Test Function
-    const allCards = document.querySelectorAll('.why-join_card');
+    const allCards = document.querySelectorAll(".why-join_card");
     if (!allCards) return;
 
     allCards.forEach((card, index) => {
-      const tag = card.querySelector('.num-tag');
+      const tag = card.querySelector(".num-tag");
       tag.innerHTML = `0${index + 1}`;
     });
   }
