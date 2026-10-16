@@ -467,7 +467,7 @@ function sliderFunc() {
           // console.log('This is last')
           quizItemWrap.classList.remove("is--active");
           const finalResult = calculateResults();
-          // console.log(finalResult)
+          console.log(finalResult);
           quizJoinItem.classList.add("is--active");
         }
         //Mobile
