@@ -192,8 +192,8 @@ function calculateResults() {
 
   // Edge case #2: Everything is eliminated-- Working...
   if (validCategories.length === 0) {
-    revealHeading.innerHTML = "No roles available right now";
-    revealPara.innerHTML = `Ahh, it looks like we don’t have an open role matching your results right now! But don't worry, our teams are constantly growing. Keep an eye on our careers page or check back soon to see when your perfect match pops up.`;
+    revealHeading.innerHTML = "No roles Available";
+    revealPara.innerHTML = `Ahh it looks like we don’t have an open role matching your results right now! But don’t worry, our teams are constantly growing. Keep an eye on our careers page or check back soon to see where your perfect match pops up.`;
     //clone the butn
     const clonebutn = butn.cloneNode(true);
     const link = clonebutn.querySelector("a");
