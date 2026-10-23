@@ -108,9 +108,9 @@ function calculateResults() {
   console.log(topPillWrap);
   const scores = {
     customerService: 0,
-    headOffice: 0,
     warehouse: 0,
     LGV: 0,
+    headOffice: 0,
   };
   const eliminate = {
     customerService: -1,
@@ -253,21 +253,35 @@ function calculateResults() {
       quizItemVisual.appendChild(cloneButnWrap);
       addingImages(messages[winningCategories[0]]);
       quizMedal.style.opacity = "1";
-    } else if (winningCategories.length === 2) {
+    } else {
       revealHeading.innerHTML = `You’ve got two great matches!`;
       // `${winningCategories[0]} & ${winningCategories[1]}`;
       revealPara.innerHTML = `Based on your answers, we think you could be a great fit for more than one role. Take a look at both options and see which one feels right for you.`;
 
-      winningCategories.forEach((winCat) => {
-        const clonebutn = butn.cloneNode(true);
-        const link = clonebutn.querySelector("a");
-        const butnTxt = clonebutn.querySelector(".button-txt");
-        link.href = messages[winCat].link;
-        link.textContent = `Explore ${messages[winCat].butnTxt} roles`;
-        butnTxt.textContent = `Explore ${messages[winCat].butnTxt} roles`;
-        butnWrap.append(clonebutn);
-        addingImages(messages[winCat]);
-      });
+      for (let i = 0; i < winningCategories.length; i++) {
+        if (i < 2) {
+          // winningCategories.forEach((winCat) => {
+          //   const clonebutn = butn.cloneNode(true);
+          //   const link = clonebutn.querySelector("a");
+          //   const butnTxt = clonebutn.querySelector(".button-txt");
+          //   link.href = messages[winCat].link;
+          //   link.textContent = `Explore ${messages[winCat].butnTxt} roles`;
+          //   butnTxt.textContent = `Explore ${messages[winCat].butnTxt} roles`;
+          //   butnWrap.append(clonebutn);
+          //   addingImages(messages[winCat]);
+          // });
+
+          const clonebutn = butn.cloneNode(true);
+          const link = clonebutn.querySelector("a");
+          const butnTxt = clonebutn.querySelector(".button-txt");
+          link.href = messages[winningCategories[i]].link;
+          link.textContent = `Explore ${messages[winningCategories[i]].butnTxt} roles`;
+          butnTxt.textContent = `Explore ${messages[winningCategories[i]].butnTxt} roles`;
+          butnWrap.append(clonebutn);
+          addingImages(messages[winningCategories[i]]);
+        }
+      }
+
       butn.remove();
       const cloneButnWrap = butnWrap.cloneNode(true);
       quizItemVisual.appendChild(cloneButnWrap);
