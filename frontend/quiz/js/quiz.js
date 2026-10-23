@@ -65,7 +65,7 @@ const json = [
       },
     ],
     answer: `<div>
-    Theres more than one way to keep things moving. Some roles are based in one location, while others come with four wheels, two wheels and a changing view.
+    There's more than one way to keep things moving. Some roles are based in one location, while others come with four wheels, two wheels and a changing view.
     </div>
     <div>
     Our Customer Delivery Drivers can make dozens of drops in a day, and our Zoom Riders are out across busy city streets. Meanwhile, our Head Office and warehouse teams keep everything flowing from behind the scenes. Neither is better – it’s more about where you’ll feel most at home.
@@ -77,7 +77,7 @@ const json = [
     id: 2,
     label: `Active ‘hands on’ work`,
     question: `<div>
-    Some roles here are more physical than others. Our Customer Delivery Drivers (CSTM’s) carry shopping to everything from high rise flats to farms. LGV Drivers couple and uncouple vehicles, Zoom riders handle loaded e-bikes, and some of our warehouse teams move role cages or operate equipment. throughout their shifts
+    Some roles here are more physical than others. Our Customer Delivery Drivers (CSTM’s) carry shopping to everything from high rise flats to farms. LGV Drivers couple and uncouple vehicles, Zoom riders handle loaded e-bikes, and some of our warehouse teams move roll cages or operate equipment throughout their shifts.
     </div>
     <div>
     You’ll have the right guidance, equipment and ways of working to support you – and we’re definitely not looking for weightlifters.
@@ -113,7 +113,7 @@ const json = [
     That doesn’t mean every job here is an unofficial workout. Many Head Office, specialist and some warehouse roles are much less hands on.
     </div>
     <div>
-    The important thing is finding the kind of working day that suits you best – whether that means being active and, on the move, or using your skills in a role that’s a little less physical.
+    The important thing is finding the kind of working day that suits you best – whether that means being active and on the move, or using your skills in a role that’s a little less physical.
     </div>`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4ca5a4e9c5f43e506_1.webp",
@@ -157,7 +157,7 @@ const json = [
     Many of our Warehouse, Customer Delivery and LGV roles work shifts, which can include early starts, evenings, weekends or nights. Some Engineering roles can include longer shifts too.
     </div>
     <div>
-    But shift work doesn’t always mean 12 hour days or unpredictable hours. We work hard to make rotas as predictable as possible, so you can plan lift outside work.
+    But shift work doesn’t always mean 12 hour days or unpredictable hours. We work hard to make rotas as predictable as possible, so you can plan life outside work and find a rhythm that suits you.
     </div>
     <div>
     Take a look at our example rosters in FAQs to see what different patterns could look like.
@@ -169,7 +169,7 @@ const json = [
     id: 4,
     label: `Customer interaction`,
     question: `<div>
-    Whatever your role, there’s a customer at the end of everything we do. For our Customer Delivery Drivers, that means being the friendly face at the door – even when the day is busy. They’ll take a moment to help; make sure the shopping is safe and sort things out when something isn’t quite right.
+     Whatever your role, there’s a customer at the end of everything we do. For our Delivery team, that means being the friendly face at the door – even when the day is busy. They’ll take a moment to help; make sure the shopping is safe and sort things out when something isn’t quite right. For our Head Office, Engineering, LGV or Warehouse teams it’s about working at pace behind the scenes to react to changes in demand, planning to make the day run smoothly, picking and packing at pace or ensuring every grocery item is exactly where it needs to be 24/7. 
     </div>
     <div>
     Which most sounds like you? 
@@ -188,7 +188,7 @@ const json = [
       },
       {
         id: "B",
-        text: `I’m always thinking about the customer, but I’d rather make a different behind the scenes than work with customers face to face.`,
+        text: `I always put the customer central to my thinking, but I’d rather make a difference behind the scenes than work with customers face to face.`,
         scores: {
           headOffice: 1,
           customerService: 0,
@@ -197,7 +197,7 @@ const json = [
         },
       },
     ],
-    answer: `At Ocado Logistics, we treat colleagues and customers with empathy and respect. Sometimes, a small act can make a big impact. If a customer needs extra help, you may take their shopping into the kitchen – as long as you feel comfortable and follow the correct process. It’s all part of delivering smiles and making great service pop.`,
+    answer: `At Ocado Logistics, we treat colleagues and customers with empathy and respect. Sometimes, a small act can make a big impact. If a customer needs extra help, you may take their shopping into the kitchen – as long as you feel comfortable and follow the correct process. It’s all part of delivering smiles and making great service pop. Behind the scenes our roles are just as important and often involve being a different kind of reactive, working collectively as a team to achieve the right solution.`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d43893a257daf53104_3.webp",
   },
@@ -205,7 +205,7 @@ const json = [
     id: 5,
     label: `Pace and Priorities`,
     question: `<div>
-    Some roles need you to react quickly as things change around you. In those moments you will often need to stay organised, make decisions as you go and keep things moving forward – without ever compromising safety. Other roles are just as busy but give you more space to plan, work through detail and manage priorities in a more structured way.
+    Sometimes things happen and you need to react quickly as things change around you. In those moments you will often need to stay calm and organised, make decisions as you go and keep things moving forward – without ever compromising safety. Other roles are just as busy but give you more space to plan, think long term and work through details and manage priorities in a more structured way.
     </div>
     <div>
     Which sounds most like you?
@@ -233,7 +233,7 @@ const json = [
         },
       },
     ],
-    answer: `Theres more than one way to work at pace here. Some roles are fast and reactive, with priorities changing throughout the day. Others move just as quickly but reply more on planning, judgement and thinking ahead. What matters is finding the kind of pace that brings out your best – while always doing things safely and properly.`,
+    answer: `Theres more than one way to work at pace here. Some roles are fast and reactive, with priorities changing throughout the day. Others move just as quickly but rely more on planning, judgement and thinking ahead. What matters is finding the kind of pace that brings out your best – while always doing things safely and properly.`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d46cbc7ab805bdb9c7_4.webp",
   },
@@ -270,7 +270,7 @@ const json = [
       },
     ],
     answer: `<div>
-    Your workplace might have wheels. Our Customer Delivery Drives can cover 200 miles in one shift, LGV Drivers travel across our growing network, and Zoom Riders are out in the city in all weathers. 
+    Your workplace might have wheels. Our Customer Delivery Drivers can cover 200 miles in one shift, LGV Drivers travel across our growing network, and Zoom Riders are out in the city in all weathers. 
     </div>
     <div>
     For driving roles, we ask you to live within an hour of your base so you’re not adding a long commute to an already mobile day. You’ll also spend stretches of time working independently, so staying alert, focused and distraction free is essential.
@@ -282,10 +282,10 @@ const json = [
     id: 7,
     label: `Staying steady`,
     question: `<div>
-    No two days are the same here. Some roles can mean working in colder areas, covering plenty of ground, changing plans to meet demands or spending a shift solving a problem you hadn’t expected.
+    No two days are the same here, it’s all part of the excitement. Some roles involve changing plans to meet demands, maybe working in colder areas, others covering plenty of ground, or solving a problem you hadn’t expected.
     </div>
     <div>
-    We don’t expect anyone to be cheerful every minute. What matters is being able to stay respectful, keep going and work well with the people around you – even when that day isn’t quite going to plan.
+    We don’t expect anyone to be cheerful every minute, but focus is on how we work collectively to solve challenges. Staying respectful, pushing forward and working well with the people around you – even when that day isn’t quite going to plan.
     </div>
     <div>
     Which sounds most like you?
@@ -294,7 +294,7 @@ const json = [
     options: [
       {
         id: "A",
-        text: `I am good at staying calm and constructive when things get demanding or change unexpectedly. I’ll keep treating people with respect and focus on what needs to happen next.`,
+        text: `I am good at staying calm and constructive when things get demanding or change unexpectedly.`,
         scores: {
           headOffice: 2,
           customerService: 3,
@@ -313,7 +313,7 @@ const json = [
         },
       },
     ],
-    answer: `Some days will test your stride. You might be working in 0-5 degrees c, clocking up thousands of steps across one of our bigger sites, reshuffling plans during a busy period or fixing an unexpected problem. You don’t need to grin through every second. You do need to stay respectful, work safely and keep communicating with the people around you. Whether you are with customers or colleagues, how you respond when things get tricky can make a big difference.`,
+    answer: `Some days will test your stride. You might be working in 0–5°C, clocking up thousands of steps across one of our bigger sites, reshuffling plans during a busy period or fixing an unexpected problem. You don’t need to grin through every second. You do need to stay respectful, work safely and keep communicating with the people around you. Whether you are with customers or colleagues, how you respond when things get tricky can make a big difference.`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4def9dac5b8a092c4_6.webp",
   },
@@ -321,10 +321,10 @@ const json = [
     id: 8,
     label: `When timing matters`,
     question: `<div>
-    In logistics, timing matters. One delay can have a knock-on effect somewhere else, so many of our roles involve keeping things moving, responding quickly and making good decisions as the day changes.
+    In logistics, timing matters. One delay can have a knock-on effect somewhere else, so many of our roles involve keeping things moving, responding quickly and working collectively toward an end mission.
     </div>
     <div>
-    That could mean an LGV Driver reversing into a bay within a set time, a Zoom Rider adapting their route between deliveries, or a colleague making a quick call to keep a process on track.
+    That could mean an LGV Driver reversing into a bay within a set time, a Zoom Rider adapting their route between deliveries to avoid traffic, or a colleague making a quick call to keep a process on track.
     </div>
     <div>
     Which sounds most like you?
@@ -360,7 +360,7 @@ const json = [
     id: 9,
     label: `Working with others`,
     question: `<div>
-    Most roles here involve both teamwork and independence. You might need to share an update, hand something over, ask for input or step in to help someone else. Equally, there’ll be times when you’re expected to get on with the job and use your own judgement.
+    Most roles here involve both teamwork and independence in equal measures. You might need to share an update at the end of our shift, hand something over, ask for input or step in to help someone else if you can see they are struggling. Equally, there’ll be times when you’re expected to get on with the job and use your own judgement. It’s about being able to use your judgement and empathy when it’s needed most.
     </div>
     <div>
     When things get busy or plans change, which sounds most like you? 
@@ -457,7 +457,7 @@ const json = [
       },
       {
         id: "B",
-        text: `Im happiest focusing on doing my own role really well, supporting others when needed and contributing positively without necessarily wanting to take the lead.`,
+        text: `I'm happiest focusing on doing my own role really well, supporting others when needed and contributing positively without necessarily wanting to take the lead.`,
         scores: {
           headOffice: 0,
           customerService: 1,
@@ -467,10 +467,10 @@ const json = [
       },
     ],
     answer: `<div>
-    Leadership can show up anywhere. It’s not about having all the answers. It can be staying clam, setting a great example, sharing what you know and helping others keep moving in the right direction.
+    Leadership can show up anywhere. It’s not about having all the answers. It can be staying calm, setting a great example, sharing what you know and helping others keep moving in the right direction.
     </div>
     <div>
-    Some of our operational roles also offer opportunities to step up and support or lead others. Progression won’t always mean moving upwards – sometimes it’s about building new skills or taking on more responsibility.
+    Some of our operational roles also offer opportunities to step up and support or lead others, while building new skills or taking on more responsibility.
     </div>`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d4909c47b86b915cdf_10.webp",
@@ -515,10 +515,10 @@ const json = [
       },
     ],
     answer: `<div>
-    There isn’t always one set route here. Some people stay on the same path and become brilliant at what they do. Others, take a step up, switch lanes into another team or head somewhere completely different across our Group.
+    There isn’t always one set route here. Some people stay on the same path and become brilliant at what they do. Others take a step up, switch lanes into another team or head somewhere completely different across our Group.
     </div>
     <div>
-    You may need to keep an eye out for opportunities and put yourself forward, but there are plenty of ways to keep moving. Your next stop doesn’t always have to be upwards as there’s bags of possibilities.
+    You may need to keep an eye out for opportunities and put yourself forward, but there are plenty of ways to keep moving. Your next step doesn’t always have to be upwards; there are plenty of ways to grow.
     </div>`,
     answerImg:
       "https://cdn.prod.website-files.com/691db317d5523108e489fad8/6a8c23d58a50d2d94436a25f_11.webp",

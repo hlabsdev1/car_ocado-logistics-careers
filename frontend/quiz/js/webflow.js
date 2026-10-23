@@ -123,7 +123,7 @@ function calculateResults() {
     customerService: {
       title: "Customer Delivery",
       link: "/team-categories/customer-delivery",
-      para: `Your answers showed that you have some of the key ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. Our Delivery Drivers ensure mealtimes go smoothly by delivering groceries bang on time with great service that helps put a smile on our customers’ faces. While their vans might be loaded for them, they demonstrate resilience and adaptability, communicating when traffics bad, climbing stairs with heavy bags, and making sure all the deliveries arrive safely within their shift. And they do all of this without compromising the excellent customer service they pride themselves on.`,
+      para: `Your answers showed that you have some of the key ingredients we require for our Customer Service Team Members or Zoom Last Mile Riders. Our Delivery Drivers ensure mealtimes go smoothly by delivering groceries bang on time with great service that helps put a smile on our customers’ faces. While their vans might be loaded for them, they demonstrate resilience and adaptability, communicating when traffic's bad, climbing stairs with heavy bags, and making sure all the deliveries arrive safely during their shift. And they do all of this without compromising the excellent customer service they pride themselves on.`,
       butnTxt: "CSTM",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
       imgURL:
@@ -133,7 +133,7 @@ function calculateResults() {
     headOffice: {
       title: "Head Office",
       link: "/team-categories/head-office",
-      para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. Our noble navigators guide Ocado Logistics to success. Whether that’s in organisational design, our communications teams, planning, data, finance, marketing or HR the resilient team work together to keep us all safe and efficient.`,
+      para: `Your answers show you enjoy routine, being based in one location and working office hours, so you might be suited to a role in our Head Office. Our noble navigators guide Ocado Logistics to success. Whether you work in organisational design, communications, planning, data, finance, marketing or HR, our resilient teams work together to keep us all safe and efficient.`,
       butnTxt: "Head Office",
       videoURL: "https://youtu.be/mM_JCzkgmcQ",
       imgURL:
