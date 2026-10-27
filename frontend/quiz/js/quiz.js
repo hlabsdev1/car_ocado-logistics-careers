@@ -360,7 +360,7 @@ const json = [
     id: 9,
     label: `Working with others`,
     question: `<div>
-    Most roles here involve both teamwork and independence in equal measures. You might need to share an update at the end of our shift, hand something over, ask for input or step in to help someone else if you can see they are struggling. Equally, there’ll be times when you’re expected to get on with the job and use your own judgement. It’s about being able to use your judgement and empathy when it’s needed most.
+    Most roles here involve both teamwork and independence in equal measures. You might need to share an update at the end of your shift, hand something over, ask for input or step in to help someone else if you can see they are struggling. Equally, there’ll be times when you’re expected to get on with the job and use your own judgement. It’s about being able to use your judgement and empathy when it’s needed most.
     </div>
     <div>
     When things get busy or plans change, which sounds most like you? 
@@ -369,7 +369,7 @@ const json = [
     options: [
       {
         id: "A",
-        text: `I enjoy working as part of a team, sharing updates and ideas, and asking for or offering support when it helps get things done.`,
+        text: `I enjoy working as part of a team, sharing updates and ideas, and asking for, or offering support when it helps get things done.`,
         scores: {
           headOffice: 4,
           customerService: 2,
@@ -486,9 +486,6 @@ const json = [
     </div>
     <div>
     Which sounds most like you?
-    </div>
-    <div>
-    How do you feel about learning and developing in your role?
     </div>
     `,
     styleVariants: styleVariants.orange,
