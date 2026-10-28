@@ -1,14 +1,14 @@
 console.log(json);
 
-const originalClarity = window.clarity;
+// const originalClarity = window.clarity;
 
-window.clarity = function (...args) {
-  if (args[0] === "event") {
-    console.log("[Clarity event]", args[1]);
-  }
+// window.clarity = function (...args) {
+//   if (args[0] === "event") {
+//     console.log("[Clarity event]", args[1]);
+//   }
 
-  return originalClarity.apply(this, args);
-};
+//   return originalClarity.apply(this, args);
+// };
 
 const userAnswers = {};
 const mobileWidth = window.innerWidth < 767;
@@ -16,10 +16,26 @@ const mobileWidth = window.innerWidth < 767;
 const quizAnalytics = (() => {
   const recordedEvents = new Set();
 
+  // function track(eventName, { once = false } = {}) {
+  //   if (once && recordedEvents.has(eventName)) return;
+
+  //   // Clarity's installation snippet queues calls while it loads.
+  //   if (typeof window.clarity !== "function") return;
+
+  //   window.clarity("event", eventName);
+
+  //   if (once) {
+  //     recordedEvents.add(eventName);
+  //   }
+  // }
+
   function track(eventName, { once = false } = {}) {
     if (once && recordedEvents.has(eventName)) return;
 
-    // Clarity's installation snippet queues calls while it loads.
+    console.log("[Quiz tracking]", eventName, {
+      clarityAvailable: typeof window.clarity === "function",
+    });
+
     if (typeof window.clarity !== "function") return;
 
     window.clarity("event", eventName);
