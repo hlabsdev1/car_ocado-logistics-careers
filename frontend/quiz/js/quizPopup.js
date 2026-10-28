@@ -1,5 +1,5 @@
-const popup = document.querySelector(".popup");
-const popupClose = document.querySelector(".popup-close");
+const popup = document.querySelector(".quiz_popup");
+const popupClose = document.querySelector(".quiz_popup-close");
 const popupButton = document.querySelector(".popup-button");
 
 const POPUP_CLICKED_KEY = "homepagePopupClicked";
