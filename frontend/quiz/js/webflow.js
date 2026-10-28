@@ -312,6 +312,7 @@ function calculateResults() {
       const link = clonebutn.querySelector("a");
       const butnTxt = clonebutn.querySelector(".button-txt");
       link.href = messages[winningCategories[0]].link;
+      clonebutn.dataset.quizRole = quizRoleNames[winningCategories[0]];
       link.textContent = `Explore ${messages[winningCategories[0]].butnTxt} roles`;
       butnTxt.textContent = `Explore ${messages[winningCategories[0]].butnTxt} roles`;
       butnWrap.append(clonebutn);
@@ -342,6 +343,7 @@ function calculateResults() {
           const link = clonebutn.querySelector("a");
           const butnTxt = clonebutn.querySelector(".button-txt");
           link.href = messages[winningCategories[i]].link;
+          clonebutn.dataset.quizRole = quizRoleNames[winningCategories[i]];
           link.textContent = `Explore ${messages[winningCategories[i]].butnTxt} roles`;
           butnTxt.textContent = `Explore ${messages[winningCategories[i]].butnTxt} roles`;
           butnWrap.append(clonebutn);
@@ -616,6 +618,19 @@ function sliderFunc() {
   });
 
   //Show Final result page
+  quizFinalResult.addEventListener("click", (event) => {
+    const button = event.target.closest(".button");
+
+    if (!button || !quizFinalResult.contains(button)) return;
+
+    const role = button.dataset.quizRole;
+
+    if (!Object.values(quizRoleNames).includes(role)) return;
+
+    quizAnalytics.track(`quiz_cta_${role}`, {
+      once: true,
+    });
+  });
   showFinalResultButn.addEventListener("click", () => {
     quizJoinItem.classList.remove("is--active");
     quizFinalResult.classList.add("is--active");
