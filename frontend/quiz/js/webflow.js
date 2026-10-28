@@ -3,6 +3,34 @@ console.log(json);
 const userAnswers = {};
 const mobileWidth = window.innerWidth < 767;
 
+const quizAnalytics = (() => {
+  const recordedEvents = new Set();
+
+  function track(eventName, { once = false } = {}) {
+    if (once && recordedEvents.has(eventName)) return;
+
+    // Clarity's installation snippet queues calls while it loads.
+    if (typeof window.clarity !== "function") return;
+
+    window.clarity("event", eventName);
+
+    if (once) {
+      recordedEvents.add(eventName);
+    }
+  }
+
+  function questionViewed(questionId) {
+    const questionNumber = String(questionId).padStart(2, "0");
+
+    track(`quiz_q${questionNumber}_view`, { once: true });
+  }
+
+  return {
+    track,
+    questionViewed,
+  };
+})();
+
 async function addingJson() {
   const mainWrap = document.querySelector(".sec-wrap.is--quiz");
   const quizWrap = document.querySelector(".quiz_item-wrap .quiz_item-content");
@@ -75,17 +103,17 @@ async function addingJson() {
   });
 }
 
-function saveAnswer(questionId) {
-  const selected = document.querySelector(
-    `input[name"q${questionId}"]:checked`,
-  );
+// function saveAnswer(questionId) {
+//   const selected = document.querySelector(
+//     `input[name="q${questionId}"]:checked`,
+//   );
 
-  if (!selected) return false;
+//   if (!selected) return false;
 
-  userAnswers[questionId] = selected.value;
+//   userAnswers[questionId] = selected.value;
 
-  return true;
-}
+//   return true;
+// }
 
 function calculateResults() {
   const revealParent = document.querySelector(".quiz-reveal-item");
@@ -403,6 +431,9 @@ function sliderFunc() {
 
       tabPane[newIndex].style.opacity = "1";
 
+      //analytics
+      quizAnalytics.questionViewed(json[newIndex].id);
+
       setTimeout(() => {
         isAnimating = false;
       }, duration);
@@ -421,6 +452,10 @@ function sliderFunc() {
   introButn.addEventListener("click", () => {
     introCard.classList.remove("is--active");
     quizItemWrap.classList.add("is--active");
+
+    //analytics
+    quizAnalytics.track("quiz_start", { once: true });
+    quizAnalytics.questionViewed(json[0].id);
   });
 
   //Next and previous button function
@@ -445,12 +480,17 @@ function sliderFunc() {
     }
 
     //Hide last tab next button
-    if (i === tabPane.length - 1) {
-      nextButn.classList.add("is--hide");
-    }
+    // if (i === tabPane.length - 1) {
+    //   nextButn.classList.add("is--hide");
+    // }
 
     //Next Butn click
     nextButn.addEventListener("click", () => {
+      if (isAnimating || i !== currentIndex) return;
+
+      const selectedAnswer = pane.querySelector('input[type="radio"]:checked');
+
+      if (!selectedAnswer) return;
       if (!infoCard.classList.contains("is--active")) {
         infoCard.classList.add("is--active");
         overlay.forEach((i) => {
@@ -479,9 +519,23 @@ function sliderFunc() {
           infoCard.classList.remove("is--active");
         } else if (currentIndex === tabPane.length - 1) {
           // console.log('This is last')
+          // quizItemWrap.classList.remove("is--active");
+          // const finalResult = calculateResults();
+          // console.log(finalResult);
+          // quizJoinItem.classList.add("is--active");
+
+          //analytics code
+          const allAnswered = json.every((question) =>
+            document.querySelector(`input[name="q${question.id}"]:checked`),
+          );
+
+          if (!allAnswered) return;
+
+          calculateResults();
+
+          quizAnalytics.track("quiz_complete", { once: true });
+
           quizItemWrap.classList.remove("is--active");
-          const finalResult = calculateResults();
-          console.log(finalResult);
           quizJoinItem.classList.add("is--active");
         }
         //Mobile
