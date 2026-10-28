@@ -13,6 +13,15 @@ console.log(json);
 const userAnswers = {};
 const mobileWidth = window.innerWidth < 767;
 
+let quizDisplayedResults = [];
+
+const quizRoleNames = {
+  customerService: "customer_delivery",
+  headOffice: "head_office",
+  warehouse: "warehouse",
+  LGV: "lgv",
+};
+
 const quizAnalytics = (() => {
   const recordedEvents = new Set();
 
@@ -277,6 +286,10 @@ function calculateResults() {
   const winningCategories = validCategories.filter(
     (category) => scores[category] === highestScore,
   );
+
+  quizDisplayedResults = winningCategories
+    .slice(0, 2)
+    .map((category) => quizRoleNames[category]);
 
   // console.log(winningCategories, winningCategories[0])
 
@@ -606,6 +619,23 @@ function sliderFunc() {
   showFinalResultButn.addEventListener("click", () => {
     quizJoinItem.classList.remove("is--active");
     quizFinalResult.classList.add("is--active");
+    //analytics
+    if (quizDisplayedResults.length > 0) {
+      quizAnalytics.track("quiz_result_view", { once: true });
+
+      quizDisplayedResults.forEach((role) => {
+        quizAnalytics.track(`quiz_result_${role}`, {
+          once: true,
+        });
+      });
+
+      const combination = [...quizDisplayedResults].sort().join("_and_");
+
+      quizAnalytics.track(`quiz_result_combination_${combination}`, {
+        once: true,
+      });
+    }
+
     finalRevealSplit();
     //Mobile
     scrollTop();
