@@ -1,5 +1,15 @@
 console.log(json);
 
+const originalClarity = window.clarity;
+
+window.clarity = function (...args) {
+  if (args[0] === "event") {
+    console.log("[Clarity event]", args[1]);
+  }
+
+  return originalClarity.apply(this, args);
+};
+
 const userAnswers = {};
 const mobileWidth = window.innerWidth < 767;
 
