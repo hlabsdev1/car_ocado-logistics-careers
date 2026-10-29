@@ -11,11 +11,13 @@ async function getData() {
       const EXCLUDED = [
         803, 163, 796, 819, 810, 590, 616, 772, 727, 823, 701, 781, 824, 872,
       ];
-      result.items = result.items.filter((job) => {
-        const reqNum = Number(job.requisition_number);
-        // console.log(reqNum);
-        return !EXCLUDED.includes(reqNum);
-      });
+      result.items = result.items
+        .filter((job) => {
+          const reqNum = Number(job.requisition_number);
+          // console.log(reqNum);
+          return !EXCLUDED.includes(reqNum);
+        })
+        .sort((a, b) => new Date(b.creation_date) - new Date(a.creation_date));
       // console.log('Filtered items:', result.items);
       return result;
     } else {
