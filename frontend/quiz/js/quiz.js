@@ -107,7 +107,7 @@ const json = [
       },
     ],
     answer: `<div>
-    Some roles keep you moving more than others. A Customer Delivery Driver can move a lot of shopping across a shift - which is sometimes heavy, while others involve handling totes, cages, equipment or vehicles.
+    Some roles keep you moving more than others. A Customer Delivery Driver can move a lot of grocery shopping across a shift - which is sometimes heavy, while others involve handling totes, cages, equipment or vehicles.
     </div>
     <div>
     That doesn’t mean every job here is an unofficial workout. Many Head Office, specialist and some warehouse roles are much less hands on.
