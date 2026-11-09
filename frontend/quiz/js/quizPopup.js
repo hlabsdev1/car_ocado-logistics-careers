@@ -51,10 +51,10 @@ popupClose.addEventListener("click", () => {
   localStorage.setItem(POPUP_CLOSED_KEY, Date.now());
 });
 
-popupButton.addEventListener("click", () => {
-  // Permanently prevent popup for this browser
-  localStorage.setItem(POPUP_CLICKED_KEY, "true");
-});
+// popupButton.addEventListener("click", () => {
+//   // Permanently prevent popup for this browser
+//   localStorage.setItem(POPUP_CLICKED_KEY, "true");
+// });
 
 if (canShowPopup()) {
   window.addEventListener("scroll", handleScroll);
